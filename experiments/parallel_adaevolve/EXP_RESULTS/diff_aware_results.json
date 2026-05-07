@@ -1,0 +1,362 @@
+[
+  {
+    "label": "vanilla",
+    "edit_size": 4,
+    "iters": 30,
+    "misses": 1741,
+    "direct_hits": 5969,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 1957872.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 4,
+    "iters": 30,
+    "misses": 631,
+    "direct_hits": 5969,
+    "diff_aware_hits": 1110,
+    "total_blocks": 7710,
+    "prefill_us": 1069872.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 4,
+    "iters": 30,
+    "misses": 1965,
+    "direct_hits": 5745,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2162160.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 4,
+    "iters": 30,
+    "misses": 649,
+    "direct_hits": 5745,
+    "diff_aware_hits": 1316,
+    "total_blocks": 7710,
+    "prefill_us": 1109360.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 4,
+    "iters": 30,
+    "misses": 1880,
+    "direct_hits": 5830,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2084640.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 4,
+    "iters": 30,
+    "misses": 648,
+    "direct_hits": 5830,
+    "diff_aware_hits": 1232,
+    "total_blocks": 7710,
+    "prefill_us": 1099040.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 8,
+    "iters": 30,
+    "misses": 2008,
+    "direct_hits": 5702,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2201376.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 8,
+    "iters": 30,
+    "misses": 541,
+    "direct_hits": 5702,
+    "diff_aware_hits": 1467,
+    "total_blocks": 7710,
+    "prefill_us": 1027776.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 8,
+    "iters": 30,
+    "misses": 1803,
+    "direct_hits": 5907,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2014416.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 8,
+    "iters": 30,
+    "misses": 545,
+    "direct_hits": 5907,
+    "diff_aware_hits": 1258,
+    "total_blocks": 7710,
+    "prefill_us": 1008016.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 8,
+    "iters": 30,
+    "misses": 1829,
+    "direct_hits": 5881,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2038128.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 8,
+    "iters": 30,
+    "misses": 540,
+    "direct_hits": 5881,
+    "diff_aware_hits": 1289,
+    "total_blocks": 7710,
+    "prefill_us": 1006928.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 16,
+    "iters": 30,
+    "misses": 1792,
+    "direct_hits": 5918,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2004384.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 16,
+    "iters": 30,
+    "misses": 572,
+    "direct_hits": 5918,
+    "diff_aware_hits": 1220,
+    "total_blocks": 7710,
+    "prefill_us": 1028384.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 16,
+    "iters": 30,
+    "misses": 2038,
+    "direct_hits": 5672,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2228736.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 16,
+    "iters": 30,
+    "misses": 570,
+    "direct_hits": 5672,
+    "diff_aware_hits": 1468,
+    "total_blocks": 7710,
+    "prefill_us": 1054336.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 16,
+    "iters": 30,
+    "misses": 2193,
+    "direct_hits": 5517,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2370096.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 16,
+    "iters": 30,
+    "misses": 576,
+    "direct_hits": 5517,
+    "diff_aware_hits": 1617,
+    "total_blocks": 7710,
+    "prefill_us": 1076496.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 32,
+    "iters": 30,
+    "misses": 2183,
+    "direct_hits": 5527,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2360976.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 32,
+    "iters": 30,
+    "misses": 632,
+    "direct_hits": 5527,
+    "diff_aware_hits": 1551,
+    "total_blocks": 7710,
+    "prefill_us": 1120176.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 32,
+    "iters": 30,
+    "misses": 2148,
+    "direct_hits": 5562,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2329056.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 32,
+    "iters": 30,
+    "misses": 633,
+    "direct_hits": 5562,
+    "diff_aware_hits": 1515,
+    "total_blocks": 7710,
+    "prefill_us": 1117056.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 32,
+    "iters": 30,
+    "misses": 2079,
+    "direct_hits": 5631,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2266128.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 32,
+    "iters": 30,
+    "misses": 630,
+    "direct_hits": 5631,
+    "diff_aware_hits": 1449,
+    "total_blocks": 7710,
+    "prefill_us": 1106928.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 64,
+    "iters": 30,
+    "misses": 1901,
+    "direct_hits": 5809,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2103792.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 64,
+    "iters": 30,
+    "misses": 747,
+    "direct_hits": 5809,
+    "diff_aware_hits": 1154,
+    "total_blocks": 7710,
+    "prefill_us": 1180592.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 64,
+    "iters": 30,
+    "misses": 1924,
+    "direct_hits": 5786,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2124768.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 64,
+    "iters": 30,
+    "misses": 747,
+    "direct_hits": 5786,
+    "diff_aware_hits": 1177,
+    "total_blocks": 7710,
+    "prefill_us": 1183168.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 64,
+    "iters": 30,
+    "misses": 2012,
+    "direct_hits": 5698,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2205024.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 64,
+    "iters": 30,
+    "misses": 745,
+    "direct_hits": 5698,
+    "diff_aware_hits": 1267,
+    "total_blocks": 7710,
+    "prefill_us": 1191424.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 128,
+    "iters": 30,
+    "misses": 2245,
+    "direct_hits": 5465,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2417520.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 128,
+    "iters": 30,
+    "misses": 977,
+    "direct_hits": 5465,
+    "diff_aware_hits": 1268,
+    "total_blocks": 7710,
+    "prefill_us": 1403120.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 128,
+    "iters": 30,
+    "misses": 1941,
+    "direct_hits": 5769,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2140272.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 128,
+    "iters": 30,
+    "misses": 976,
+    "direct_hits": 5769,
+    "diff_aware_hits": 965,
+    "total_blocks": 7710,
+    "prefill_us": 1368272.0
+  },
+  {
+    "label": "vanilla",
+    "edit_size": 128,
+    "iters": 30,
+    "misses": 2046,
+    "direct_hits": 5664,
+    "diff_aware_hits": 0,
+    "total_blocks": 7710,
+    "prefill_us": 2236032.0
+  },
+  {
+    "label": "diff_aware",
+    "edit_size": 128,
+    "iters": 30,
+    "misses": 974,
+    "direct_hits": 5664,
+    "diff_aware_hits": 1072,
+    "total_blocks": 7710,
+    "prefill_us": 1378432.0
+  }
+]

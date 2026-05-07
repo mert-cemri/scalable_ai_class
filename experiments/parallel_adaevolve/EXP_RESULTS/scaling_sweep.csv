@@ -1,0 +1,4 @@
+N_concurrent,arm,K,N_iter,wall_s,n_calls,hit_rate,throughput_calls_per_s,vllm:prefix_cache_queries_total,vllm:prefix_cache_hits_total,vllm:prompt_tokens_total,vllm:generation_tokens_total,vllm:request_success_total
+8,batched,8,2,70.591,128,0.8971,1.813,528376.0,474000.0,528376.0,195300.0,128.0
+8,batched_speculative,8,2,151.544,251,0.9276,1.656,942132.0,873968.0,942132.0,399472.0,251.0
+8,batched_speculative_gated,8,2,139.635,144,0.8969,1.031,585632.0,525232.0,585632.0,226285.0,144.0

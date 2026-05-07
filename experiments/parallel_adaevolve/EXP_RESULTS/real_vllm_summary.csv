@@ -1,0 +1,2 @@
+bench,arm,K,N_iter,seed_score,best_score,wall_s,vllm:prefix_cache_queries_total,vllm:prefix_cache_hits_total,vllm:prompt_tokens_total,vllm:generation_tokens_total,vllm:request_success_total
+circle_packing,all_optims,8,16,0.36423689449571406,0.8159392789373814,343.932,1599549.0,1519008.0,1599549.0,751277.0,419.0

@@ -1,0 +1,5 @@
+label,K,wall_s,n_calls,hit_rate,best_score,vllm:prefix_cache_queries_total,vllm:prefix_cache_hits_total,vllm:prompt_tokens_total,vllm:generation_tokens_total,vllm:request_success_total
+default-kv K=1,1,24.150,3,0.3626,0.36423689449571406,11385.0,4128.0,11385.0,4859.0,3.0
+fp8-kv K=1,1,22.243,3,0.3193,0.5180200317780426,11326.0,3616.0,11326.0,4248.0,3.0
+default-kv K=8,8,35.262,24,0.9004,0.36423689449571406,93720.0,84384.0,93720.0,38718.0,24.0
+fp8-kv K=8,8,35.852,24,0.8861,0.6471662294797754,91888.0,81424.0,91888.0,33373.0,24.0
