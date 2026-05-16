@@ -1,0 +1,274 @@
+\documentclass{article}
+
+
+\usepackage[preprint]{utils_packages/neurips_2023}
+
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colorsp
+\usepackage{float}
+\usepackage{listings}
+
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+
+\newcommand{\Eric}[1]{{\color{mint}[Eric: #1]}}
+\definecolor{mint}{RGB}{62, 180, 137}
+% [Custom packages] from here down 
+\input{utils_packages/_packages_ontopof_neurips_}
+% [Custom packages] from here up 
+
+
+\title{EvoScale: Distributed Evolutionary Search\\
+  with Online Reinforcement Learning}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+\author{
+Group 7 \\ Matteo Guarrera \quad Elizabeth Polito \quad Harper Lyu \\ Mert Cemri \quad Sultan Daniels \quad Eric Xu
+}
+
+\begin{document}
+\maketitle
+% \vspace{-5cm}
+\author{}
+% 
+\vspace{-0.5cm}
+
+\vspace{-0.3cm}
+
+
+
+\section*{Introduction}
+
+LLM-driven evolutionary search has recently emerged as a powerful paradigm
+for automated program optimization. The system maintains a population of
+candidate programs and, at each iteration, prompts an LLM with a
+high-scoring parent and several inspirations to propose an improvement.
+AdaEvolve~\cite{adaevolve2025} is the current state of the art: it
+introduces adaptive multi-island search that dynamically modulates
+exploration intensity per island via an accumulated improvement signal and
+routes compute across islands with a UCB bandit, requiring no per-task
+configuration. The results are strong: approximately 50\% solve rate on
+ARC-AGI-2, 3$\times$ mean performance over single-call baselines on 172
+Frontier-CS algorithm design tasks, and competitive results against
+AlphaEvolve on mathematical optimization.
+
+Despite these results, the framework has two structural limitations. First,
+execution is fully sequential: each iteration is one LLM call followed by
+one evaluation. Evaluation of compiled or executable programs can take tens
+of seconds, during which the GPU sits idle. Second, the LLM is never
+updated. Every run generates thousands of structured (state, mutation,
+outcome) tuples and discards all of them. The mutation operator is fixed
+regardless of how much compute is spent on search.
+
+This project builds \textbf{EvoScale}, a system that closes both gaps. It
+runs hundreds of problems in parallel, generates $K$ candidate mutations
+per iteration in batch, and uses the resulting reward signal to fine-tune
+the LLM mutation operator online via Group Relative Policy Optimization
+(GRPO)~\cite{deepseekr1}. The central thesis is that at sufficient scale,
+\emph{inference is training}: every token generated in service of search
+also produces a gradient step that improves subsequent search iterations.
+
+% -----------------------------------------------------------------------
+\section*{Method}
+
+\subsection*{Distributed Async Evolution}
+
+The standard evolutionary loop serializes three operations: sample a
+parent, call the LLM, evaluate the result. EvoScale restructures all
+three.
+
+\textbf{Batch candidate generation.} Each iteration issues $K = 8$
+parallel LLM requests to a vLLM server~\cite{vllm}, all conditioned on the
+same parent and inspiration context. vLLM's continuous batching handles
+these at near-zero overhead relative to a single request at GPU capacity.
+Crucially, this batch is a natural group for GRPO: $K$ candidates with
+shared context and individual rewards, requiring no value function or
+importance weighting.
+
+\textbf{Async evaluation pipeline.} LLM generation and program evaluation
+are decoupled via a producer-consumer queue. While one batch of candidates
+is being evaluated, the next batch of LLM calls is already running. This
+eliminates the GPU idle time that dominates sequential execution and brings
+utilization toward saturation.
+
+\textbf{Multi-problem orchestration.} Up to $N = 200$ independent
+evolution tasks run as Ray actors, each with its own population. All
+actors share one vLLM endpoint. A central coordinator collects
+(prompt, response, reward) tuples from all actors into a training
+buffer and periodically triggers gradient updates. Running many
+problems in parallel also ensures reward diversity across tasks,
+which is essential for learning a general mutation operator rather
+than a task-specific one.
+
+Static system prompts that encode long problem descriptions (ARC-AGI-2
+training examples can exceed 10{,}000 tokens) are placed at the front of
+every request so that vLLM's radix attention prefix cache amortizes the
+prefill cost across all iterations of the same problem, substantially
+reducing effective per-token cost.
+
+\subsection*{Online RL: Fine-Tuning the Mutation Operator}
+
+The policy $\pi_\theta$ is Qwen2.5-Coder-32B~\cite{qwen25coder} with a
+LoRA~\cite{lora} adapter. The state is the full evolution prompt. The
+action is the proposed code mutation. The reward is normalized score
+improvement:
+\[
+  r = \frac{\text{score}(\text{child}) - \text{score}(\text{parent})}
+           {\text{score}_{\max}}
+\]
+with a fixed penalty for parse failures that waste evaluation budget.
+
+GRPO uses the $K$ within-batch candidates as a comparison group. Their
+relative rewards define advantages directly, with no critic, no
+value function, and no off-policy correction needed. Every $M$ tuples
+accumulated in the buffer, one gradient step updates the LoRA adapter.
+Updated weights are hot-reloaded into the vLLM replicas via the vLLM
+weight-update API using a rolling replacement protocol. LoRA restricts
+parameter changes to approximately 0.5\% of the model, preserving
+general coding ability while allowing the adapter to specialize on
+evolutionary mutation patterns.
+
+% -----------------------------------------------------------------------
+\section*{Evaluation Plan}
+
+\textbf{Benchmarks.} Three domains cover qualitatively different reward
+structures: ARC-AGI-2 (120 evaluation tasks, sparse binary reward),
+Triton GPU kernel optimization (dense continuous reward based on runtime
+speedup), and AtCoder Heuristic Contest problems (competitive objective
+function scores). This breadth tests whether the RL signal generalizes
+across task types.
+
+\textbf{Baselines.} Four conditions form a clean ablation: (1) sequential
+AdaEvolve with GPT-5, the published state of the art; (2) sequential
+AdaEvolve with Qwen2.5-Coder-32B, isolating the model gap; (3) parallel
+EvoScale with Qwen2.5-Coder-32B and no fine-tuning, isolating the systems
+contribution; and (4) full EvoScale with online GRPO.
+
+\textbf{Metrics.} We report final score per benchmark, wall-clock time to
+reach a fixed score threshold, and quality per GPU-hour. The key scientific
+question is a \textbf{generalization test}: fine-tune the LoRA adapter
+exclusively on ARC-AGI-2 and evaluate it without modification on GPU
+kernel and competitive programming benchmarks. Positive transfer would
+demonstrate that the adapter has learned a general skill of proposing good
+code improvements, rather than a benchmark-specific pattern. This is the
+result that would distinguish EvoScale from a simple engineering speedup.
+
+% -----------------------------------------------------------------------
+\section*{Risks}
+
+\textbf{Distribution shift.} As the policy improves, the prompt
+distribution it encounters shifts, making earlier tuples off-policy.
+We address this with a recency-weighted replay buffer that down-weights
+stale experience and a KL penalty against the base model in the GRPO
+objective to prevent the adapter from drifting far from the base
+distribution.
+
+\textbf{Reward sparsity.} Most mutations do not improve the score. With
+$N = 100$ parallel problems and $K = 8$ candidates per iteration, each
+training batch contains approximately 800 evaluated mutations. At an
+expected improvement rate of 10 to 15\%, this yields 80 to 120 positive
+reward signals per batch, which is comparable to signal density in
+successful RL applications to code generation~\cite{deepseekr1}. If
+signals remain insufficient on a given benchmark, we add parse correctness
+as a dense auxiliary reward to bootstrap early training.
+
+% -----------------------------------------------------------------------
+\section*{Potential Impact}
+
+\textbf{A new compute scaling regime.} Every existing inference-time
+scaling method (chain-of-thought, best-of-N, tree search) treats the
+model as fixed. Compute spent on search is disposable: it improves the
+current output and nothing else. EvoScale introduces a feedback loop
+in which search performance and model quality co-improve. A successful
+result establishes a compound scaling law: more iterations improve the
+model, which improves subsequent iterations. This is categorically
+different from any fixed-policy scaling curve and directly relevant
+to the question of how to allocate large compute budgets efficiently.
+
+\textbf{Closing the OSS gap to frontier models.} AdaEvolve achieves its
+published results with GPT-5 and Gemini-3-Pro. Open-source models start
+behind on these benchmarks. Online fine-tuning on evolutionary search
+trajectories gives the adapted model a structural advantage: it has been
+trained on thousands of (parent program, mutation, outcome) examples
+from the exact task distribution it will be evaluated on, a form of
+task-specific supervision that no general-purpose frontier model has
+received. If EvoScale with a fine-tuned Qwen model matches or exceeds
+AdaEvolve with GPT-5 on any benchmark, it demonstrates that targeted
+online RL on accessible hardware can close the gap to proprietary models,
+with concrete implications for AI accessibility.
+
+\textbf{Compute efficiency.} The systems design ensures that no component
+of the allocated budget is idle. The async pipeline eliminates GPU idle
+time during evaluation. Prefix caching eliminates redundant prefill. Batch
+generation amortizes request overhead across $K$ candidates. RL training
+executes during evaluation windows that would otherwise go unused. The
+result is that every GPU-hour serves double duty: advancing the search and
+training the model. We will quantify this directly as quality gained per
+GPU-hour across all baselines.
+
+\textbf{A reusable systems artifact.} There is no existing open system that
+co-schedules vLLM inference with online LoRA fine-tuning under live serving
+conditions. The infrastructure we build, encompassing Ray-based
+multi-problem orchestration, async evaluation pipelines, within-batch GRPO,
+and live weight updates, applies directly to any deployment where model
+behavior generates its own fine-tuning signal. This includes tool-using
+agents, long-horizon planners, and any setting where an LLM is evaluated
+against an objective rather than a human preference. The systems
+contribution stands independently of the RL generalization result.
+
+% -----------------------------------------------------------------------
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+
+\bibitem{adaevolve2025}
+AdaEvolve: Adaptive LLM-Driven Zeroth-Order Optimization.
+\textit{arXiv:2602.20133}, 2025.
+\url{https://arxiv.org/abs/2602.20133}
+
+\bibitem{deepseekr1}
+DeepSeek-AI.
+DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement
+Learning.
+\textit{arXiv:2501.12948}, 2025.
+
+\bibitem{vllm}
+W.~Kwon et al.
+Efficient Memory Management for Large Language Model Serving with
+PagedAttention.
+\textit{SOSP}, 2023.
+
+\bibitem{qwen25coder}
+Hui et al.
+Qwen2.5-Coder Technical Report.
+\textit{arXiv:2409.12186}, 2024.
+
+\bibitem{lora}
+E.~J.~Hu et al.
+LoRA: Low-Rank Adaptation of Large Language Models.
+\textit{ICLR}, 2022.
+
+\end{thebibliography}
+
+
+\end{document}

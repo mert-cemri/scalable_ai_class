@@ -1,0 +1,380 @@
+{
+  "num_islands": 2,
+  "current_island": 0,
+  "iteration_count": 9,
+  "global_best_score": 0.9960355002384326,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.08104873885716667,
+        "best_score": 0.9960355002384326,
+        "improvement_count": 8,
+        "total_evaluations": 30,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.17304583493252101,
+        "best_score": 0.9948514526888552,
+        "improvement_count": 2,
+        "total_evaluations": 32,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      30,
+      32
+    ],
+    "dimension_rewards": [
+      0.161021530035766,
+      0.0357422710618628
+    ],
+    "decayed_visits": [
+      9.57608841724784,
+      9.656631617970751
+    ],
+    "global_best_score": 0.9960355002384326,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "50722e85-d84c-41a8-aa2d-015397692604",
+      "b55f976c-048b-471a-bdd2-00d8e95b1063",
+      "7a08eb56-c599-41c6-a5a6-4e6f04b759ed",
+      "c43b315a-c2c8-4e70-baaa-d1ff39e5d373",
+      "d6cfc4f4-4945-4b98-a0d0-d2b346d68c96",
+      "4c01e99b-36da-4a8f-aa42-b1d5d95b8667",
+      "24aafb9b-47d8-49be-9f83-cb4ac284f149",
+      "03cde07a-9631-43f7-9569-3af80b156f49",
+      "26ce23e8-fd60-4419-8215-ac5a4977a8d5",
+      "1cb5a8fa-86ab-40e9-aeff-b47037e759ca",
+      "1e3a3312-93e1-4aae-adc2-29e4c55bf557",
+      "018aec77-ff18-46bb-a9a8-5bc751a180d1",
+      "75ec5c92-971e-4005-a759-deac6621200f",
+      "c3bc52e4-e3cb-43ea-a1a8-2fb220d10f30",
+      "2ff4539f-a896-41e8-b01a-36afc90c3033",
+      "2eba4f97-1558-4ef7-8145-8f4a66c30d50",
+      "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd",
+      "8152ce8e-d91d-4667-ac27-f3ef4c94fd1c",
+      "0a672723-083f-4a81-993a-3f630a8bcb97",
+      "3602d95f-eb19-437e-9c22-124ccf91f368"
+    ],
+    [
+      "a1172961-d0d3-4cba-90d3-e9b60236fc3f",
+      "05230820-10ed-4e0a-bd41-3ad2708cd913",
+      "355c3152-297c-4a1c-af4d-a3e000922cc9",
+      "be33117d-c6d5-4573-84a2-a08f22b7c93f",
+      "ad65a96c-468c-44d3-8999-6921cb2d9803",
+      "a2a6b68e-737e-4934-a022-a705d269ee4f",
+      "9de6146d-3bef-4804-8955-a66269f7a392",
+      "e254fb30-2e86-4092-abee-0046192fec6e",
+      "92111cba-71d0-434e-ab0a-3351e694ef6c",
+      "9466836d-a4e8-4336-b032-29803eda75ff",
+      "ffdafc27-4ab0-4480-8b46-2276849f3ec2",
+      "aafb79c8-dbe4-4cf1-923d-eebbf0ea2463",
+      "680734f0-df4a-4137-b965-17debd11ebbe",
+      "70d0dfaf-0943-40a8-a962-c57f76c55bd9",
+      "d05cd8b9-7bc9-40cf-b679-21981f132efa",
+      "9465b632-51a9-42b5-a394-cc6111e383dd",
+      "4d25099a-e974-4f75-8da3-aef91a920734",
+      "86a62dae-8d52-413c-8219-3471fd80f59b",
+      "46f498d0-85cd-4f72-bc2f-9153f6c5b2a5",
+      "2fdfbff7-e950-4478-af63-6c5d6e6e90ed"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "50722e85-d84c-41a8-aa2d-015397692604": [],
+        "b55f976c-048b-471a-bdd2-00d8e95b1063": [
+          "50722e85-d84c-41a8-aa2d-015397692604"
+        ],
+        "7a08eb56-c599-41c6-a5a6-4e6f04b759ed": [
+          "50722e85-d84c-41a8-aa2d-015397692604"
+        ],
+        "c43b315a-c2c8-4e70-baaa-d1ff39e5d373": [
+          "50722e85-d84c-41a8-aa2d-015397692604"
+        ],
+        "d6cfc4f4-4945-4b98-a0d0-d2b346d68c96": [
+          "50722e85-d84c-41a8-aa2d-015397692604"
+        ],
+        "4c01e99b-36da-4a8f-aa42-b1d5d95b8667": [
+          "50722e85-d84c-41a8-aa2d-015397692604"
+        ],
+        "24aafb9b-47d8-49be-9f83-cb4ac284f149": [
+          "50722e85-d84c-41a8-aa2d-015397692604"
+        ],
+        "03cde07a-9631-43f7-9569-3af80b156f49": [
+          "50722e85-d84c-41a8-aa2d-015397692604"
+        ],
+        "26ce23e8-fd60-4419-8215-ac5a4977a8d5": [
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373"
+        ],
+        "1cb5a8fa-86ab-40e9-aeff-b47037e759ca": [
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373"
+        ],
+        "1e3a3312-93e1-4aae-adc2-29e4c55bf557": [
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373"
+        ],
+        "018aec77-ff18-46bb-a9a8-5bc751a180d1": [
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373"
+        ],
+        "75ec5c92-971e-4005-a759-deac6621200f": [
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373"
+        ],
+        "c3bc52e4-e3cb-43ea-a1a8-2fb220d10f30": [
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373"
+        ],
+        "2ff4539f-a896-41e8-b01a-36afc90c3033": [
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373"
+        ],
+        "2eba4f97-1558-4ef7-8145-8f4a66c30d50": [
+          "9466836d-a4e8-4336-b032-29803eda75ff"
+        ],
+        "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd": [
+          "9466836d-a4e8-4336-b032-29803eda75ff"
+        ],
+        "8152ce8e-d91d-4667-ac27-f3ef4c94fd1c": [
+          "9466836d-a4e8-4336-b032-29803eda75ff"
+        ],
+        "0a672723-083f-4a81-993a-3f630a8bcb97": [
+          "9466836d-a4e8-4336-b032-29803eda75ff"
+        ],
+        "3602d95f-eb19-437e-9c22-124ccf91f368": [
+          "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd"
+        ]
+      },
+      "children": {
+        "50722e85-d84c-41a8-aa2d-015397692604": [
+          "b55f976c-048b-471a-bdd2-00d8e95b1063",
+          "7a08eb56-c599-41c6-a5a6-4e6f04b759ed",
+          "c43b315a-c2c8-4e70-baaa-d1ff39e5d373",
+          "d6cfc4f4-4945-4b98-a0d0-d2b346d68c96",
+          "4c01e99b-36da-4a8f-aa42-b1d5d95b8667",
+          "24aafb9b-47d8-49be-9f83-cb4ac284f149",
+          "03cde07a-9631-43f7-9569-3af80b156f49"
+        ],
+        "c43b315a-c2c8-4e70-baaa-d1ff39e5d373": [
+          "26ce23e8-fd60-4419-8215-ac5a4977a8d5",
+          "1cb5a8fa-86ab-40e9-aeff-b47037e759ca",
+          "1e3a3312-93e1-4aae-adc2-29e4c55bf557",
+          "018aec77-ff18-46bb-a9a8-5bc751a180d1",
+          "75ec5c92-971e-4005-a759-deac6621200f",
+          "c3bc52e4-e3cb-43ea-a1a8-2fb220d10f30",
+          "2ff4539f-a896-41e8-b01a-36afc90c3033"
+        ],
+        "9466836d-a4e8-4336-b032-29803eda75ff": [
+          "2eba4f97-1558-4ef7-8145-8f4a66c30d50",
+          "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd",
+          "8152ce8e-d91d-4667-ac27-f3ef4c94fd1c",
+          "0a672723-083f-4a81-993a-3f630a8bcb97"
+        ],
+        "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd": [
+          "3602d95f-eb19-437e-9c22-124ccf91f368"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "a1172961-d0d3-4cba-90d3-e9b60236fc3f": [],
+        "05230820-10ed-4e0a-bd41-3ad2708cd913": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "355c3152-297c-4a1c-af4d-a3e000922cc9": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "be33117d-c6d5-4573-84a2-a08f22b7c93f": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "ad65a96c-468c-44d3-8999-6921cb2d9803": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "a2a6b68e-737e-4934-a022-a705d269ee4f": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "9de6146d-3bef-4804-8955-a66269f7a392": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "e254fb30-2e86-4092-abee-0046192fec6e": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "92111cba-71d0-434e-ab0a-3351e694ef6c": [
+          "a1172961-d0d3-4cba-90d3-e9b60236fc3f"
+        ],
+        "9466836d-a4e8-4336-b032-29803eda75ff": [
+          "018aec77-ff18-46bb-a9a8-5bc751a180d1"
+        ],
+        "ffdafc27-4ab0-4480-8b46-2276849f3ec2": [
+          "018aec77-ff18-46bb-a9a8-5bc751a180d1"
+        ],
+        "aafb79c8-dbe4-4cf1-923d-eebbf0ea2463": [
+          "018aec77-ff18-46bb-a9a8-5bc751a180d1"
+        ],
+        "680734f0-df4a-4137-b965-17debd11ebbe": [
+          "018aec77-ff18-46bb-a9a8-5bc751a180d1"
+        ],
+        "70d0dfaf-0943-40a8-a962-c57f76c55bd9": [
+          "018aec77-ff18-46bb-a9a8-5bc751a180d1"
+        ],
+        "d05cd8b9-7bc9-40cf-b679-21981f132efa": [
+          "018aec77-ff18-46bb-a9a8-5bc751a180d1"
+        ],
+        "9465b632-51a9-42b5-a394-cc6111e383dd": [
+          "9466836d-a4e8-4336-b032-29803eda75ff"
+        ],
+        "4d25099a-e974-4f75-8da3-aef91a920734": [
+          "9466836d-a4e8-4336-b032-29803eda75ff"
+        ],
+        "86a62dae-8d52-413c-8219-3471fd80f59b": [
+          "9466836d-a4e8-4336-b032-29803eda75ff"
+        ],
+        "46f498d0-85cd-4f72-bc2f-9153f6c5b2a5": [
+          "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd"
+        ],
+        "2fdfbff7-e950-4478-af63-6c5d6e6e90ed": [
+          "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd"
+        ]
+      },
+      "children": {
+        "a1172961-d0d3-4cba-90d3-e9b60236fc3f": [
+          "05230820-10ed-4e0a-bd41-3ad2708cd913",
+          "355c3152-297c-4a1c-af4d-a3e000922cc9",
+          "be33117d-c6d5-4573-84a2-a08f22b7c93f",
+          "ad65a96c-468c-44d3-8999-6921cb2d9803",
+          "a2a6b68e-737e-4934-a022-a705d269ee4f",
+          "9de6146d-3bef-4804-8955-a66269f7a392",
+          "e254fb30-2e86-4092-abee-0046192fec6e",
+          "92111cba-71d0-434e-ab0a-3351e694ef6c"
+        ],
+        "018aec77-ff18-46bb-a9a8-5bc751a180d1": [
+          "9466836d-a4e8-4336-b032-29803eda75ff",
+          "ffdafc27-4ab0-4480-8b46-2276849f3ec2",
+          "aafb79c8-dbe4-4cf1-923d-eebbf0ea2463",
+          "680734f0-df4a-4137-b965-17debd11ebbe",
+          "70d0dfaf-0943-40a8-a962-c57f76c55bd9",
+          "d05cd8b9-7bc9-40cf-b679-21981f132efa"
+        ],
+        "9466836d-a4e8-4336-b032-29803eda75ff": [
+          "9465b632-51a9-42b5-a394-cc6111e383dd",
+          "4d25099a-e974-4f75-8da3-aef91a920734",
+          "86a62dae-8d52-413c-8219-3471fd80f59b"
+        ],
+        "2fb6b8d2-a8f0-4b89-8dd5-fbc75631c2fd": [
+          "46f498d0-85cd-4f72-bc2f-9153f6c5b2a5",
+          "2fdfbff7-e950-4478-af63-6c5d6e6e90ed"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use trust-constr with squared distance constraints for improved constraint handling",
+        "description": "Replace SLSQP with scipy.optimize.minimize using trust-constr method, which handles nonlinear constraints more robustly. Reformulate non-overlap constraints using squared distances: (xi-xj)^2 + (yi-yj)^2 >= (ri+rj)^2 instead of sqrt-based constraints. This makes constraints quadratic and differentiable everywhere, improving numerical stability. Set up constraints using NonlinearConstraint class with proper bounds. Use hexagonal initialization but with tighter tolerances (ftol=1e-12, xtol=1e-12) and more iterations (maxiter=5000). Trust-constr uses interior-point methods that are better at navigating complex constraint boundaries than SLSQP.",
+        "what_to_optimize": "Primary metric: sum_radii. Focus on better constraint satisfaction and escaping local optima through improved numerical handling",
+        "cautions": "Squared distance constraints are valid only when distances are positive. Ensure initial configuration is valid. Trust-constr may be slower per iteration but more reliable. Need to properly scale variables to avoid numerical issues.",
+        "approach_type": "scipy.optimize.minimize"
+      },
+      {
+        "idea": "Use differential evolution for global search with local refinement",
+        "description": "Implement scipy.optimize.differential_evolution as a global optimizer before local refinement. DE is specifically designed for global optimization and can escape local optima that trap gradient-based methods. Run DE with 500-1000 iterations using constraints via penalty function approach (add large penalty when constraints violated). Then take the best DE solution and refine it with SLSQP for 500 iterations. This two-phase approach leverages DE's global search capability and SLSQP's local precision. Use bounds [0.05, 0.95] for centers and [0.03, 0.15] for radii to keep search in valid region.",
+        "what_to_optimize": "Primary metric: sum_radii. Focus on global exploration to find better starting configurations that local methods can refine",
+        "cautions": "DE is stochastic, so use fixed seed for reproducibility. Penalty function needs careful tuning - too small and constraints are violated, too large and optimization stalls. Total runtime must stay under 600s timeout. DE may need 1000-2000 function evaluations.",
+        "approach_type": "scipy.optimize.differential_evolution"
+      },
+      {
+        "idea": "Use known optimal packing configurations as initialization templates",
+        "description": "Instead of hexagonal lattice, initialize from known dense packing patterns that have been proven optimal for similar problems. Research shows optimal packings often have specific contact structures where circles touch at precise points. Create multiple initialization templates: (1) 5-6-5-6-4 row pattern with adjusted spacing, (2) corner-filling pattern with larger circles at corners, (3) spiral/helix pattern. For each template, compute optimal spacing analytically based on circle contacts, then use SLSQP to fine-tune. This leverages domain knowledge about packing geometry rather than relying on random or generic initialization. The templates should encode expected contact graphs that optimal packings typically exhibit.",
+        "what_to_optimize": "Primary metric: sum_radii. Focus on starting closer to optimal configuration through domain-specific initialization",
+        "cautions": "Need to ensure templates are valid (no overlaps) before optimization. Templates must be flexible enough to allow SLSQP to adjust. Don't hardcode exact positions - use them as starting points. Test multiple templates and select best result.",
+        "approach_type": "scipy.optimize.minimize"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 1
+    },
+    "current_paradigm_index": 1,
+    "tried_paradigms": [
+      {
+        "idea": "Direct optimization of all circle positions and radii using scipy.optimize.minimize with SLSQP",
+        "description": "Use scipy.optimize.minimize with SLSQP method to simultaneously optimize all 78 variables (26 circle centers with 2 coordinates each + 26 radii). Define objective as negative sum of radii (for minimization). Add constraints for: (1) each circle inside square: x_i - r_i >= 0, x_i + r_i <= 1, y_i - r_i >= 0, y_i + r_i <= 1; (2) non-overlap: ||c_i - c_j|| >= r_i + r_j for all pairs. Use multiple random starting points to escape local optima. The SLSQP method handles non-linear constraints directly, allowing the optimizer to find better center positions than the fixed grid pattern.",
+        "what_to_optimize": "Primary: maximize sum of radii; Secondary: ensure all constraints satisfied (validity = 1.0)",
+        "cautions": "78 variables with many constraints may be slow; use multiple starting points (10-20) with timeout; initialize from current solution to warm-start; ensure constraint Jacobian is handled correctly; use ftol=1e-9 for precision",
+        "approach_type": "scipy.optimize.minimize",
+        "uses": 2,
+        "starting_score": 0.8708765708668258,
+        "ending_score": 0.9960355002384326,
+        "score_improvement": 0.12515892937160678,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Symmetry-reduced optimization exploiting 4-fold rotational symmetry around square center",
+        "description": "Exploit 4-fold rotational symmetry around (0.5, 0.5) to reduce optimization variables from 78 to ~20-25. Place only circles in one quadrant (or fundamental domain), then generate remaining circles by 90-degree rotations. For 26 circles, approximately 7 independent circles need optimization (some may lie on symmetry axes). Use scipy.optimize.minimize with SLSQP on these reduced variables. This dramatically reduces search space while maintaining valid symmetric packings. After optimization, apply rotation transformations: (x,y) -> (1-y, x) for 90-degree rotation around center. Handle edge cases where circles lie on symmetry axes (don't duplicate).",
+        "what_to_optimize": "Primary: maximize sum of radii in reduced variable space; Secondary: maintain symmetry to reduce constraint violations",
+        "cautions": "Need to correctly identify which circles are independent vs generated by symmetry; handle circles on symmetry axes (rotation-invariant); ensure 26 total circles after symmetry generation; some optimal packings may not be perfectly symmetric, so also try asymmetric variants",
+        "approach_type": "scipy.optimize.minimize",
+        "uses": 2,
+        "starting_score": 0.8708765708668258,
+        "ending_score": 0.9960355002384326,
+        "score_improvement": 0.12515892937160678,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Global pattern search using scipy.optimize.differential_evolution on structural parameters",
+        "description": "Instead of optimizing individual circle positions, use scipy.optimize.differential_evolution to search the space of parameterized packing patterns. Define pattern parameters: row counts (sum=26), stagger values per row, vertical spacing ratios, horizontal margins. For each parameter set, compute circle centers deterministically (like current program), then compute optimal radii using the constraint propagation algorithm. Differential evolution performs global search over these pattern parameters, exploring fundamentally different structural arrangements beyond the fixed [5,6,5,6,4] pattern. This finds better overall patterns rather than fine-tuning positions within a fixed pattern.",
+        "what_to_optimize": "Primary: find optimal pattern parameters that maximize sum of radii; Secondary: explore diverse structural arrangements",
+        "cautions": "Each evaluation requires computing radii (computationally expensive); use maxiter=500-1000; seed=42 for reproducibility; bounds for parameters must be carefully chosen (e.g., stagger in [0, 0.2], row counts as integers); may need to discretize continuous parameters to integers where needed",
+        "approach_type": "scipy.optimize.differential_evolution",
+        "uses": 2,
+        "starting_score": 0.8708765708668258,
+        "ending_score": 0.9960355002384326,
+        "score_improvement": 0.12515892937160678,
+        "outcome": "SUCCESS"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.9960355002384326,
+    "best_score_during_paradigm": 0.9960355002384326
+  }
+}

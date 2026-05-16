@@ -204,6 +204,11 @@ class DiscoveryController:
             Best ``Program`` found (post_process_result=True) or raw
             ``SerializableResult`` (post_process_result=False).
         """
+        # max_wall = getattr(self.config, "max_wall_clock_time", None)
+        # deadline: Optional[float] = (time.monotonic() + max_wall) if max_wall else None
+        # if deadline:
+        #     logger.info(f"Wall-clock time limit: {max_wall}s")
+
         max_parallel = self.config.max_parallel_iterations
 
         if max_parallel > 1:
@@ -214,6 +219,7 @@ class DiscoveryController:
                 post_process_result,
                 retry_times,
                 max_parallel,
+                # deadline=deadline,
             )
 
         return await self._run_discovery_sequential(
@@ -222,6 +228,7 @@ class DiscoveryController:
             checkpoint_callback,
             post_process_result,
             retry_times,
+            # deadline=deadline,
         )
 
     # ------------------------------------------------------------------
@@ -235,6 +242,7 @@ class DiscoveryController:
         checkpoint_callback: Optional[Callable[[int], None]] = None,
         post_process_result: Optional[bool] = True,
         retry_times: Optional[int] = 3,
+        # deadline: Optional[float] = None,
     ) -> Optional[Union[Program, SerializableResult]]:
         total_iterations = start_iteration + max_iterations
 
@@ -243,6 +251,10 @@ class DiscoveryController:
             if self.shutdown_event.is_set():
                 logger.info("Shutdown requested, stopping discovery loop early")
                 break
+            # if deadline is not None and time.monotonic() >= deadline:
+            #     logger.info("Wall-clock time limit reached, stopping discovery loop early")
+            #     self.early_stopping_triggered = True
+            #     break
 
             try:
                 result = await self._run_iteration(iteration, retry_times=retry_times)
@@ -273,6 +285,7 @@ class DiscoveryController:
         post_process_result: Optional[bool] = True,
         retry_times: Optional[int] = 3,
         max_parallel: int = 4,
+        # deadline: Optional[float] = None,
     ) -> Optional[Union[Program, SerializableResult]]:
         total_iterations = start_iteration + max_iterations
         sem = asyncio.Semaphore(max_parallel)
@@ -312,6 +325,10 @@ class DiscoveryController:
         for iteration in range(start_iteration, total_iterations):
             if self.shutdown_event.is_set():
                 break
+            # if deadline is not None and time.monotonic() >= deadline:
+            #     logger.info("Wall-clock time limit reached, stopping parallel discovery loop early")
+            #     self.early_stopping_triggered = True
+            #     break
 
             task = asyncio.create_task(_bounded_iteration(iteration), name=f"iter_{iteration}")
             pending.add(task)

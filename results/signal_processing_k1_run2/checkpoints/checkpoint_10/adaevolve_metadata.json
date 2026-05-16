@@ -1,0 +1,195 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 9,
+  "global_best_score": 0.49904861783269006,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.09999999999999998,
+        "best_score": 0.49904861783269006,
+        "improvement_count": 1,
+        "total_evaluations": 6,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.09999999999999998,
+        "best_score": 0.49904861783269006,
+        "improvement_count": 0,
+        "total_evaluations": 5,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      6,
+      5
+    ],
+    "dimension_rewards": [
+      0.5904900000000002,
+      0.0
+    ],
+    "decayed_visits": [
+      4.68559,
+      4.0951
+    ],
+    "global_best_score": 0.49904861783269006,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05",
+      "4b673814-d433-4a3d-bbaf-4caeb546c2a5",
+      "4f23e683-7948-43d3-9826-9d71225bb8be",
+      "18dfacd6-ea75-4dab-8d99-834e6613d9eb",
+      "7f6960eb-6042-4bfd-8bea-dc7aa4d26786",
+      "ce6ac969-dba5-4a6d-ba97-78bb80793925"
+    ],
+    [
+      "88013b57-2cb1-4887-ba5f-d40cf99a5e67",
+      "d0576512-61cb-44a2-bff3-c28f22155633",
+      "e07dde18-4dcd-48e1-9176-48f7bc6f6746",
+      "6951cb15-f591-403d-ae31-9fb96de19817",
+      "68ca8147-c518-427d-a3aa-f0677c1d089e",
+      "213902a5-8157-4ec6-b56b-f53d84603bf1"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05": [],
+        "4b673814-d433-4a3d-bbaf-4caeb546c2a5": [
+          "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05"
+        ],
+        "4f23e683-7948-43d3-9826-9d71225bb8be": [
+          "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05"
+        ],
+        "18dfacd6-ea75-4dab-8d99-834e6613d9eb": [
+          "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05"
+        ],
+        "7f6960eb-6042-4bfd-8bea-dc7aa4d26786": [
+          "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05"
+        ],
+        "ce6ac969-dba5-4a6d-ba97-78bb80793925": [
+          "4f23e683-7948-43d3-9826-9d71225bb8be"
+        ]
+      },
+      "children": {
+        "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05": [
+          "4b673814-d433-4a3d-bbaf-4caeb546c2a5",
+          "4f23e683-7948-43d3-9826-9d71225bb8be",
+          "18dfacd6-ea75-4dab-8d99-834e6613d9eb",
+          "7f6960eb-6042-4bfd-8bea-dc7aa4d26786"
+        ],
+        "4f23e683-7948-43d3-9826-9d71225bb8be": [
+          "ce6ac969-dba5-4a6d-ba97-78bb80793925"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "88013b57-2cb1-4887-ba5f-d40cf99a5e67": [],
+        "d0576512-61cb-44a2-bff3-c28f22155633": [
+          "88013b57-2cb1-4887-ba5f-d40cf99a5e67"
+        ],
+        "e07dde18-4dcd-48e1-9176-48f7bc6f6746": [
+          "88013b57-2cb1-4887-ba5f-d40cf99a5e67"
+        ],
+        "6951cb15-f591-403d-ae31-9fb96de19817": [
+          "88013b57-2cb1-4887-ba5f-d40cf99a5e67"
+        ],
+        "68ca8147-c518-427d-a3aa-f0677c1d089e": [
+          "88013b57-2cb1-4887-ba5f-d40cf99a5e67"
+        ],
+        "213902a5-8157-4ec6-b56b-f53d84603bf1": [
+          "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05"
+        ]
+      },
+      "children": {
+        "88013b57-2cb1-4887-ba5f-d40cf99a5e67": [
+          "d0576512-61cb-44a2-bff3-c28f22155633",
+          "e07dde18-4dcd-48e1-9176-48f7bc6f6746",
+          "6951cb15-f591-403d-ae31-9fb96de19817",
+          "68ca8147-c518-427d-a3aa-f0677c1d089e"
+        ],
+        "7bcd1bf7-3022-4020-a3b5-ff6ffde36f05": [
+          "213902a5-8157-4ec6-b56b-f53d84603bf1"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use scipy.signal.savgol_filter for polynomial-based smoothing that preserves edges and derivatives",
+        "description": "Replace the exponential weighted moving average with Savitzky-Golay filter, which fits a polynomial to local window data. This preserves higher moments of the signal (edges, peaks) better than simple averaging. Use polynomial order 3 or 5 (must be odd and less than window_size). The filter maintains signal shape while reducing noise, which directly reduces slope changes and false reversals. Apply it with mode='nearest' to handle boundaries and ensure output length matches expected len(x) - window_size + 1. This is particularly effective for step changes (Signal 3) and non-stationary signals (Signal 2) where edge preservation is critical.",
+        "what_to_optimize": "Reduce slope changes (S) and false reversals (R) while maintaining tracking accuracy for step changes and non-stationary signals",
+        "cautions": "Polynomial order must be odd and less than window_size. For window_size=20, use polyorder=3 or 5. Ensure output length is exactly len(x) - window_size + 1. Handle edge cases where len(x) < window_size.",
+        "approach_type": "scipy.signal.savgol_filter"
+      },
+      {
+        "idea": "Use scipy.signal.medfilt for median-based robust filtering that removes outliers while preserving edges",
+        "description": "Apply median filter as the primary filtering method, which is robust to outliers and preserves step edges better than mean-based filters. Median filtering excels at removing impulse noise without blurring sharp transitions. Use a smaller window (e.g., 5-7) than the input window_size for better responsiveness. This approach is particularly effective for random walk signals (Signal 4) and signals with outliers. The median filter's non-linear nature means it won't smooth step changes as aggressively as EWMA, reducing lag error while maintaining robustness to noise spikes.",
+        "what_to_optimize": "Reduce lag error (L_recent) and preserve step changes while being robust to outliers in random walk signals",
+        "cautions": "Median filter kernel size must be odd. For window_size=20, use kernel_size=7 or 9. The output length from medfilt is same as input, so we must slice to get len(x) - window_size + 1. May need to combine with light smoothing for high-frequency noise.",
+        "approach_type": "scipy.signal.medfilt"
+      },
+      {
+        "idea": "Use scipy.signal.wiener for adaptive noise reduction that estimates local statistics",
+        "description": "Apply Wiener filter which adapts to local signal statistics by estimating mean and variance in each window. The Wiener filter is optimal for Gaussian noise and adapts its smoothing strength based on local signal characteristics - more smoothing in low-variance regions, less in high-variance regions. This provides natural adaptation without explicit parameter tuning. Use block_size parameter matching window_size. The Wiener filter minimizes mean squared error between estimated and true signal, which directly optimizes the tracking error components of the score. This is particularly effective for sinusoidal signals (Signal 0) and multi-frequency signals (Signal 1).",
+        "what_to_optimize": "Reduce average tracking error (L_avg) while adapting smoothing strength to local signal variance for better overall tracking",
+        "cautions": "Wiener filter assumes Gaussian noise. Block size affects smoothing strength - use block_size=window_size. Output length matches input, so slice appropriately. May need post-processing to ensure output length constraint is met.",
+        "approach_type": "scipy.signal.wiener"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 1
+    },
+    "current_paradigm_index": 1,
+    "tried_paradigms": [],
+    "best_score_at_paradigm_gen": 0.49904861783269006,
+    "best_score_during_paradigm": 0.49904861783269006
+  }
+}

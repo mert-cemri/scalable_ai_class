@@ -1,0 +1,250 @@
+\ProvidesPackage{albi_pack}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+% Even Margins
+\usepackage[a4paper,top=4.5cm,bottom=4cm,inner=3.5cm,outer=3.5cm]{geometry}
+
+% Margins for printing
+%\usepackage[a4paper,top=4.5cm,bottom=4cm,inner=4.25cm,outer=2.75cm]{geometry}
+
+%\usepackage{graphicx}
+
+%\usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+
+%\captionsetup[subfigure]{justification=centering}
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% Library for table of contents
+\usepackage{makeidx}
+\makeindex
+
+%Packages
+
+% Subdivision in subfiles (to keep as last package loaded)
+\usepackage[pdftex,dvipsnames]{xcolor} 
+\usepackage{subfiles}
+\usepackage{soul}
+\setstcolor{red}
+\usepackage{comment}
+\usepackage{array}
+\usepackage{mathbbol}
+\usepackage{bbm}
+%\usepackage{todonotes}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{svg} % To read svg files in cover
+\usepackage{tocbibind} % To have entry "Contents" in Table of Contents, comment out if not wanted
+\usepackage{epstopdf}
+\setlength {\marginparwidth }{2cm}
+\usepackage{relsize}
+\usepackage{tabularx}
+\usepackage{ bbold }
+\usepackage{multirow}
+\usepackage{dsfont}
+
+% To print a pdf/a, de-comment the next line
+%\usepackage[a-1b]{pdfx}
+
+
+% Graphic paths for images
+\graphicspath{{./images/}}
+
+% New definitions
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+% Definition of Theorem-ambients
+
+% Numeration in Chapter
+
+% Ambients in italic
+\theoremstyle{plain}
+%\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem*{corollary*}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+% Ambients not in italic
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{axiom}[theorem]{Axiom}
+
+\newtheorem*{remark*}{Remark}
+
+
+\newcommand{\numberset}{\mathbbm}
+\newcommand{\N}{\numberset{N}}
+\newcommand{\Z}{\numberset{Z}}
+\newcommand{\Q}{\numberset{Q}}
+\newcommand{\R}{\numberset{R}}
+\newcommand{\C}{\numberset{C}}
+\newcommand{\Prob}{\numberset{P}}  
+
+\newcommand{\parder}[2]{ \dfrac{\partial #1}{\partial #2} }
+\newcommand{\sqparder}[2]{ \dfrac{\partial^2 #1}{\partial #2^2} }
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\newcommand{\Bigma}{\mathlarger{\Sigma}}
+
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\ub}{\boldsymbol{u}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\w}{\boldsymbol{w}}
+\newcommand{\vb}{\boldsymbol{v}}
+
+\newcommand{\bB}{\boldsymbol{b}}
+\newcommand{\tauB}{\boldsymbol{\tau}}
+\newcommand{\xiB}{\boldsymbol{\xi}}
+\newcommand{\thetaB}{\boldsymbol{\theta}}
+\newcommand{\thB}{{\boldsymbol{\theta}}}
+\newcommand{\alB}{{\boldsymbol{\alpha}}}
+\newcommand{\betB}{{\boldsymbol{\beta}}}
+\newcommand{\T}{^\top}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcommand\MyBox[2]{
+  \fbox{\lower0.75cm
+    \vbox to 1.7cm{\vfil
+      \hbox to 1.7cm{\hfil\parbox{1.4cm}{#1\\#2}\hfil}
+      \vfil}%
+  }%
+}
+
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+% To cancel equations
+%\usepackage{xcolor,cancel}
+\newcommand\hcancel[2][red]{\setbox0=\hbox{$#2$}%
+\rlap{\raisebox{.3\ht0}{\textcolor{#1}{\rule{\wd0}{0.5pt}}}}#2} 
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\newcommand{\deltav}{\mbox{\boldmath$\delta$}}
+\usepackage{url}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\usepackage{nomencl}
+
+\def\bmat#1{\left[\begin{array}{#1}}
+\def\emat{\end{array}\right]}
+\def\bv {\bmat{c} }
+\def\ev {\emat}
+
+\newcommand {\bsis} {\left\{ \begin{array} }
+\newcommand {\esis} {\end{array}\right.}
+
+\def\Sum#1#2{\sum\limits_{#1}^{#2}}
+\def\set#1#2{\{ \; #1 \;:\;#2\;\}} % creates a set: { #1 : #2 }
+
+\DeclareMathOperator{\sign}{sign}
+
+\newcommand{\probP}{\text{I\kern-0.15em P}}
+
+\newcommand {\btheta} { \boldsymbol{\theta} }
+\newcommand {\rmax} { r\text{-max}}
+
+% Bibliography
+\usepackage[backend=biber,
+style=numeric,
+sorting=ynt]{biblatex}
+\usepackage{csquotes}
+\addbibresource{biblio.bib}
+
+\usepackage{makecell}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\DeclareMathOperator{\Mat}{Mat}
+\newcommand{\diagentry}[1]{\mathmakebox[1.8em]{#1}}
+\newcommand{\xddots}{%
+  \raise 4pt \hbox {.}
+  \mkern 6mu
+  \raise 1pt \hbox {.}
+  \mkern 6mu
+  \raise -2pt \hbox {.}
+}
+
+\usepackage{ dsfont }
+
+\usepackage{calc,graphicx}
+\newlength\htG\newlength\dpg
+\protected\def\drive{\settoheight{\htG}{G}\settodepth{\dpg}{g}%
+  \raisebox{-\dpg}{\includegraphics[scale=0.2]{images/drive.png}}}%[height=\htG+\dpg]
+\protected\def\youtube{\settoheight{\htG}{G}\settodepth{\dpg}{g}%
+  \raisebox{-\dpg}{\includegraphics[scale=0.2]{images/youtube.png}}}%[height=\htG+\dpg]
+
+\usepackage[shortlabels]{enumitem}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% XXXXXX %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iffalse
+
+\hypersetup{
+    colorlinks,
+    linkcolor={black!50!black},
+    urlcolor={blue!80!black}
+}
+\usepackage{ifthen}
+\usepackage{amsmath} % Required for formulas
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\nb}[2]{
+    \fcolorbox{red}{yellow}{\bfseries\sffamily\scriptsize#1}
+    {\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}
+  }
+  \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+  }
+  {\newcommand{\nb}[2]{}
+  \newcommand{\version}{}
+  }
+\newcommand\albi[1]{\nb{Albi}{\textcolor{cyan}{#1}}}
+\newcommand\carlo[1]{\nb{Carlo}{\textcolor{violet}{#1}}}
+\newcommand\matte[1]{\nb{Matte}{\textcolor{orange}{#1}}}
+\newcommand\prof[1]{\nb{Prof}{\textcolor{red}{#1}}}
+
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%% XXXXXX %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xargs} 
+
+\usepackage[colorinlistoftodos,prependcaption]{todonotes}
+\newcommandx{\prof}[2][1=]{\todo[author=\textbf{Prof},linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\albi}[2][1=]{\todo[author=\textbf{Albi},linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\matte}[2][1=]{\todo[author=\textbf{Matteo},linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\carlo}[2][1=]{\todo[author=\textbf{Carlo},linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\mirco}[2][1=]{\todo[author=\textbf{Mirco},linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%% XXXXXX %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}
+\usepackage{subcaption}

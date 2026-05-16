@@ -1,7 +1,0 @@
-N_concurrent,arm,K,N_iter,wall_s,n_calls,hit_rate,throughput_calls_per_s,vllm:prefix_cache_queries_total,vllm:prefix_cache_hits_total,vllm:prompt_tokens_total,vllm:generation_tokens_total,vllm:request_success_total
-4,batched,8,2,39.976,64,0.8963,1.601,267208.0,239504.0,267208.0,99185.0,64.0
-4,batched_speculative,8,2,58.634,93,0.9485,1.586,513340.0,486928.0,513340.0,171778.0,93.0
-4,batched_speculative_gated,8,2,54.090,95,0.9242,1.756,327088.0,302304.0,327088.0,141580.0,95.0
-8,batched,8,2,75.893,144,0.9128,1.897,531504.0,485152.0,531504.0,210128.0,144.0
-8,batched_speculative,8,2,139.565,246,0.9550,1.763,1038920.0,992208.0,1038920.0,388057.0,246.0
-8,batched_speculative_gated,8,2,142.460,152,0.9123,1.067,642488.0,586144.0,642488.0,239584.0,152.0

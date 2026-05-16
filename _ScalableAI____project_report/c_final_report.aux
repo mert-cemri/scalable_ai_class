@@ -1,0 +1,95 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{cemri2026skydiscover}
+\citation{rudes2025openevolve}
+\citation{khrulkov2025gigaevo}
+\citation{kwon2023pagedattention}
+\citation{romeraparedes2024funsearch}
+\citation{novikov2025alphaevolve}
+\citation{rudes2025openevolve}
+\citation{lange2025shinkaevolve}
+\citation{khrulkov2025gigaevo}
+\citation{cemri2026skydiscover}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Works}{1}{section.2}\protected@file@percent }
+\citation{kwon2023pagedattention}
+\citation{liu2025lmcache}
+\citation{zhong2024distserve}
+\citation{patel2024splitwise}
+\citation{qin2024mooncake}
+\citation{leviathan2023speculativedecoding}
+\citation{shao2024deepseekmath}
+\citation{deepseek2025deepseekr1}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Background}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}KV cache hit rate overview}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Prompt composition across consecutive AdaEvolve iterations. Although the overall \textit  {content} overlap between prompts can be very high, most shared content comes from imports, evaluation templates, and task boilerplate appearing at different positions, resulting in very low \textit  {prefix} overlap. Consequently, vLLM's prefix-based KV cache cannot effectively reuse these tokens. }}{2}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:prompt_kv_cache}{{1}{2}{Prompt composition across consecutive AdaEvolve iterations. Although the overall \textit {content} overlap between prompts can be very high, most shared content comes from imports, evaluation templates, and task boilerplate appearing at different positions, resulting in very low \textit {prefix} overlap. Consequently, vLLM's prefix-based KV cache cannot effectively reuse these tokens}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Methods}{3}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}K-Batched Candidate Generation}{3}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Speculative Iteration Pipelining}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experimental Setup}{4}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Hardware and Software}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Benchmarks}{4}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Baselines and Arms}{4}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Metrics}{4}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{5}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Effect of $K$ on Cache Hit Rate}{5}{subsection.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Overall KV cache hit rate across different batch sizes $K$ for Circle Packing and Signal Processing (mean $\pm $ std over 3 runs). Both benchmarks exhibit a consistent increase in hit rate as $K$ grows, with the largest gains occurring between $K{=}1$ and $K{=}2$. The trend indicates that larger candidate batches produce substantially more reusable prompt prefixes during decoding, leading to more effective KV cache reuse across requests. }}{5}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:hit_rate}{{2}{5}{Overall KV cache hit rate across different batch sizes $K$ for Circle Packing and Signal Processing (mean $\pm $ std over 3 runs). Both benchmarks exhibit a consistent increase in hit rate as $K$ grows, with the largest gains occurring between $K{=}1$ and $K{=}2$. The trend indicates that larger candidate batches produce substantially more reusable prompt prefixes during decoding, leading to more effective KV cache reuse across requests}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Effect of $K$ on LLM Generation Time per Candidate}{5}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Evaluation Time as a Bottleneck}{5}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Per-candidate evaluation time (seconds) by benchmark and $K$.}}{5}{table.caption.4}\protected@file@percent }
+\newlabel{tab:eval_time}{{1}{5}{Per-candidate evaluation time (seconds) by benchmark and $K$}{table.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textsc  {AdaEvolve}{} $K$ batch candidate sweep: best score (left column) and candidates generated (right column) vs.\ wall-clock time for $K \in \{1,2,4,8\}$, mean $\pm $ std over 3 runs. \textbf  {Circle Packing} (top row): all $K$ values saturate near 1.0 within the 2-hour budget; larger $K$ reaches this plateau faster and generates more candidates per hour. \textbf  {Signal Processing} (bottom row): best score improves substantially with $K$, and the candidate throughput gap widens dramatically ($K{=}8$ produces $\sim $8$\times $ more candidates than $K{=}1$), reflecting the near-zero evaluation cost of this benchmark.}}{6}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:ksweep}{{3}{6}{\adaev {} $K$ batch candidate sweep: best score (left column) and candidates generated (right column) vs.\ wall-clock time for $K \in \{1,2,4,8\}$, mean $\pm $ std over 3 runs. \textbf {Circle Packing} (top row): all $K$ values saturate near 1.0 within the 2-hour budget; larger $K$ reaches this plateau faster and generates more candidates per hour. \textbf {Signal Processing} (bottom row): best score improves substantially with $K$, and the candidate throughput gap widens dramatically ($K{=}8$ produces $\sim $8$\times $ more candidates than $K{=}1$), reflecting the near-zero evaluation cost of this benchmark}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Search Quality}{6}{subsection.6.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Best score at 2 hours (mean $\pm $ std, 3 runs per condition).}}{6}{table.caption.5}\protected@file@percent }
+\newlabel{tab:best_score}{{2}{6}{Best score at 2 hours (mean $\pm $ std, 3 runs per condition)}{table.caption.5}{}}
+\newlabel{fig:k4_best_score}{{4a}{7}{Best score vs.\ wall-clock time}{figure.caption.7}{}}
+\newlabel{sub@fig:k4_best_score}{{a}{7}{Best score vs.\ wall-clock time}{figure.caption.7}{}}
+\newlabel{fig:k4_candidates}{{4b}{7}{Candidates generated vs.\ wall-clock time}{figure.caption.7}{}}
+\newlabel{sub@fig:k4_candidates}{{b}{7}{Candidates generated vs.\ wall-clock time}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Comparison between standard and speculative generation for Circle Packing under $K{=}4$. (a) shows the best score over wall-clock time, where speculation provides a modest early lead that closes as the task saturates. (b) shows the number of generated candidates over time, where the speculative variant consistently achieves higher throughput. }}{7}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:k4_spec_comparison}{{4}{7}{Comparison between standard and speculative generation for Circle Packing under $K{=}4$. (a) shows the best score over wall-clock time, where speculation provides a modest early lead that closes as the task saturates. (b) shows the number of generated candidates over time, where the speculative variant consistently achieves higher throughput}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Speculative Pipelining}{7}{subsection.6.5}\protected@file@percent }
+\newlabel{sec:results-spec}{{6.5}{7}{Speculative Pipelining}{subsection.6.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.1}$K{=}4$: Throughput Gains with an Eval-Time Trade-off}{7}{subsubsection.6.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.2}$K{=}8$: System Advantage but Pronounced Quality Regression}{7}{subsubsection.6.5.2}\protected@file@percent }
+\newlabel{sec:k8spec}{{6.5.2}{7}{$K{=}8$: System Advantage but Pronounced Quality Regression}{subsubsection.6.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Circle Packing ($K{=}4$ spec): mean iteration time decomposed into LLM generation and Eval/Other, conditioned on speculation outcome. Pooled across 3 runs (spec-hit $n{=}108$, non-hit $n{=}304$). Spec-hit iterations recover $\sim $47\,s of LLM time but incur $\sim $58\,s of additional evaluation latency, leaving total iteration wall time roughly even.}}{8}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:k4_spec_breakdown}{{5}{8}{Circle Packing ($K{=}4$ spec): mean iteration time decomposed into LLM generation and Eval/Other, conditioned on speculation outcome. Pooled across 3 runs (spec-hit $n{=}108$, non-hit $n{=}304$). Spec-hit iterations recover $\sim $47\,s of LLM time but incur $\sim $58\,s of additional evaluation latency, leaving total iteration wall time roughly even}{figure.caption.8}{}}
+\newlabel{fig:k8_best_score}{{6a}{8}{Best score vs.\ wall-clock time}{figure.caption.9}{}}
+\newlabel{sub@fig:k8_best_score}{{a}{8}{Best score vs.\ wall-clock time}{figure.caption.9}{}}
+\newlabel{fig:k8_candidates}{{6b}{8}{Candidates generated vs.\ wall-clock time}{figure.caption.9}{}}
+\newlabel{sub@fig:k8_candidates}{{b}{8}{Candidates generated vs.\ wall-clock time}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Comparison between standard and speculative generation for Circle Packing under $K{=}8$. (a) shows a severe quality regression under speculation: the non-speculative run saturates near 1.0 within 30 minutes, while the speculative variant stagnates around $0.975$. (b) shows that the speculative variant still generates slightly more candidates per hour, indicating the regression arises from degraded search quality rather than insufficient throughput. }}{8}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:k8_spec_comparison}{{6}{8}{Comparison between standard and speculative generation for Circle Packing under $K{=}8$. (a) shows a severe quality regression under speculation: the non-speculative run saturates near 1.0 within 30 minutes, while the speculative variant stagnates around $0.975$. (b) shows that the speculative variant still generates slightly more candidates per hour, indicating the regression arises from degraded search quality rather than insufficient throughput}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Circle Packing ($K{=}8$ spec): mean iteration time by speculation outcome, pooled across 3 runs (spec-hit $n{=}120$, non-hit $n{=}424$; clipped at 360\,s). Spec-hit iterations are faster end-to-end ($158.5$ vs.\ $255.8\,\text  {s}$), yet Figure~\ref {fig:k8_best_score} shows this speed comes at a steep search-quality cost.}}{9}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:k8_spec_breakdown}{{7}{9}{Circle Packing ($K{=}8$ spec): mean iteration time by speculation outcome, pooled across 3 runs (spec-hit $n{=}120$, non-hit $n{=}424$; clipped at 360\,s). Spec-hit iterations are faster end-to-end ($158.5$ vs.\^^M$255.8\,\text {s}$), yet Figure~\ref {fig:k8_best_score} shows this speed comes at a steep search-quality cost}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{9}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{9}{section.8}\protected@file@percent }
+\bibstyle{plain}
+\bibcite{adaevolve2025}{{1}{}{{}}{{}}}
+\bibcite{deepseekr1}{{2}{}{{}}{{}}}
+\bibcite{vllm}{{3}{}{{}}{{}}}
+\bibcite{qwen25coder}{{4}{}{{}}{{}}}
+\bibcite{lora}{{5}{}{{}}{{}}}
+\bibcite{romeraparedes2024funsearch}{{6}{}{{}}{{}}}
+\bibcite{novikov2025alphaevolve}{{7}{}{{}}{{}}}
+\bibcite{rudes2025openevolve}{{8}{}{{}}{{}}}
+\bibcite{lange2025shinkaevolve}{{9}{}{{}}{{}}}
+\bibcite{khrulkov2025gigaevo}{{10}{}{{}}{{}}}
+\bibcite{cemri2026skydiscover}{{11}{}{{}}{{}}}
+\bibcite{kwon2023pagedattention}{{12}{}{{}}{{}}}
+\bibcite{liu2025lmcache}{{13}{}{{}}{{}}}
+\bibcite{zhong2024distserve}{{14}{}{{}}{{}}}
+\bibcite{patel2024splitwise}{{15}{}{{}}{{}}}
+\bibcite{qin2024mooncake}{{16}{}{{}}{{}}}
+\bibcite{leviathan2023speculativedecoding}{{17}{}{{}}{{}}}
+\bibcite{shao2024deepseekmath}{{18}{}{{}}{{}}}
+\bibcite{deepseek2025deepseekr1}{{19}{}{{}}{{}}}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\gdef \@abspage@last{11}

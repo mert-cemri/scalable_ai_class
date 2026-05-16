@@ -1,0 +1,245 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 9,
+  "global_best_score": 0.49904861783269006,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.09999999999999998,
+        "best_score": 0.49904861783269006,
+        "improvement_count": 1,
+        "total_evaluations": 11,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.09999999999999998,
+        "best_score": 0.49904861783269006,
+        "improvement_count": 0,
+        "total_evaluations": 10,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      11,
+      10
+    ],
+    "dimension_rewards": [
+      0.34867844010000015,
+      0.0
+    ],
+    "decayed_visits": [
+      6.861894039100001,
+      6.5132155990000005
+    ],
+    "global_best_score": 0.49904861783269006,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "a09d7234-ff65-4f27-9bf7-16d6f90277c4",
+      "908bc484-fecc-4a1f-a8a3-0c7a884dc30c",
+      "f9b53060-0566-429f-aa58-a71db5cd389b",
+      "cd953c7a-0811-43e5-b943-b3f989b77343",
+      "8af5904c-cf90-40d0-b811-1052e2025127",
+      "471d5fce-cb0f-41f7-94fb-bfa43fe81fd3",
+      "378f6f5a-a4c9-4b65-a9d4-d5b277e53d51",
+      "d155a62e-a5e6-4e73-8206-d0d3c48fd2a7",
+      "c08597e5-baed-42da-8704-93e01b5226eb",
+      "dfe402c7-85f1-4999-a9c5-1ccc90e969cc",
+      "f5c87dd3-4dbc-4595-828c-dfaf90df7a48"
+    ],
+    [
+      "f15d1fcf-8953-4b23-b04e-6023fd9a5f2e",
+      "f2d4e8d8-55f0-4c7a-88c5-cf99a258832c",
+      "bd3d4a12-fa04-4660-a3f1-132d16287526",
+      "5fb2cc9a-9445-4750-b21b-8a112bdbea11",
+      "b7e60a2e-f77e-47fe-bff7-aa8150c6ac09",
+      "4fbcd580-e22d-47b3-a597-513737ff2042",
+      "f16bf0df-c519-4ca0-af35-7c64505382d5",
+      "97c4ae44-3b09-42d3-8b16-475883be130a",
+      "77a31138-7b9d-416c-995f-0a37d68629fb",
+      "ff7e5384-49af-4bd3-8fb1-ce4241c53da6",
+      "8e2d89f1-67ae-4ae9-9a87-45d14f7fdd6a"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "a09d7234-ff65-4f27-9bf7-16d6f90277c4": [],
+        "908bc484-fecc-4a1f-a8a3-0c7a884dc30c": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "f9b53060-0566-429f-aa58-a71db5cd389b": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "cd953c7a-0811-43e5-b943-b3f989b77343": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "8af5904c-cf90-40d0-b811-1052e2025127": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "471d5fce-cb0f-41f7-94fb-bfa43fe81fd3": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "378f6f5a-a4c9-4b65-a9d4-d5b277e53d51": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "d155a62e-a5e6-4e73-8206-d0d3c48fd2a7": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "c08597e5-baed-42da-8704-93e01b5226eb": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "dfe402c7-85f1-4999-a9c5-1ccc90e969cc": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "f5c87dd3-4dbc-4595-828c-dfaf90df7a48": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ]
+      },
+      "children": {
+        "a09d7234-ff65-4f27-9bf7-16d6f90277c4": [
+          "908bc484-fecc-4a1f-a8a3-0c7a884dc30c",
+          "f9b53060-0566-429f-aa58-a71db5cd389b",
+          "cd953c7a-0811-43e5-b943-b3f989b77343",
+          "8af5904c-cf90-40d0-b811-1052e2025127",
+          "471d5fce-cb0f-41f7-94fb-bfa43fe81fd3",
+          "378f6f5a-a4c9-4b65-a9d4-d5b277e53d51",
+          "d155a62e-a5e6-4e73-8206-d0d3c48fd2a7",
+          "c08597e5-baed-42da-8704-93e01b5226eb",
+          "dfe402c7-85f1-4999-a9c5-1ccc90e969cc",
+          "f5c87dd3-4dbc-4595-828c-dfaf90df7a48"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "f15d1fcf-8953-4b23-b04e-6023fd9a5f2e": [],
+        "f2d4e8d8-55f0-4c7a-88c5-cf99a258832c": [
+          "f15d1fcf-8953-4b23-b04e-6023fd9a5f2e"
+        ],
+        "bd3d4a12-fa04-4660-a3f1-132d16287526": [
+          "f15d1fcf-8953-4b23-b04e-6023fd9a5f2e"
+        ],
+        "5fb2cc9a-9445-4750-b21b-8a112bdbea11": [
+          "f15d1fcf-8953-4b23-b04e-6023fd9a5f2e"
+        ],
+        "b7e60a2e-f77e-47fe-bff7-aa8150c6ac09": [
+          "f15d1fcf-8953-4b23-b04e-6023fd9a5f2e"
+        ],
+        "4fbcd580-e22d-47b3-a597-513737ff2042": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "f16bf0df-c519-4ca0-af35-7c64505382d5": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "97c4ae44-3b09-42d3-8b16-475883be130a": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "77a31138-7b9d-416c-995f-0a37d68629fb": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "ff7e5384-49af-4bd3-8fb1-ce4241c53da6": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ],
+        "8e2d89f1-67ae-4ae9-9a87-45d14f7fdd6a": [
+          "a09d7234-ff65-4f27-9bf7-16d6f90277c4"
+        ]
+      },
+      "children": {
+        "f15d1fcf-8953-4b23-b04e-6023fd9a5f2e": [
+          "f2d4e8d8-55f0-4c7a-88c5-cf99a258832c",
+          "bd3d4a12-fa04-4660-a3f1-132d16287526",
+          "5fb2cc9a-9445-4750-b21b-8a112bdbea11",
+          "b7e60a2e-f77e-47fe-bff7-aa8150c6ac09"
+        ],
+        "a09d7234-ff65-4f27-9bf7-16d6f90277c4": [
+          "4fbcd580-e22d-47b3-a597-513737ff2042",
+          "f16bf0df-c519-4ca0-af35-7c64505382d5",
+          "97c4ae44-3b09-42d3-8b16-475883be130a",
+          "77a31138-7b9d-416c-995f-0a37d68629fb",
+          "ff7e5384-49af-4bd3-8fb1-ce4241c53da6",
+          "8e2d89f1-67ae-4ae9-9a87-45d14f7fdd6a"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Implement adaptive Kalman filter with constant velocity model",
+        "description": "Replace the weighted moving average with a Kalman filter that maintains state (position and velocity) to predict signal dynamics. The Kalman filter naturally balances tracking the noisy signal (minimizing L_recent/L_avg) with smoothness (minimizing S and R) through its prediction-update cycle. Use a constant velocity state-space model where the state vector contains [position, velocity]. Set process noise Q to handle non-stationarity and measurement noise R based on observed signal variance. The filter will adaptively smooth while tracking genuine trend changes. Implement as a single function using numpy matrix operations without scipy.optimize.",
+        "what_to_optimize": "Balance between slope changes (S), lag error (L_recent/L_avg), and false reversals (R) through Kalman gain adaptation",
+        "cautions": "Initialize state covariance properly to avoid filter divergence. Tune Q and R parameters - too high Q causes jitter, too low Q causes lag. Handle edge cases for short signals.",
+        "approach_type": "custom.kalman_filter"
+      },
+      {
+        "idea": "Apply Savitzky-Golay filter for polynomial-based smoothing",
+        "description": "Use scipy.signal.savgol_filter to smooth the signal while preserving higher-order polynomial characteristics. The Savitzky-Golay filter fits a polynomial locally to each window and evaluates it at the center point, which preserves signal features like peaks and inflection points better than simple moving averages. Set polynomial order to 2 or 3 for good balance between smoothness and tracking. The window length should match the given window_size parameter (must be odd). This single function call provides smooth output with minimal phase delay and reduced slope changes compared to the current weighted average approach.",
+        "what_to_optimize": "Slope changes (S) and false reversals (R) while maintaining tracking accuracy through polynomial feature preservation",
+        "cautions": "Window length must be odd and greater than polynomial order. Use padtype='reflect' or 'nearest' for edge handling. Choose polynomial order 2-3 for non-stationary signals.",
+        "approach_type": "scipy.signal.savgol_filter"
+      },
+      {
+        "idea": "Use wavelet denoising with soft thresholding",
+        "description": "Apply PyWavelets (pywt) for multi-scale wavelet decomposition and denoising. Decompose the signal using a wavelet family like 'db4' or 'sym4' to separate noise (high-frequency coefficients) from signal components. Apply soft thresholding to wavelet coefficients at each decomposition level using a universal threshold (sigma * sqrt(2*log(N))). Reconstruct the signal from thresholded coefficients. This approach handles multi-frequency signals well (test signal 1-2) and preserves step changes (test signal 3) better than sliding window methods. It's a single function call through pywt.denoise that processes the entire signal at once.",
+        "what_to_optimize": "False reversals (R) for multi-frequency signals and step changes, while reducing slope changes through frequency-selective smoothing",
+        "cautions": "Choose appropriate wavelet family (db4, sym4, or coif2). Use 'soft' thresholding for smoother results. Set wavelet decomposition level appropriately (typically 2-4 for these signal lengths).",
+        "approach_type": "pywt.denoise"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 2,
+      "1": 2,
+      "2": 1
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [],
+    "best_score_at_paradigm_gen": 0.49904861783269006,
+    "best_score_during_paradigm": 0.49904861783269006
+  }
+}

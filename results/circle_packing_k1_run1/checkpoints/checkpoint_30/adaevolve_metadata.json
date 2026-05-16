@@ -1,0 +1,405 @@
+{
+  "num_islands": 2,
+  "current_island": 0,
+  "iteration_count": 29,
+  "global_best_score": 0.9936750753010234,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.1422162385836133,
+        "best_score": 0.9936750753010234,
+        "improvement_count": 5,
+        "total_evaluations": 17,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.11563387785693004,
+        "best_score": 0.9936750753010234,
+        "improvement_count": 6,
+        "total_evaluations": 17,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      17,
+      17
+    ],
+    "dimension_rewards": [
+      0.4924321064324658,
+      0.33998019374501576
+    ],
+    "decayed_visits": [
+      8.332281830033345,
+      8.332281830033345
+    ],
+    "global_best_score": 0.9936750753010234,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "5785d732-bd73-437e-8c66-da168e22602e",
+      "2aebbafd-d57a-4931-bf95-38c918d20c7b",
+      "e87669c1-9252-4ea9-90eb-59dc1f50f3f0",
+      "0b141bcd-2762-46a7-8d12-480fd4e83ae5",
+      "d16dce90-804f-450a-9a6c-864347c606a1",
+      "5410c062-3ed2-4618-a43c-e0b4e4b36376",
+      "d14192e2-0c9d-4307-8840-2f0a4eed0870",
+      "61ecd652-6557-40e9-bf8c-d9db963c75df",
+      "bfc28bd2-033b-46e1-9d6c-052dff4a626b",
+      "192c6071-63e1-4d7a-b095-8259c7978e28",
+      "6aceec55-6547-4102-b83e-1f8144d971e7",
+      "7518a97b-17ab-4674-8dd1-1ed3c05e5f22",
+      "6f36e1c7-354b-4128-8bb8-af2b5da0f803",
+      "e547d820-ac27-4286-b63a-38e3693a75b6",
+      "7d0da039-3b03-4663-9e9e-58df9e2d3423",
+      "44f97d0e-dbfa-4595-842d-e618e22b1918",
+      "1624fa4e-ef6c-4c3a-a6ce-b01987003b63"
+    ],
+    [
+      "4255643a-d910-4174-9a7b-11785830afe8",
+      "74ce8844-03fd-4507-abce-023514f0ae7d",
+      "ea765c2d-b12b-4214-8ebb-6bfbdf4c1bff",
+      "78609850-b4ea-463c-830e-dd6554b16724",
+      "05485e15-c346-4c26-8fb8-46a1cfc164d0",
+      "427667e8-d82b-43dc-a7cc-1111dcb8b07d",
+      "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b",
+      "071a194e-fb5a-4967-89c1-783a5d83377f",
+      "630f1d65-a956-4a2e-a0ba-2f5e4a34bd17",
+      "cad868ee-51ec-454f-b233-226df618775f",
+      "d5fe9511-1781-4879-9cfb-bd1c7d0f2b3c",
+      "dee06b95-fe36-4eae-bdd6-a7596d0d93a5",
+      "cf0caa0f-d823-49b4-899a-3298cf0739a0",
+      "e6a4f22f-65b0-4923-b424-7032175db3ec",
+      "4bf3d7f4-83ce-42cf-b240-3aec1c3ef192",
+      "4d284f0a-a176-4538-b04d-e038c3370341",
+      "f89e8be6-edde-4330-9878-f3851c02e813",
+      "909d77da-69c9-44d0-ba02-51ade9fad429",
+      "d22f1828-a9b3-4ddc-940b-1729315743ef",
+      "05a2ab3c-80fd-4adc-8a53-602d3ab4b4cd"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "5785d732-bd73-437e-8c66-da168e22602e": [],
+        "2aebbafd-d57a-4931-bf95-38c918d20c7b": [
+          "5785d732-bd73-437e-8c66-da168e22602e"
+        ],
+        "e87669c1-9252-4ea9-90eb-59dc1f50f3f0": [
+          "2aebbafd-d57a-4931-bf95-38c918d20c7b"
+        ],
+        "0b141bcd-2762-46a7-8d12-480fd4e83ae5": [
+          "e87669c1-9252-4ea9-90eb-59dc1f50f3f0"
+        ],
+        "d16dce90-804f-450a-9a6c-864347c606a1": [
+          "5785d732-bd73-437e-8c66-da168e22602e"
+        ],
+        "5410c062-3ed2-4618-a43c-e0b4e4b36376": [
+          "0b141bcd-2762-46a7-8d12-480fd4e83ae5"
+        ],
+        "d14192e2-0c9d-4307-8840-2f0a4eed0870": [
+          "5410c062-3ed2-4618-a43c-e0b4e4b36376"
+        ],
+        "61ecd652-6557-40e9-bf8c-d9db963c75df": [
+          "e87669c1-9252-4ea9-90eb-59dc1f50f3f0"
+        ],
+        "bfc28bd2-033b-46e1-9d6c-052dff4a626b": [
+          "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b"
+        ],
+        "192c6071-63e1-4d7a-b095-8259c7978e28": [
+          "071a194e-fb5a-4967-89c1-783a5d83377f"
+        ],
+        "6aceec55-6547-4102-b83e-1f8144d971e7": [
+          "630f1d65-a956-4a2e-a0ba-2f5e4a34bd17"
+        ],
+        "7518a97b-17ab-4674-8dd1-1ed3c05e5f22": [
+          "d16dce90-804f-450a-9a6c-864347c606a1"
+        ],
+        "6f36e1c7-354b-4128-8bb8-af2b5da0f803": [
+          "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b"
+        ],
+        "e547d820-ac27-4286-b63a-38e3693a75b6": [
+          "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b"
+        ],
+        "7d0da039-3b03-4663-9e9e-58df9e2d3423": [
+          "909d77da-69c9-44d0-ba02-51ade9fad429"
+        ],
+        "44f97d0e-dbfa-4595-842d-e618e22b1918": [
+          "d22f1828-a9b3-4ddc-940b-1729315743ef"
+        ],
+        "1624fa4e-ef6c-4c3a-a6ce-b01987003b63": [
+          "bfc28bd2-033b-46e1-9d6c-052dff4a626b"
+        ]
+      },
+      "children": {
+        "5785d732-bd73-437e-8c66-da168e22602e": [
+          "2aebbafd-d57a-4931-bf95-38c918d20c7b",
+          "d16dce90-804f-450a-9a6c-864347c606a1"
+        ],
+        "2aebbafd-d57a-4931-bf95-38c918d20c7b": [
+          "e87669c1-9252-4ea9-90eb-59dc1f50f3f0"
+        ],
+        "e87669c1-9252-4ea9-90eb-59dc1f50f3f0": [
+          "0b141bcd-2762-46a7-8d12-480fd4e83ae5",
+          "61ecd652-6557-40e9-bf8c-d9db963c75df"
+        ],
+        "0b141bcd-2762-46a7-8d12-480fd4e83ae5": [
+          "5410c062-3ed2-4618-a43c-e0b4e4b36376"
+        ],
+        "5410c062-3ed2-4618-a43c-e0b4e4b36376": [
+          "d14192e2-0c9d-4307-8840-2f0a4eed0870"
+        ],
+        "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b": [
+          "bfc28bd2-033b-46e1-9d6c-052dff4a626b",
+          "6f36e1c7-354b-4128-8bb8-af2b5da0f803",
+          "e547d820-ac27-4286-b63a-38e3693a75b6"
+        ],
+        "071a194e-fb5a-4967-89c1-783a5d83377f": [
+          "192c6071-63e1-4d7a-b095-8259c7978e28"
+        ],
+        "630f1d65-a956-4a2e-a0ba-2f5e4a34bd17": [
+          "6aceec55-6547-4102-b83e-1f8144d971e7"
+        ],
+        "d16dce90-804f-450a-9a6c-864347c606a1": [
+          "7518a97b-17ab-4674-8dd1-1ed3c05e5f22"
+        ],
+        "909d77da-69c9-44d0-ba02-51ade9fad429": [
+          "7d0da039-3b03-4663-9e9e-58df9e2d3423"
+        ],
+        "d22f1828-a9b3-4ddc-940b-1729315743ef": [
+          "44f97d0e-dbfa-4595-842d-e618e22b1918"
+        ],
+        "bfc28bd2-033b-46e1-9d6c-052dff4a626b": [
+          "1624fa4e-ef6c-4c3a-a6ce-b01987003b63"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "4255643a-d910-4174-9a7b-11785830afe8": [],
+        "74ce8844-03fd-4507-abce-023514f0ae7d": [
+          "4255643a-d910-4174-9a7b-11785830afe8"
+        ],
+        "ea765c2d-b12b-4214-8ebb-6bfbdf4c1bff": [
+          "74ce8844-03fd-4507-abce-023514f0ae7d"
+        ],
+        "78609850-b4ea-463c-830e-dd6554b16724": [
+          "ea765c2d-b12b-4214-8ebb-6bfbdf4c1bff"
+        ],
+        "05485e15-c346-4c26-8fb8-46a1cfc164d0": [
+          "4255643a-d910-4174-9a7b-11785830afe8"
+        ],
+        "427667e8-d82b-43dc-a7cc-1111dcb8b07d": [
+          "74ce8844-03fd-4507-abce-023514f0ae7d"
+        ],
+        "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b": [
+          "05485e15-c346-4c26-8fb8-46a1cfc164d0"
+        ],
+        "071a194e-fb5a-4967-89c1-783a5d83377f": [
+          "78609850-b4ea-463c-830e-dd6554b16724"
+        ],
+        "630f1d65-a956-4a2e-a0ba-2f5e4a34bd17": [
+          "071a194e-fb5a-4967-89c1-783a5d83377f"
+        ],
+        "cad868ee-51ec-454f-b233-226df618775f": [
+          "5410c062-3ed2-4618-a43c-e0b4e4b36376"
+        ],
+        "d5fe9511-1781-4879-9cfb-bd1c7d0f2b3c": [
+          "d14192e2-0c9d-4307-8840-2f0a4eed0870"
+        ],
+        "dee06b95-fe36-4eae-bdd6-a7596d0d93a5": [
+          "0b141bcd-2762-46a7-8d12-480fd4e83ae5"
+        ],
+        "cf0caa0f-d823-49b4-899a-3298cf0739a0": [
+          "d16dce90-804f-450a-9a6c-864347c606a1"
+        ],
+        "e6a4f22f-65b0-4923-b424-7032175db3ec": [
+          "61ecd652-6557-40e9-bf8c-d9db963c75df"
+        ],
+        "4bf3d7f4-83ce-42cf-b240-3aec1c3ef192": [
+          "630f1d65-a956-4a2e-a0ba-2f5e4a34bd17"
+        ],
+        "4d284f0a-a176-4538-b04d-e038c3370341": [
+          "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b"
+        ],
+        "f89e8be6-edde-4330-9878-f3851c02e813": [
+          "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b"
+        ],
+        "909d77da-69c9-44d0-ba02-51ade9fad429": [
+          "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b"
+        ],
+        "d22f1828-a9b3-4ddc-940b-1729315743ef": [
+          "909d77da-69c9-44d0-ba02-51ade9fad429"
+        ],
+        "05a2ab3c-80fd-4adc-8a53-602d3ab4b4cd": [
+          "d22f1828-a9b3-4ddc-940b-1729315743ef"
+        ]
+      },
+      "children": {
+        "4255643a-d910-4174-9a7b-11785830afe8": [
+          "74ce8844-03fd-4507-abce-023514f0ae7d",
+          "05485e15-c346-4c26-8fb8-46a1cfc164d0"
+        ],
+        "74ce8844-03fd-4507-abce-023514f0ae7d": [
+          "ea765c2d-b12b-4214-8ebb-6bfbdf4c1bff",
+          "427667e8-d82b-43dc-a7cc-1111dcb8b07d"
+        ],
+        "ea765c2d-b12b-4214-8ebb-6bfbdf4c1bff": [
+          "78609850-b4ea-463c-830e-dd6554b16724"
+        ],
+        "05485e15-c346-4c26-8fb8-46a1cfc164d0": [
+          "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b"
+        ],
+        "78609850-b4ea-463c-830e-dd6554b16724": [
+          "071a194e-fb5a-4967-89c1-783a5d83377f"
+        ],
+        "071a194e-fb5a-4967-89c1-783a5d83377f": [
+          "630f1d65-a956-4a2e-a0ba-2f5e4a34bd17"
+        ],
+        "5410c062-3ed2-4618-a43c-e0b4e4b36376": [
+          "cad868ee-51ec-454f-b233-226df618775f"
+        ],
+        "d14192e2-0c9d-4307-8840-2f0a4eed0870": [
+          "d5fe9511-1781-4879-9cfb-bd1c7d0f2b3c"
+        ],
+        "0b141bcd-2762-46a7-8d12-480fd4e83ae5": [
+          "dee06b95-fe36-4eae-bdd6-a7596d0d93a5"
+        ],
+        "d16dce90-804f-450a-9a6c-864347c606a1": [
+          "cf0caa0f-d823-49b4-899a-3298cf0739a0"
+        ],
+        "61ecd652-6557-40e9-bf8c-d9db963c75df": [
+          "e6a4f22f-65b0-4923-b424-7032175db3ec"
+        ],
+        "630f1d65-a956-4a2e-a0ba-2f5e4a34bd17": [
+          "4bf3d7f4-83ce-42cf-b240-3aec1c3ef192"
+        ],
+        "1afdad8b-69f6-4cc7-aa74-ee08b9c9d02b": [
+          "4d284f0a-a176-4538-b04d-e038c3370341",
+          "f89e8be6-edde-4330-9878-f3851c02e813",
+          "909d77da-69c9-44d0-ba02-51ade9fad429"
+        ],
+        "909d77da-69c9-44d0-ba02-51ade9fad429": [
+          "d22f1828-a9b3-4ddc-940b-1729315743ef"
+        ],
+        "d22f1828-a9b3-4ddc-940b-1729315743ef": [
+          "05a2ab3c-80fd-4adc-8a53-602d3ab4b4cd"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Joint optimization of centers and radii using scipy.optimize.minimize with SLSQP",
+        "description": "The current program fixes center positions and only optimizes radii. Instead, optimize all 78 variables (x, y, r for each of 26 circles) simultaneously using scipy.optimize.minimize with SLSQP method. Formulate as minimizing negative sum of radii with nonlinear constraints: (1) boundary constraints r_i <= min(x_i, y_i, 1-x_i, 1-y_i), (2) non-overlap constraints dist(i,j) >= r_i + r_j for all pairs. Use multiple random starting points from hexagonal lattice perturbations to escape local optima. This directly addresses the main weakness of fixing centers while only optimizing radii.",
+        "what_to_optimize": "sum_radii by jointly optimizing both positions and radii to find globally better configuration",
+        "cautions": "78 variables with 351 pairwise constraints is computationally intensive; use constraint violation penalties in objective if SLSQP struggles; ensure good initial guess from hexagonal lattice; limit iterations to avoid timeout",
+        "approach_type": "scipy.optimize.minimize"
+      },
+      {
+        "idea": "Voronoi diagram-based packing with scipy.spatial.Voronoi",
+        "description": "Use scipy.spatial.Voronoi to compute the Voronoi diagram of circle centers, then set each circle's radius to the minimum distance from its center to the Voronoi cell boundary. This automatically guarantees non-overlapping circles. The optimization problem reduces to finding optimal center positions (52 variables) that maximize sum of Voronoi-derived radii. Use scipy.optimize.minimize on just the center positions, computing radii implicitly from Voronoi diagram at each evaluation. This exploits the geometric structure of optimal packings where each circle fills its Voronoi cell.",
+        "what_to_optimize": "sum_radii by optimizing center positions with Voronoi-derived radii ensuring automatic non-overlap",
+        "cautions": "Voronoi cells for points near boundary need special handling (infinite cells); need to clip Voronoi cells to unit square; Voronoi computation at each optimization step adds overhead; handle degenerate cases where centers coincide",
+        "approach_type": "scipy.spatial.Voronoi"
+      },
+      {
+        "idea": "Corner-exploiting asymmetric packing with edge optimization",
+        "description": "The AlphaEvolve result likely exploits corner space better than symmetric hexagonal packing. Design an asymmetric configuration: place 4 larger circles near corners (radius ~0.15), 8 medium circles along edges (radius ~0.12), and 14 smaller circles in interior hexagonal lattice (radius ~0.08). Use scipy.optimize.minimize to fine-tune positions and radii with this asymmetric initial structure. This breaks symmetry to better utilize the square container's geometry, where corners can accommodate larger circles than the center region. The asymmetric pattern better matches the optimal solution structure.",
+        "what_to_optimize": "sum_radii by exploiting corner and edge space with asymmetric circle sizes",
+        "cautions": "Need careful initial configuration to ensure valid starting point; corner circles must stay within bounds; asymmetric pattern may have different optimal arrangement than hexagonal; validate all constraints after optimization",
+        "approach_type": "scipy.optimize.minimize"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 2,
+      "1": 2,
+      "2": 2
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [
+      {
+        "idea": "Use scipy.optimize.minimize with SLSQP for joint center-radius optimization",
+        "description": "Instead of fixing centers first, jointly optimize all 78 variables (52 center coordinates + 26 radii) in a single optimization call. Formulate as maximizing sum(radii) subject to constraints: (1) r_i + r_j <= dist(i,j) for all pairs, (2) r_i <= min(x_i, y_i, 1-x_i, 1-y_i) for boundaries. Use scipy.optimize.minimize with SLSQP method which handles nonlinear constraints. Start from the current hexagonal solution as warm start. Run multiple random restarts with different initial perturbations to escape local optima. The key insight is that centers and radii should co-evolve, not be sequential.",
+        "what_to_optimize": "sum_radii by jointly optimizing positions and sizes simultaneously rather than sequentially",
+        "cautions": "351 constraints total (325 pairwise + 26 boundary) - may be slow. Use reasonable max iterations (1000). Handle numerical stability by adding small epsilon to constraints. Multiple restarts needed to find global optimum.",
+        "approach_type": "scipy.optimize.minimize",
+        "uses": 2,
+        "starting_score": 0.8333965844420979,
+        "ending_score": 0.8333965844420979,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.spatial.Voronoi for natural territory-based packing",
+        "description": "Generate 26 initial points using a perturbed grid or random distribution, then compute Voronoi diagram using scipy.spatial.Voronoi. Each circle's territory is its Voronoi cell. Set radius for each circle to the minimum distance from its center to any Voronoi edge (or cell boundary), which guarantees no overlap by construction. This creates an organic packing where circles naturally adapt to available space rather than following a rigid lattice. Then refine positions by gradient ascent on sum_radii while maintaining Voronoi-based radii computation. The Voronoi structure naturally handles edge effects and irregular spacing.",
+        "what_to_optimize": "sum_radii by using geometric partitioning that naturally adapts to available space",
+        "cautions": "Voronoi may have unbounded cells for boundary points - need to clip to unit square. Recompute Voronoi after each position update. Handle degenerate cases where points are collinear. May need to clip radii to boundary distances separately.",
+        "approach_type": "scipy.spatial.Voronoi",
+        "uses": 2,
+        "starting_score": 0.8333965844420979,
+        "ending_score": 0.8333965844420979,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.optimize.basinhopping for global discrete pattern search",
+        "description": "Instead of continuous optimization, use scipy.optimize.basinhopping to search over discrete packing patterns. Define a 'pattern' as a set of 26 points with associated radii computed via a fast local solver. The basinhopping algorithm explores different configurations by (1) taking random steps to new configurations, (2) performing local optimization (e.g., small gradient steps on positions), (3) accepting/rejecting based on Metropolis criterion. This allows escaping local optima that trap the current hexagonal approach. The key is that different global patterns (not just perturbations of hexagonal) may be optimal. Use temperature annealing to gradually focus search. Each evaluation computes optimal radii for the given centers using the current fast relaxation method.",
+        "what_to_optimize": "sum_radii by exploring fundamentally different packing patterns beyond hexagonal lattice",
+        "cautions": "Each step requires computing radii (expensive). Use temperature schedule that cools appropriately. May need many iterations (1000+) for convergence. Define step size carefully - too small = slow exploration, too large = poor local optimization.",
+        "approach_type": "scipy.optimize.basinhopping",
+        "uses": 2,
+        "starting_score": 0.8333965844420979,
+        "ending_score": 0.8333965844420979,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.8333965844420979,
+    "best_score_during_paradigm": 0.9936750753010234
+  }
+}

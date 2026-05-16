@@ -1,0 +1,380 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 9,
+  "global_best_score": 0.9966958969547608,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.12584966173790482,
+        "best_score": 0.9966958969547608,
+        "improvement_count": 6,
+        "total_evaluations": 31,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.1722860985992918,
+        "best_score": 0.9662452540295667,
+        "improvement_count": 2,
+        "total_evaluations": 35,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      31,
+      35
+    ],
+    "dimension_rewards": [
+      0.1861467966734436,
+      0.1219134147027368
+    ],
+    "decayed_visits": [
+      9.618479575523056,
+      9.749684449500679
+    ],
+    "global_best_score": 0.9966958969547608,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4",
+      "06de73b1-7d9c-4a03-b948-65f5178da74f",
+      "b6dd2a42-982a-4472-9c39-ea80b9a26451",
+      "eacd74fe-5f7a-4932-9157-6d69af2c47e0",
+      "79e069cb-7297-4259-a5c2-bbfd70cb5a98",
+      "5043001d-2873-4d84-abb5-994aa33df8bd",
+      "02059dd2-b19b-44c2-a2c0-4b363f5bb3bc",
+      "f47198a9-b642-4391-b495-1ca437bf4ee5",
+      "32c858ce-b402-4c71-8c26-095d3e0fc5b4",
+      "69b3da36-7850-40ba-beb6-b6f0a15dab72",
+      "880a82c9-0277-4ad6-9daa-4bf04cb1bf3c",
+      "1456e357-7dee-4c58-8e70-759872a1c520",
+      "21f63bf3-38c7-4759-8d63-30b79fbcff6c",
+      "3c9cd1a1-f0ac-4afb-a063-4fe8159a37b3",
+      "f7370ce0-44c3-4d13-9a20-60441965037c",
+      "c81aaf4b-fa8e-4993-93bd-46d1112c22ee",
+      "3b859508-3816-4d65-941b-19c7fea8e5f9",
+      "863e6737-d1d1-4fdf-966d-ad675b533aa5",
+      "a7748131-f8e5-493f-b47c-34058cb4d6f1",
+      "a8b93392-439f-41b9-beab-c4167ce3e753"
+    ],
+    [
+      "a85aa517-215c-4ab6-a851-4c5cbf784996",
+      "4077f86c-8b32-414d-9c31-f467acac0211",
+      "1416bbfc-688a-49e1-879b-8f69fad164d5",
+      "f34029f5-46f0-4aed-bd0a-5de081b38ea9",
+      "020b26e2-2774-4551-860c-480cefe615fb",
+      "0f95eb49-7a60-44b2-85ab-ba6bf15b4c8f",
+      "96f8da80-32a6-4be4-9b3b-5c907b41ba49",
+      "da16cda6-8130-492b-941d-0c5e3dd2016f",
+      "7a1fa545-c6db-416f-8609-2a14cc94405d",
+      "67fa32e2-ca07-4699-9eb3-fb905e2e8077",
+      "43142ddf-72a1-481b-a3d8-792ad3b5e385",
+      "500b5dd6-74af-4e3c-8d67-3b0624d2a8a9",
+      "359f7e2c-f4c5-4ade-aec2-660702cc4892",
+      "b1384d06-88f0-4333-9af0-bfe7ed5af460",
+      "0f2d56f3-6891-4f03-93f9-869eb9ef7daf",
+      "42da1ec3-5752-486e-bd16-988a5a2b8342",
+      "5cda43cd-80d5-4718-b0fc-74e1037b339d",
+      "bd21c074-501c-4d18-8ab1-c0e11c7da139",
+      "b38ca9d4-45fb-4a1f-829b-943ef3f35f8f",
+      "4f7a1ebc-0f2d-4d90-8179-45620e18f27a"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4": [],
+        "06de73b1-7d9c-4a03-b948-65f5178da74f": [
+          "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4"
+        ],
+        "b6dd2a42-982a-4472-9c39-ea80b9a26451": [
+          "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4"
+        ],
+        "eacd74fe-5f7a-4932-9157-6d69af2c47e0": [
+          "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4"
+        ],
+        "79e069cb-7297-4259-a5c2-bbfd70cb5a98": [
+          "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4"
+        ],
+        "5043001d-2873-4d84-abb5-994aa33df8bd": [
+          "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4"
+        ],
+        "02059dd2-b19b-44c2-a2c0-4b363f5bb3bc": [
+          "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4"
+        ],
+        "f47198a9-b642-4391-b495-1ca437bf4ee5": [
+          "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4"
+        ],
+        "32c858ce-b402-4c71-8c26-095d3e0fc5b4": [
+          "eacd74fe-5f7a-4932-9157-6d69af2c47e0"
+        ],
+        "69b3da36-7850-40ba-beb6-b6f0a15dab72": [
+          "eacd74fe-5f7a-4932-9157-6d69af2c47e0"
+        ],
+        "880a82c9-0277-4ad6-9daa-4bf04cb1bf3c": [
+          "eacd74fe-5f7a-4932-9157-6d69af2c47e0"
+        ],
+        "1456e357-7dee-4c58-8e70-759872a1c520": [
+          "eacd74fe-5f7a-4932-9157-6d69af2c47e0"
+        ],
+        "21f63bf3-38c7-4759-8d63-30b79fbcff6c": [
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "3c9cd1a1-f0ac-4afb-a063-4fe8159a37b3": [
+          "359f7e2c-f4c5-4ade-aec2-660702cc4892"
+        ],
+        "f7370ce0-44c3-4d13-9a20-60441965037c": [
+          "359f7e2c-f4c5-4ade-aec2-660702cc4892"
+        ],
+        "c81aaf4b-fa8e-4993-93bd-46d1112c22ee": [
+          "359f7e2c-f4c5-4ade-aec2-660702cc4892"
+        ],
+        "3b859508-3816-4d65-941b-19c7fea8e5f9": [
+          "3aebfbba-db30-438f-a85c-6d67d078fa8f"
+        ],
+        "863e6737-d1d1-4fdf-966d-ad675b533aa5": [
+          "3aebfbba-db30-438f-a85c-6d67d078fa8f"
+        ],
+        "a7748131-f8e5-493f-b47c-34058cb4d6f1": [
+          "3aebfbba-db30-438f-a85c-6d67d078fa8f"
+        ],
+        "a8b93392-439f-41b9-beab-c4167ce3e753": [
+          "3aebfbba-db30-438f-a85c-6d67d078fa8f"
+        ]
+      },
+      "children": {
+        "1caaeb79-c6ab-4c77-8246-2182cd5bbbd4": [
+          "06de73b1-7d9c-4a03-b948-65f5178da74f",
+          "b6dd2a42-982a-4472-9c39-ea80b9a26451",
+          "eacd74fe-5f7a-4932-9157-6d69af2c47e0",
+          "79e069cb-7297-4259-a5c2-bbfd70cb5a98",
+          "5043001d-2873-4d84-abb5-994aa33df8bd",
+          "02059dd2-b19b-44c2-a2c0-4b363f5bb3bc",
+          "f47198a9-b642-4391-b495-1ca437bf4ee5"
+        ],
+        "eacd74fe-5f7a-4932-9157-6d69af2c47e0": [
+          "32c858ce-b402-4c71-8c26-095d3e0fc5b4",
+          "69b3da36-7850-40ba-beb6-b6f0a15dab72",
+          "880a82c9-0277-4ad6-9daa-4bf04cb1bf3c",
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "1456e357-7dee-4c58-8e70-759872a1c520": [
+          "21f63bf3-38c7-4759-8d63-30b79fbcff6c"
+        ],
+        "359f7e2c-f4c5-4ade-aec2-660702cc4892": [
+          "3c9cd1a1-f0ac-4afb-a063-4fe8159a37b3",
+          "f7370ce0-44c3-4d13-9a20-60441965037c",
+          "c81aaf4b-fa8e-4993-93bd-46d1112c22ee"
+        ],
+        "3aebfbba-db30-438f-a85c-6d67d078fa8f": [
+          "3b859508-3816-4d65-941b-19c7fea8e5f9",
+          "863e6737-d1d1-4fdf-966d-ad675b533aa5",
+          "a7748131-f8e5-493f-b47c-34058cb4d6f1",
+          "a8b93392-439f-41b9-beab-c4167ce3e753"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "a85aa517-215c-4ab6-a851-4c5cbf784996": [],
+        "4077f86c-8b32-414d-9c31-f467acac0211": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "1416bbfc-688a-49e1-879b-8f69fad164d5": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "f34029f5-46f0-4aed-bd0a-5de081b38ea9": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "020b26e2-2774-4551-860c-480cefe615fb": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "0f95eb49-7a60-44b2-85ab-ba6bf15b4c8f": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "96f8da80-32a6-4be4-9b3b-5c907b41ba49": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "da16cda6-8130-492b-941d-0c5e3dd2016f": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "7a1fa545-c6db-416f-8609-2a14cc94405d": [
+          "a85aa517-215c-4ab6-a851-4c5cbf784996"
+        ],
+        "67fa32e2-ca07-4699-9eb3-fb905e2e8077": [
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "43142ddf-72a1-481b-a3d8-792ad3b5e385": [
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "500b5dd6-74af-4e3c-8d67-3b0624d2a8a9": [
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "359f7e2c-f4c5-4ade-aec2-660702cc4892": [
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "b1384d06-88f0-4333-9af0-bfe7ed5af460": [
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "0f2d56f3-6891-4f03-93f9-869eb9ef7daf": [
+          "1456e357-7dee-4c58-8e70-759872a1c520"
+        ],
+        "42da1ec3-5752-486e-bd16-988a5a2b8342": [
+          "c81aaf4b-fa8e-4993-93bd-46d1112c22ee"
+        ],
+        "5cda43cd-80d5-4718-b0fc-74e1037b339d": [
+          "c81aaf4b-fa8e-4993-93bd-46d1112c22ee"
+        ],
+        "bd21c074-501c-4d18-8ab1-c0e11c7da139": [
+          "c81aaf4b-fa8e-4993-93bd-46d1112c22ee"
+        ],
+        "b38ca9d4-45fb-4a1f-829b-943ef3f35f8f": [
+          "c81aaf4b-fa8e-4993-93bd-46d1112c22ee"
+        ],
+        "4f7a1ebc-0f2d-4d90-8179-45620e18f27a": [
+          "c81aaf4b-fa8e-4993-93bd-46d1112c22ee"
+        ]
+      },
+      "children": {
+        "a85aa517-215c-4ab6-a851-4c5cbf784996": [
+          "4077f86c-8b32-414d-9c31-f467acac0211",
+          "1416bbfc-688a-49e1-879b-8f69fad164d5",
+          "f34029f5-46f0-4aed-bd0a-5de081b38ea9",
+          "020b26e2-2774-4551-860c-480cefe615fb",
+          "0f95eb49-7a60-44b2-85ab-ba6bf15b4c8f",
+          "96f8da80-32a6-4be4-9b3b-5c907b41ba49",
+          "da16cda6-8130-492b-941d-0c5e3dd2016f",
+          "7a1fa545-c6db-416f-8609-2a14cc94405d"
+        ],
+        "1456e357-7dee-4c58-8e70-759872a1c520": [
+          "67fa32e2-ca07-4699-9eb3-fb905e2e8077",
+          "43142ddf-72a1-481b-a3d8-792ad3b5e385",
+          "500b5dd6-74af-4e3c-8d67-3b0624d2a8a9",
+          "359f7e2c-f4c5-4ade-aec2-660702cc4892",
+          "b1384d06-88f0-4333-9af0-bfe7ed5af460",
+          "0f2d56f3-6891-4f03-93f9-869eb9ef7daf"
+        ],
+        "c81aaf4b-fa8e-4993-93bd-46d1112c22ee": [
+          "42da1ec3-5752-486e-bd16-988a5a2b8342",
+          "5cda43cd-80d5-4718-b0fc-74e1037b339d",
+          "bd21c074-501c-4d18-8ab1-c0e11c7da139",
+          "b38ca9d4-45fb-4a1f-829b-943ef3f35f8f",
+          "4f7a1ebc-0f2d-4d90-8179-45620e18f27a"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use scipy.optimize.minimize with trust-constr method instead of SLSQP",
+        "description": "Replace SLSQP with the trust-constr method in scipy.optimize.minimize, which uses trust-region interior-point algorithms better suited for complex non-convex constraint landscapes. The trust-constr method handles inequality constraints more robustly and can escape shallow local minima better than SLSQP. Keep the same variable formulation (52 variables: 26 positions + 26 radii) but increase maxiter to 2000 and use tighter tolerances (ftol=1e-12). The trust-region approach builds local quadratic models of the objective and iteratively refines them, which is particularly effective for circle packing where constraint boundaries are curved. Maintain multiple restarts (increase to 25 seeds) with varied initializations including hexagonal, random, and grid-based patterns to ensure global coverage.",
+        "what_to_optimize": "primary evaluator score (sum_radii) by escaping local minima that SLSQP gets stuck in",
+        "cautions": "trust-constr requires careful constraint formulation - ensure Jacobian sparsity is exploited if possible. May require more iterations than SLSQP so increase timeout handling. Monitor convergence warnings.",
+        "approach_type": "scipy.optimize.minimize"
+      },
+      {
+        "idea": "Use scipy.optimize.differential_evolution for global position search then refine radii",
+        "description": "Apply differential_evolution from scipy.optimize to perform global search on circle positions only, treating radii as a secondary optimization. First, use differential_evolution to find optimal center positions (52 variables for 26 circles) that maximize minimum pairwise distances. This global optimizer explores the entire solution space through mutation and crossover operations, avoiding local minima entirely. Once positions are found, compute radii as the minimum distance to nearest neighbor divided by 2, then apply a local optimization (SLSQP) to fine-tune both positions and radii together. Use bounds (0, 1) for positions and set differential_evolution parameters: maxiter=500, popsize=20, tol=1e-10, seed=42 for reproducibility. The two-phase approach (global position search + local refinement) leverages the strengths of both optimization paradigms.",
+        "what_to_optimize": "global exploration of position space to find better packing configurations that local optimizers miss",
+        "cautions": "Differential evolution can be slow - limit iterations and use efficient distance calculations. The objective function should be smooth (use minimum pairwise distance minus epsilon to avoid discontinuities). Ensure the refinement phase properly handles the radii constraints.",
+        "approach_type": "scipy.optimize.differential_evolution"
+      },
+      {
+        "idea": "Use scipy.spatial.Voronoi for geometric construction based on available space",
+        "description": "Construct circle positions using Voronoi diagram analysis of available space rather than optimization. Start with an initial distribution of points (e.g., hexagonal or random), compute the Voronoi diagram using scipy.spatial.Voronoi, then place each circle center at the Voronoi vertex that maximizes the inscribed circle radius within its cell. The radius of each circle is determined by the distance to the nearest Voronoi edge (which represents the boundary to neighboring circles). Iteratively refine by removing circles with radii below a threshold and recomputing the Voronoi diagram, allowing remaining circles to expand into freed space. This geometric approach exploits the mathematical structure of circle packing: optimal packings correspond to Delaunay triangulations where each triangle has specific angle properties. Use scipy.spatial.distance for efficient nearest-neighbor computations and scipy.spatial.ConvexHull to identify boundary circles.",
+        "what_to_optimize": "geometric efficiency by exploiting Voronoi/Delaunay structure inherent in optimal circle packings",
+        "cautions": "Voronoi diagrams can be numerically unstable for collinear points - add small perturbations. The iterative refinement must converge (use max 10 iterations). This approach may not find the globally optimal packing but provides excellent starting configurations for local refinement.",
+        "approach_type": "scipy.spatial.Voronoi"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 1
+    },
+    "current_paradigm_index": 1,
+    "tried_paradigms": [
+      {
+        "idea": "Use scipy.optimize.linprog for optimal radius computation given positions",
+        "description": "Reformulate the radius optimization as a linear programming problem. Given fixed positions, maximize sum(radii) subject to: (1) r_i + r_j <= distance(i,j) for all pairs (non-overlap), (2) r_i <= min(x_i, y_i, 1-x_i, 1-y_i) for all i (boundary). This LP formulation is exact and convex, unlike the current greedy iterative reduction which is suboptimal. Use scipy.optimize.linprog with method='highs' for efficiency. After computing optimal radii, the positions can be refined separately. This alone should improve the score significantly as the current greedy radius reduction loses optimality.",
+        "what_to_optimize": "Primary score - sum of radii. The LP will find the globally optimal radii for any given positions, eliminating the suboptimal greedy reduction.",
+        "cautions": "The LP has O(n^2) constraints (~325 for n=26), but this is manageable. Ensure proper formulation of inequality constraints (A_ub @ x <= b_ub). Handle numerical precision carefully with the 1e-6 tolerance.",
+        "approach_type": "scipy.optimize.linprog",
+        "uses": 2,
+        "starting_score": 0.8377609108159392,
+        "ending_score": 0.9966958969547608,
+        "score_improvement": 0.15893498613882162,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Use scipy.optimize.minimize with SLSQP for joint position and radius optimization",
+        "description": "Directly optimize all 52 variables (26 x-coordinates, 26 y-coordinates, 26 radii) using scipy.optimize.minimize with SLSQP method. Maximize sum(radii) as objective. Constraints: (1) 0 <= x_i, y_i <= 1 (box constraints), (2) r_i >= 0 (box constraints), (3) ||p_i - p_j|| >= r_i + r_j for all pairs (non-overlap), (4) r_i <= min(x_i, y_i, 1-x_i, 1-y_i) (boundary). Use multiple random starting points to avoid local minima. The SLSQP method handles both equality and inequality constraints natively.",
+        "what_to_optimize": "Primary score - sum of radii. Joint optimization allows positions to adapt to optimal radii, breaking the rigid hexagonal grid structure.",
+        "cautions": "This is a non-convex problem with many local minima. Use 10-20 different random initializations and keep the best result. Set appropriate bounds for variables. May need to scale the problem or use gradient approximation for numerical stability.",
+        "approach_type": "scipy.optimize.minimize",
+        "uses": 2,
+        "starting_score": 0.8377609108159392,
+        "ending_score": 0.9966958969547608,
+        "score_improvement": 0.15893498613882162,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Use scipy.spatial.Voronoi for geometric region-based circle placement",
+        "description": "Use Voronoi diagrams to identify natural regions for circle placement. Start with 26 seed points distributed across the square. Compute Voronoi diagram using scipy.spatial.Voronoi. For each region, place a circle at the region centroid with radius equal to the minimum distance to any Voronoi vertex (ensuring non-overlap). Then iteratively refine: recompute Voronoi from circle centers, update radii based on new regions. This exploits the geometric structure where optimal packings often have circles tangent to neighbors, matching Voronoi edges. Use scipy.spatial.distance.cdist for distance computations.",
+        "what_to_optimize": "Primary score - sum of radii. Voronoi-based placement naturally creates tangent circles in dense regions, mimicking optimal packing structures found in literature.",
+        "cautions": "Voronoi diagram can have infinite regions near boundaries; handle by clipping to unit square. May need to add boundary points to Voronoi computation. Iterative refinement should converge but may need damping to avoid oscillation.",
+        "approach_type": "scipy.spatial.Voronoi",
+        "uses": 2,
+        "starting_score": 0.8377609108159392,
+        "ending_score": 0.9966958969547608,
+        "score_improvement": 0.15893498613882162,
+        "outcome": "SUCCESS"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.9966958969547608,
+    "best_score_during_paradigm": 0.9966958969547608
+  }
+}

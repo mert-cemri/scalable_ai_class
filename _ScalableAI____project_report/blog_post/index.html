@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One Parent, K Children: Trading Exploration for Wall-Clock Time in LLM-Guided Search</title>
+  <style>
+    :root {
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --mono: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      --text: #1c1c1c;
+      --muted: #5f5f5f;
+      --line: #e6e6e6;
+      --accent: #003262;
+      /* Berkeley blue */
+      --accent-2: #fdb515;
+      /* Berkeley gold */
+      --hit: #1f9d55;
+      --miss: #c43d3d;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: var(--text);
+    }
+
+    body {
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+      background: #fafafa;
+    }
+
+    header.post-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header.post-head h1 {
+      font-family: var(--sans);
+      font-size: 34px;
+      line-height: 1.2;
+      margin: 0 0 18px;
+      letter-spacing: -0.01em;
+    }
+
+    header.post-head .authors {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    header.post-head .date {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h2 {
+      font-family: var(--sans);
+      font-size: 24px;
+      margin: 40px 0 12px;
+      letter-spacing: -0.005em;
+    }
+
+    h3 {
+      font-family: var(--sans);
+      font-size: 19px;
+      margin: 28px 0 8px;
+      color: #2a2a2a;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 50, 98, 0.25);
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    .lede {
+      font-size: 19px;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #222;
+      margin: 0 0 22px;
+    }
+
+    .divider {
+      text-align: center;
+      color: var(--muted);
+      letter-spacing: 0.6em;
+      margin: 40px 0;
+      font-size: 14px;
+    }
+
+    figure {
+      margin: 28px 0 24px;
+      text-align: center;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .paired-figure {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: center;
+      max-width: 50%;
+      margin: 0 auto;
+    }
+
+    .paired-figure img {
+      width: 100%;
+    }
+
+    .prompt-cache-diagram {
+      display: grid;
+      gap: 14px;
+      font-family: var(--sans);
+      text-align: center;
+    }
+
+    .prompt-cache-case {
+      display: grid;
+      gap: 6px;
+    }
+
+    .prompt-cache-case h4 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .prompt-cache-row {
+      display: grid;
+      grid-template-columns: 18% 18% 64%;
+      min-height: 82px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .prompt-block {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      padding: 8px 6px;
+      color: #111;
+      line-height: 1.15;
+      transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+    }
+
+    .prompt-block:hover,
+    .prompt-block:focus {
+      position: relative;
+      z-index: 1;
+      transform: scale(1.03);
+      filter: saturate(1.08);
+      box-shadow: 0 0 0 2px rgba(0, 50, 98, 0.18);
+      outline: none;
+    }
+
+    .prompt-block strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .prompt-block span {
+      display: block;
+      margin-top: 2px;
+      font-size: 11px;
+      line-height: 1.15;
+    }
+
+    .prompt-block.system {
+      background: #d9d9d9;
+    }
+
+    .prompt-block.parent-miss {
+      background: #f8cdcd;
+      border-left: 1px solid rgba(0, 0, 0, 0.22);
+    }
+
+    .prompt-block.parent-hit {
+      background: #9f9f9f;
+      border-left: 1px solid rgba(0, 0, 0, 0.22);
+    }
+
+    .prompt-block.context {
+      background: #c9eafa;
+    }
+
+    @media (max-width: 560px) {
+      .paired-figure {
+        max-width: 100%;
+      }
+
+      .prompt-cache-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      padding: 0 8px;
+    }
+
+    pre,
+    code {
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    pre.citation {
+      background: #f0eee6;
+      padding: 14px 16px;
+      border-radius: 4px;
+      overflow-x: auto;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    details {
+      margin: 12px 0;
+    }
+
+    details summary {
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 14px;
+      font-family: var(--sans);
+    }
+
+    /* ---- Interactive: K slider (Visual #3) ---- */
+    .interactive {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 22px 22px 18px;
+      margin: 28px 0;
+      background: #fff;
+    }
+
+    .interactive h4 {
+      font-family: var(--sans);
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .kslider-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .kslider-controls label {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .kslider-controls .k-value {
+      font-family: var(--sans);
+      font-size: 22px;
+      color: var(--accent);
+      font-weight: 700;
+      min-width: 44px;
+    }
+
+    .kslider-controls input[type=range] {
+      flex: 1;
+      accent-color: var(--accent);
+    }
+
+    .kpanel {
+      display: grid;
+      grid-template-columns: 180px 1fr 70px;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 14px;
+      font-family: var(--sans);
+      font-size: 14px;
+    }
+
+    .kpanel .label {
+      color: var(--muted);
+    }
+
+    .kpanel .readout {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    .bar-track {
+      height: 22px;
+      background: #f0eee6;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      transition: width 360ms ease, background 360ms ease;
+    }
+
+    .dots-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots-row .dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      transition: background 320ms ease;
+    }
+
+    /* ---- Interactive: Results chart (Visual #5) ---- */
+    .toggle-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .toggle-row button {
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 160ms ease;
+    }
+
+    .toggle-row button.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .chart-wrap {
+      width: 100%;
+      height: 320px;
+    }
+
+    .chart-readout {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    footer.post-foot {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ---- Tree (Visual #1) ---- */
+    .tree-fig svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    /* Small-screen tweaks */
+    @media (max-width: 520px) {
+      main {
+        padding: 36px 18px 72px;
+      }
+
+      header.post-head h1 {
+        font-size: 26px;
+      }
+
+      .kpanel {
+        grid-template-columns: 140px 1fr 60px;
+      }
+    }
+  </style>
+  <!-- Interactive widgets: load React + Recharts + htm as plain globals (more reliable from file://) -->
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
+  <script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+  <script crossorigin src="https://unpkg.com/htm@3.1.1/dist/htm.js"></script>
+</head>
+
+<body>
+  <main>
+
+    <header class="post-head">
+      <h1>One Parent, K Children: Trading Exploration for Wall-Clock Time in LLM-Guided Search</h1>
+      <div class="authors">
+        Matteo Guarrera, Elizabeth Polito, Harper Lyu, Mert Cemri,
+        <a href="mailto:sultan_daniels@berkeley.edu">Sultan Daniels</a>, Eric Xu
+      </div>
+      <div class="date">May 13, 2026</div>
+    </header>
+
+    <!-- ============================== SECTION 1 ============================== -->
+
+    <p class="lede">
+      AI systems can now discover things. <a href="https://www.nature.com/articles/s41586-023-06924-6">FunSearch</a>
+      found new mathematical constructions. <a
+        href="https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/">AlphaEvolve</a>
+      turned up a faster matrix multiplication algorithm for the first time in 56 years.
+      A large language model proposing edits to a piece of code, an evaluator scoring them, the best edits
+      surviving and proliferating, this loop has started producing real scientific output.
+    </p>
+
+    <p>
+      But step inside the loop and most of that "discovery" is a GPU doing the same arithmetic over and over.
+      Every call into the LLM is similar to the last one. And on a typical deployment, nobody told the serving stack.
+    </p>
+
+    <p>
+      In our recent course project we measured this in the simplest way we could think of: cache hit rate. On a vanilla
+      <a href="https://arxiv.org/abs/2602.20133">AdaEvolve</a>-style setup serving Qwen3-4B with vLLM, only
+      <strong>18.4%</strong> of the prompt tokens we sent ever hit the prefix cache.
+    </p>
+
+    <p>
+      We pushed that number to <strong>94.2%</strong>, and per-call wall time fell by <strong>9.8×</strong>, by
+      making one change to the search loop. The change is small. The tradeoff it forces you to make is
+      the interesting part.
+    </p>
+
+    <p><em>What if you asked the LLM the same question eight times, on purpose, and let the GPU only do the work
+        once?</em></p>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 2 ============================== -->
+
+    <h2>What is LLM-guided discovery, anyway?</h2>
+
+    <p>
+      The loop is older than the LLM in it. You start with a working program. A "creative" component proposes an edit.
+      An evaluator scores the edited program. The best programs survive, get edited again, scored again, then survive
+      again.
+      Repeat thousands of times. That is <em>evolutionary search</em>.
+    </p>
+
+    <p>
+      The LLM is only a recent addition. In place of random mutations, you ask a language model to read the current
+      program,
+      think about what might be improved, and write a new version. <a
+        href="https://www.nature.com/articles/s41586-023-06924-6">FunSearch</a> did this for combinatorics in 2023. <a
+        href="https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/">AlphaEvolve</a>
+      scaled it up. <a href="https://github.com/codelion/openevolve">OpenEvolve</a> and <a
+        href="https://arxiv.org/abs/2602.20133">AdaEvolve</a> are open-source
+      successors. The family is growing.
+    </p>
+
+    <p>
+      This is also, more or less, how humans do science. You have a working idea. You tweak it. You run an experiment.
+      You keep what works and throw out what doesn't. Discovery is iteration, with mutation provided by whatever
+      creative engine you happen to have lying around. Until 2023, scientists were the de facto creative engine. Now,
+      large language models can be them too.
+    </p>
+
+    <figure class="tree-fig">
+      <svg viewBox="0 0 720 280" width="640" height="248" role="img" aria-label="An evolutionary search tree">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+            orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#999" />
+          </marker>
+          <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+            orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#fdb515" />
+          </marker>
+        </defs>
+        <!-- edges (non-gold) -->
+        <line x1="360" y1="56" x2="220" y2="130" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="360" y1="56" x2="500" y2="130" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="220" y1="150" x2="120" y2="220" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="500" y1="150" x2="440" y2="220" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="500" y1="150" x2="600" y2="220" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)" />
+        <!-- gold path: root -> right -> right-right -->
+        <line x1="360" y1="56" x2="360" y2="130" stroke="#fdb515" stroke-width="2.5" marker-end="url(#arrow-gold)" />
+        <line x1="360" y1="150" x2="320" y2="220" stroke="#fdb515" stroke-width="2.5" marker-end="url(#arrow-gold)" />
+        <!-- nodes -->
+        <g font-family="-apple-system, system-ui, sans-serif" font-size="11" text-anchor="middle">
+          <g>
+            <circle cx="360" cy="40" r="22" fill="#fff" stroke="#333" stroke-width="1.5" /><text x="360" y="38"
+              fill="#333">seed</text><text x="360" y="52" fill="#666" font-size="10">0.364</text>
+          </g>
+          <g>
+            <circle cx="220" cy="140" r="22" fill="#fff" stroke="#333" stroke-width="1.5" /><text x="220" y="138"
+              fill="#333">v1</text><text x="220" y="152" fill="#666" font-size="10">0.51</text>
+          </g>
+          <g>
+            <circle cx="360" cy="140" r="22" fill="#fff" stroke="#fdb515" stroke-width="3" /><text x="360" y="138"
+              fill="#333">v2</text><text x="360" y="152" fill="#666" font-size="10">0.78</text>
+          </g>
+          <g>
+            <circle cx="500" cy="140" r="22" fill="#fff" stroke="#333" stroke-width="1.5" /><text x="500" y="138"
+              fill="#333">v3</text><text x="500" y="152" fill="#666" font-size="10">0.62</text>
+          </g>
+          <g>
+            <circle cx="120" cy="232" r="22" fill="#fff" stroke="#333" stroke-width="1.5" /><text x="120" y="230"
+              fill="#333">v4</text><text x="120" y="244" fill="#666" font-size="10">0.49</text>
+          </g>
+          <g>
+            <circle cx="320" cy="232" r="22" fill="#fff" stroke="#fdb515" stroke-width="3" /><text x="320" y="230"
+              fill="#333">v5</text><text x="320" y="244" fill="#666" font-size="10">0.91</text>
+          </g>
+          <g>
+            <circle cx="440" cy="232" r="22" fill="#fff" stroke="#333" stroke-width="1.5" /><text x="440" y="230"
+              fill="#333">v6</text><text x="440" y="244" fill="#666" font-size="10">0.71</text>
+          </g>
+          <g>
+            <circle cx="600" cy="232" r="22" fill="#fff" stroke="#333" stroke-width="1.5" /><text x="600" y="230"
+              fill="#333">v7</text><text x="600" y="244" fill="#666" font-size="10">0.55</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>Each node is one LLM call. Each LLM call is GPU time. The gold path is the lineage of the best-scoring
+        program. Now imagine doing this thousands of times.</figcaption>
+    </figure>
+
+    <p>
+      The loop is powerful, but every step is an LLM call, and LLM calls aren't free.
+    </p>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 3 ============================== -->
+
+    <h2>Why open models change the game</h2>
+
+    <p>
+      When you run discovery with a closed-source model like GPT, Claude, or Gemini, the inference stack is a locked
+      black
+      box. You pay per token. You can't see the cache. You can't see the scheduler. You can't restructure how requests
+      hit the GPU. Inference optimization is both a pricing and a systems problem.
+    </p>
+
+    <p>
+      When you run discovery against an open-weight model like Qwen3, Llama, or DeepSeek on your own
+      <a href="https://github.com/vllm-project/vllm">vLLM</a> endpoint, the stack belongs to you. <em>vLLM</em> is the
+      most widely used open-source inference engine; it manages the GPU's memory, schedules requests, and keeps a <em>KV
+        cache</em>: the intermediate per-token values the model can reuse as it continues to produce tokens. When
+      you start a new prompt that begins with the same tokens as a previous one, vLLM does not need to recompute those
+      values. This is called <em>prefix caching</em>. The expensive part of an LLM call — reading
+      the prompt — is called <em>prefill</em>. A cache hit avoids prefill.
+    </p>
+
+    <p>
+      Zoom into the prompt our search loop sends. It has three parts:
+    </p>
+
+    <ul>
+      <li><strong>System prompt</strong> — the problem statement, evaluator code, and framework instructions. Around 200
+        tokens. Identical across iterations.</li>
+      <li><strong>Current parent program</strong> — the candidate being mutated. Around 1,500 tokens. Changes every
+        iteration.</li>
+      <li><strong>Sibling history</strong> — a window of other programs from the same population. Around 8,000 tokens.
+        Changes every iteration.</li>
+    </ul>
+
+    <p>
+      The bulk of the prompt is the parent and the siblings, and both move every step.
+    </p>
+
+    <p>
+      vLLM's prefix cache works by hashing fixed-size <em>blocks</em> of tokens at the start of the prompt. Matching
+      blocks at the front are reused; the cache breaks at the first diverging token. The system prompt is small — only a
+      few blocks. As soon as the parent program starts, the bytes diverge from the previous iteration, and the cache
+      breaks.
+    </p>
+
+    <figure>
+      <div class="paired-figure">
+        <div class="prompt-cache-diagram"
+          aria-label="Cache hit rate comparison for different and same parent program prompt layouts">
+          <div class="prompt-cache-case">
+            <h4>Different parent program (hit rate 0%)</h4>
+            <div class="prompt-cache-row">
+              <div class="prompt-block system" tabindex="0"
+                title="System prompt: 222 tokens, prefix cache 100%, materialized 100%">
+                <strong>system</strong>
+                <span>222 tok</span>
+                <span>pfx 100%, mat 100%</span>
+              </div>
+              <div class="prompt-block parent-miss" tabindex="0"
+                title="Current parent program: 1,500 tokens, prefix cache 10%, materialized 50%">
+                <strong>current program</strong>
+                <span>1,500 tok</span>
+                <span>pfx 10%, mat 50%</span>
+              </div>
+              <div class="prompt-block context" tabindex="0"
+                title="Other context programs: 8,000 tokens, prefix cache 1%, materialized 70%">
+                <strong>other context programs</strong>
+                <span>8,000 tok</span>
+                <span>pfx 1%, mat 70%</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-cache-case">
+            <h4>Same parent program (hit rate 34%)</h4>
+            <div class="prompt-cache-row">
+              <div class="prompt-block system" tabindex="0"
+                title="System prompt: 222 tokens, prefix cache 100%, materialized 100%">
+                <strong>system</strong>
+                <span>222 tok</span>
+                <span>pfx 100%, mat 100%</span>
+              </div>
+              <div class="prompt-block parent-hit" tabindex="0"
+                title="Current parent program: 1,500 tokens, prefix cache 100%, materialized 100%">
+                <strong>current program</strong>
+                <span>1,500 tok</span>
+                <span>pfx 100%, mat 100%</span>
+              </div>
+              <div class="prompt-block context" tabindex="0"
+                title="Other context programs: 8,000 tokens, prefix cache 29%, materialized 75.8%">
+                <strong>other context programs</strong>
+                <span>8,000 tok</span>
+                <span>pfx 29%, mat 75.8%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="assets/hit_rate_benchmark.png" alt="Prompt structure and KV cache hit rate over iterations" />
+      </div>
+      <figcaption>Top: an HTML prompt-layout diagram. Hover or focus each block to inspect how the cacheable prefix
+        changes when sibling samples share the same parent. Bottom: the
+        anatomy of one search prompt and the measured cache hit rate, iteration by iteration, on a vanilla controller.
+        Cache gets warmed, cache gets evicted. The pattern repeats forever.</figcaption>
+    </figure>
+
+    <p>
+      The result: iteration N+1 looks almost identical to iteration N to a human — same task, same structure, similar
+      code — but to the cache it is mostly a fresh prompt. Only <strong>18.4%</strong> hit rate, averaged across
+      thousands of
+      calls.
+      <!-- The other 81.6% of the prompt is prefill the GPU has done before but is going to do again, and again, and -->
+      again.
+    </p>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 4 ============================== -->
+
+    <h2>Why should you care?</h2>
+
+    <p>
+      <strong>Discovery itself is the prize.</strong> AlphaEvolve rediscovered a 56-year-old matrix multiplication
+      result and improved on it. FunSearch produced new mathematical constructions. These systems are already producing
+      real scientific output. Anything that makes them faster makes more discoveries reachable.
+    </p>
+
+    <p>
+      <strong>Open source is where most of the action will be.</strong> Closed APIs are convenient but inflexible. You
+      can't fine-tune the serving stack. You can't get reproducibility. You can't keep sensitive data on your own
+      machines. As open models close the quality gap with Qwen3, DeepSeek-R1, and Llama 4, more research and production
+      work will run locally. The moment your stack belongs to you, "how requests hit the GPU" becomes a first-class
+      design question.
+    </p>
+
+    <p>
+      <strong>Wall-clock time gates real research.</strong> A two-hour experiment you can run five times a day enables
+      iteration. A twenty-hour one does not. Cutting per-call time by an order of magnitude isn't just an efficiency win
+      — it changes what experiments are practical.
+    </p>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 5 ============================== -->
+
+    <h2>The fix, and the tradeoff it buys you</h2>
+
+    <h3>Same prompt, K times</h3>
+
+    <p>
+      We can't make the prompt static across iterations without breaking the search itself — the parent program is
+      supposed to evolve. But within a single iteration, nothing forces us to make only one LLM call.
+    </p>
+
+    <p>
+      The change: sample one parent, build one prompt, fire that exact same prompt into the model <strong>K times in
+        parallel</strong>. The first call prefills the KV cache. The other K&minus;1 calls find the cache already
+      populated and inherit it for free. Only the decoded output differs — and we keep the K children diverse by
+      spreading <em>temperature</em> across them (a decode-time parameter that controls randomness, and crucially does
+      not affect the cache key).
+    </p>
+
+    <p>
+      The cache hit rate within a single batch goes from "basically zero" to "basically perfect." Across the whole run,
+      overall hit rate climbs from ~20% to ~85% at K=8.
+    </p>
+
+    <h3>The tradeoff you just made</h3>
+
+    <p>
+      Here's the part that matters. <em>One iteration with K=8 is not the same as eight iterations with K=1.</em>
+    </p>
+
+    <p>
+      Eight iterations of K=1 sample eight different parents from the database. Each LLM call explores a different
+      region of the search space. High exploration, high GPU cost.
+    </p>
+
+    <p>
+      One iteration of K=8 samples one parent and generates eight variations of it. Lower exploration — the eight
+      children are siblings, not cousins — but the LLM cost is roughly one-eighth of the sequential version, because
+      seven of those eight calls hit the cache.
+      So K-batching is genuinely cheaper per candidate. The price is that each candidate is more correlated with its
+      siblings.
+      <!-- The marginal value of the eighth sibling is lower than the marginal value of the eighth independently-sampled parent would have been. -->
+    </p>
+
+    <p>
+      <em>The empirical question is whether the throughput win beats the diversity loss.</em>
+    </p>
+
+    <div class="interactive" id="visual-3">
+      <h4>Visual #3 — The K knob</h4>
+      <div id="kslider-root"><p style="color:var(--muted);font-family:var(--sans);font-size:13px;margin:0;">Loading interactive widget&hellip;</p></div>
+    </div>
+
+    <h3>Speculative pipelining (the part that needs further imporvement)</h3>
+
+    <p>
+      While the LLM is generating K candidates, the evaluator sits idle. While the evaluator is scoring them, the LLM
+      sits idle. We tried to close that gap with <em>speculative pipelining</em>: at the end of each iteration, we
+      immediately launch the next iteration's LLM calls in the background, betting that the sampler will again pick the
+      current global best as the parent. If the bet is right, the actual parent matches the speculative one, those
+      outputs are already in-flight or complete when the next iteration starts (<em>spec-hit</em>). If the sampler
+      picks a different parent, the speculative tasks are cancelled and fresh calls are issued (<em>spec-miss</em>).
+    </p>
+
+    <div class="interactive" id="visual-spec-timeline">
+      <h4>Speculation hit dynamics — LLM gen time per iteration</h4>
+      <div id="spec-hit-root"><p style="color:var(--muted);font-family:var(--sans);font-size:13px;margin:0;">Loading interactive widget&hellip;</p></div>
+    </div>
+
+    <p>
+      On throughput, speculation pays off: the pipeline overlap lets the system produce more candidates in the same
+      wall-clock window.
+    </p>
+
+    <div class="interactive" id="visual-spec-cand">
+      <h4>Spec. vs. standard — candidates generated vs. wall-clock time (circle packing)</h4>
+      <div id="spec-cand-root"><p style="color:var(--muted);font-family:var(--sans);font-size:13px;margin:0;">Loading interactive widget&hellip;</p></div>
+    </div>
+
+    <p>
+      However, it affects the evolvement quality. At K=4 this was a mild win on wall-clock time with only a small effect on quality. At K=8 it broke things in an
+      interesting way. The speculative prompt was built before the current iteration's K children had been added to the
+      database, so the sibling-history block was stale by K entries. The system was faster, but the search was working
+      with an out-of-date view of the population — and on circle packing, K=8 with speculation stagnated near 0.975
+      while non-speculative reached 0.999.
+    </p>
+
+    <p>
+      The fix is simple: <strong>all K children from the current iteration are inserted into the speculation prompt
+      before evaluation finishes</strong>, so the next iteration's speculative calls always see a fully up-to-date
+      population. With this change, K=8 speculation on circle packing now converges to 0.999, matching and slightly
+      exceeding the standard run, though it still shows some early-stage degradation before catching up.
+    </p>
+
+    <div class="interactive" id="visual-spec">
+      <h4>Spec. vs. standard — best score vs. wall-clock time (circle packing)</h4>
+      <div id="spec-results-root"><p style="color:var(--muted);font-family:var(--sans);font-size:13px;margin:0;">Loading interactive widget&hellip;</p></div>
+    </div>
+
+    <p>
+      This is an unflattering result and we are reporting it on purpose. Systems wins and search wins are not
+      automatically the same thing, and a 1.6× speedup that costs you the answer is not a speedup.
+    </p>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 6 ============================== -->
+
+    <h2>Does the tradeoff pay off?</h2>
+
+    <p>
+      The headline numbers, all measured on one H100 80GB running Qwen3-4B with vLLM 0.15.1:
+    </p>
+
+    <ul>
+      <li>Effective cache hit rate: <strong>18.4% → 94.2%</strong>.</li>
+      <li>Per-candidate LLM time: <strong>4.7×–6.2× faster</strong> from K=1 to K=8 across the two benchmarks. On signal
+        processing, 28.5s → 4.6s per candidate. On circle packing, 65.7s → 14.0s.</li>
+      <li>On signal processing at K=8, the system generates roughly <strong>8× more candidates</strong> in the same
+        wall-clock window as K=1.</li>
+    </ul>
+
+    <p>
+      Now the tradeoff in numbers. Per-candidate improvement rate on circle packing drops from <strong>9.8%</strong> at
+      K=1 to <strong>4.3%</strong> at K=8. The siblings really are more correlated than independently-sampled parents
+      would be. But because we are generating so many more candidates per hour, total improvement per hour still favors
+      higher K — until the search saturates.
+    </p>
+
+    <div class="interactive" id="visual-5">
+      <h4>Visual #5 — Best score vs. wall-clock time</h4>
+      <div id="results-root"><p style="color:var(--muted);font-family:var(--sans);font-size:13px;margin:0;">Loading interactive widget&hellip;</p></div>
+    </div>
+
+    <details>
+      <summary>Show the static figure from the paper instead</summary>
+      <figure>
+        <img src="assets/fig_ksweep.png" alt="K-sweep best score and candidates over time, both benchmarks" />
+        <figcaption>The original paper figure. Top row: circle packing. Bottom row: signal processing. Left: best score
+          over wall-clock time. Right: cumulative candidates generated. Higher K is consistently ahead until circle
+          packing saturates around the 90-minute mark.</figcaption>
+      </figure>
+    </details>
+
+    <p>
+      The honest caveat: two benchmarks, three random seeds per condition, one model, one GPU configuration. Don't read
+      these numbers as the universal answer for every iterative LLM workload. Read them as one well-instrumented case
+      study of a pattern we expect is general.
+    </p>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 7 ============================== -->
+
+    <h2>Why this matters for you</h2>
+
+    <p>
+      If you run LLMs locally for any structured workload — evolutionary search, agent loops, batched RAG, evaluation
+      harnesses, self-consistency sampling — the same principle applies. Look at your prompt structure. Look at what's
+      static and what's dynamic. Ask whether the serving stack is exploiting that structure.
+    </p>
+
+    <p>
+      The deeper lesson: when you control the stack, prompt engineering and systems engineering stop being separate
+      disciplines. The shape of your prompt — and the cadence with which you issue calls — is a systems decision.
+    </p>
+
+    <p>
+      The exploration-versus-exploitation tradeoff isn't unique to evolutionary search either. Any iterative process
+      that calls an LLM in a loop faces some version of "batch from the same node or expand to new nodes."
+      Self-consistency sampling, ReAct agents, tree-of-thought search — same shape, different costume.
+    </p>
+
+    <p>
+      One small bonus we didn't plan for: K-batched generation produces exactly the (prompt, K responses, reward) tuples
+      that <a href="https://arxiv.org/abs/2402.03300">GRPO</a> uses for reinforcement-learning training. The batching
+      that started as a caching trick is also a training-data collection mechanism. We didn't run a GRPO loop in the
+      paper, but the data shape lines up cleanly, and that feels like an opening.
+    </p>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 8 ============================== -->
+
+    <h2>What's next</h2>
+
+    <p>A short list of things we'd like to chase, in roughly increasing order of ambition:</p>
+
+    <ul>
+      <li><strong>Adaptive K.</strong> The optimal K isn't constant. Early in search you want exploration; late in
+        search you want exploitation. A scheduler that picks K from stagnation signals on the island is a natural next
+        step.</li>
+      <li><strong>A smarter speculator.</strong> Our current predictor over-targets the best program, which is what
+        caused the K=8 quality regression. Mixing exploitation and exploration targets in the prediction should fix it.
+      </li>
+      <li><strong>Persistent KV cache.</strong> Tools like <a href="https://github.com/LMCache/LMCache">LMCache</a> let
+        cached blocks survive request boundaries and even server restarts. Persistent KV plus batching could push hit
+        rates closer to the theoretical ceiling.</li>
+      <li><strong>Multi-GPU.</strong> We used one H100 out of eight. Disaggregated prefill and decode — DistServe,
+        Splitwise, Mooncake — opens another axis to exploit.</li>
+      <li><strong>Online policy improvement.</strong> Feed the (prompt, K responses, reward) tuples into a GRPO loop.
+        The system gets faster <em>and</em> the model gets better as it searches.</li>
+      <li><strong>Other domains.</strong> Anywhere a prompt has a stable prefix and a variable suffix — agents, ReAct,
+        structured RAG — the same playbook applies.</li>
+    </ul>
+
+    <div class="divider">* * *</div>
+
+    <!-- ============================== SECTION 9 ============================== -->
+
+    <h2>Closing</h2>
+
+    <p>
+      Discovery is iteration. Iteration is bottlenecked by how fast you can try the next thing. Whether to try the same
+      thing eight ways or eight different things once is a choice every researcher makes, usually without thinking about
+      it. It turns out the LLM serving stack rewards one of those choices much more than the other.
+    </p>
+
+    <p>
+      The next time you watch a progress bar crawl, ask what the GPU is actually doing. It might be doing the same thing
+      it just finished doing — and you might be able to ask it K things at once.
+    </p>
+
+    <footer class="post-foot">
+      <p>
+        This post summarizes <em>EvoScale: Parallel, Cache-Aware Evolutionary Algorithms</em>, a final project for UC
+        Berkeley's
+        Scalable AI course (Spring 2026). Read the full report:
+        <a href="../c_final_report.pdf">EvoScale</a>.
+      </p>
+      <p>If you want to cite this work:</p>
+      <pre class="citation">@misc{guarrera2026evoscale,
+  title  = {EvoScale: Parallel, Cache-Aware Evolutionary Algorithms},
+  author = {Guarrera, Matteo and Polito, Elizabeth and Lyu, Harper and
+            Cemri, Mert and Daniels, Sultan and Xu, Eric},
+  year   = {2026},
+  note   = {UC Berkeley, Scalable AI course project}
+}</pre>
+    </footer>
+
+  </main>
+
+  <!-- ============================== Interactive components ============================== -->
+
+  <script src="js/widgets.js"></script>
+
+</body>
+
+</html>

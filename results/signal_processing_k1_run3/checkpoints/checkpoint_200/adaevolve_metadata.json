@@ -1,0 +1,480 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 200,
+  "global_best_score": 0.6543921709001166,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.061531036500291604,
+        "best_score": 0.6543921709001166,
+        "improvement_count": 6,
+        "total_evaluations": 17,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.06166908414514788,
+        "best_score": 0.6543921709001166,
+        "improvement_count": 5,
+        "total_evaluations": 16,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      17,
+      16
+    ],
+    "dimension_rewards": [
+      0.3533457814903972,
+      0.17556204366206893
+    ],
+    "decayed_visits": [
+      8.332281830033345,
+      8.14697981114816
+    ],
+    "global_best_score": 0.6543921709001166,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "47734762-e3f5-4316-a57f-4288fd00a673",
+      "5af9a64a-d647-4a09-aca8-381599f3154f",
+      "1074fa05-7306-4b22-bbd0-e5404aa1b436",
+      "93fa17c2-187e-47dd-85c4-c3a544a67647",
+      "4744a4ae-32c5-43e7-b05e-4df8fe99943a",
+      "6e26f2ff-ca2d-455f-91ab-ab6ea7cc0869",
+      "435b1b3a-79e6-4911-84d0-e869feef489b",
+      "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c",
+      "1b96b0f4-65a3-48d0-b6c0-4c9b7bfedc48",
+      "a17527fc-906a-40e6-94c0-dda6c4555746",
+      "a217fe29-b63f-4e31-9708-9162e47bc388",
+      "561c7b03-579d-4d3c-a273-d22de43ff4f0",
+      "36318bfa-72b4-4f4c-bb46-2d20e6cd416a",
+      "be89b14c-41ce-4757-9b98-2509c0d9195c",
+      "b2935b31-0044-4dd1-bc70-9c5a62572c7d",
+      "48f20f96-369e-4a58-b651-0fb9d6003b59",
+      "ec74b8ef-71e6-4eac-80ff-af177b18b3ff",
+      "3c483b91-d08e-4180-b403-0fd580ed220c",
+      "b66426e7-c4f2-44cf-9b69-581a3787f630"
+    ],
+    [
+      "c62523c7-4050-4877-ae90-933baeb55b2d",
+      "1eea8fbd-5788-4ee1-afb6-a6c1e1dfc710",
+      "c37885df-4f40-4bac-ae5f-bdc21fb476c6",
+      "1c787ad8-955a-4952-b36c-b2c93273f78b",
+      "ac93aaf4-21fd-4876-9e52-64a6c2547ac3",
+      "e4475c50-2da3-4b4a-9d0a-c4cc59909666",
+      "6468d288-a155-4a7b-80f5-1c1cfb5df058",
+      "04d630ee-9bfd-4839-ad88-3f8ea19f2dbf",
+      "4e988cfd-8f44-4720-9f23-128ace6bd5c9",
+      "b63ddc78-944c-493a-bd30-9d49fdc31efb",
+      "466272e3-655c-4aee-88e4-e548b5ac2535",
+      "588a94cf-96cd-43a2-8599-8a0fef204bb5",
+      "76559a2f-f463-4399-a7aa-653d6a02cb50",
+      "ccdf41ca-0c46-4427-93e5-73c3358bbdaf",
+      "065b05d5-96bf-4432-b169-87da47858bef",
+      "e1ff1b31-af73-44fe-92a9-9c0c257d09ae",
+      "2dddfa6b-07bd-4c27-8de5-644b36408687",
+      "43a38c22-ea0f-4bcd-8cf6-cadcd899d408",
+      "2049c77a-220d-4208-b7ea-6586328dd1b0"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "47734762-e3f5-4316-a57f-4288fd00a673": [],
+        "5af9a64a-d647-4a09-aca8-381599f3154f": [
+          "47734762-e3f5-4316-a57f-4288fd00a673"
+        ],
+        "1074fa05-7306-4b22-bbd0-e5404aa1b436": [
+          "47734762-e3f5-4316-a57f-4288fd00a673"
+        ],
+        "93fa17c2-187e-47dd-85c4-c3a544a67647": [
+          "5af9a64a-d647-4a09-aca8-381599f3154f"
+        ],
+        "4744a4ae-32c5-43e7-b05e-4df8fe99943a": [
+          "5af9a64a-d647-4a09-aca8-381599f3154f"
+        ],
+        "6e26f2ff-ca2d-455f-91ab-ab6ea7cc0869": [
+          "4744a4ae-32c5-43e7-b05e-4df8fe99943a"
+        ],
+        "435b1b3a-79e6-4911-84d0-e869feef489b": [
+          "5af9a64a-d647-4a09-aca8-381599f3154f"
+        ],
+        "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c": [
+          "435b1b3a-79e6-4911-84d0-e869feef489b"
+        ],
+        "1b96b0f4-65a3-48d0-b6c0-4c9b7bfedc48": [
+          "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c"
+        ],
+        "a17527fc-906a-40e6-94c0-dda6c4555746": [
+          "04d630ee-9bfd-4839-ad88-3f8ea19f2dbf"
+        ],
+        "a217fe29-b63f-4e31-9708-9162e47bc388": [
+          "c37885df-4f40-4bac-ae5f-bdc21fb476c6"
+        ],
+        "561c7b03-579d-4d3c-a273-d22de43ff4f0": [
+          "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c"
+        ],
+        "36318bfa-72b4-4f4c-bb46-2d20e6cd416a": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "be89b14c-41ce-4757-9b98-2509c0d9195c": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "b2935b31-0044-4dd1-bc70-9c5a62572c7d": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "48f20f96-369e-4a58-b651-0fb9d6003b59": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "ec74b8ef-71e6-4eac-80ff-af177b18b3ff": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "3c483b91-d08e-4180-b403-0fd580ed220c": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "b66426e7-c4f2-44cf-9b69-581a3787f630": [
+          "e1ff1b31-af73-44fe-92a9-9c0c257d09ae"
+        ]
+      },
+      "children": {
+        "47734762-e3f5-4316-a57f-4288fd00a673": [
+          "5af9a64a-d647-4a09-aca8-381599f3154f",
+          "1074fa05-7306-4b22-bbd0-e5404aa1b436"
+        ],
+        "5af9a64a-d647-4a09-aca8-381599f3154f": [
+          "93fa17c2-187e-47dd-85c4-c3a544a67647",
+          "4744a4ae-32c5-43e7-b05e-4df8fe99943a",
+          "435b1b3a-79e6-4911-84d0-e869feef489b"
+        ],
+        "4744a4ae-32c5-43e7-b05e-4df8fe99943a": [
+          "6e26f2ff-ca2d-455f-91ab-ab6ea7cc0869"
+        ],
+        "435b1b3a-79e6-4911-84d0-e869feef489b": [
+          "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c"
+        ],
+        "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c": [
+          "1b96b0f4-65a3-48d0-b6c0-4c9b7bfedc48",
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "04d630ee-9bfd-4839-ad88-3f8ea19f2dbf": [
+          "a17527fc-906a-40e6-94c0-dda6c4555746"
+        ],
+        "c37885df-4f40-4bac-ae5f-bdc21fb476c6": [
+          "a217fe29-b63f-4e31-9708-9162e47bc388"
+        ],
+        "561c7b03-579d-4d3c-a273-d22de43ff4f0": [
+          "36318bfa-72b4-4f4c-bb46-2d20e6cd416a",
+          "be89b14c-41ce-4757-9b98-2509c0d9195c",
+          "b2935b31-0044-4dd1-bc70-9c5a62572c7d",
+          "48f20f96-369e-4a58-b651-0fb9d6003b59",
+          "ec74b8ef-71e6-4eac-80ff-af177b18b3ff",
+          "3c483b91-d08e-4180-b403-0fd580ed220c"
+        ],
+        "e1ff1b31-af73-44fe-92a9-9c0c257d09ae": [
+          "b66426e7-c4f2-44cf-9b69-581a3787f630"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "c62523c7-4050-4877-ae90-933baeb55b2d": [],
+        "1eea8fbd-5788-4ee1-afb6-a6c1e1dfc710": [
+          "c62523c7-4050-4877-ae90-933baeb55b2d"
+        ],
+        "c37885df-4f40-4bac-ae5f-bdc21fb476c6": [
+          "1eea8fbd-5788-4ee1-afb6-a6c1e1dfc710"
+        ],
+        "1c787ad8-955a-4952-b36c-b2c93273f78b": [
+          "c37885df-4f40-4bac-ae5f-bdc21fb476c6"
+        ],
+        "ac93aaf4-21fd-4876-9e52-64a6c2547ac3": [
+          "c37885df-4f40-4bac-ae5f-bdc21fb476c6"
+        ],
+        "e4475c50-2da3-4b4a-9d0a-c4cc59909666": [
+          "c37885df-4f40-4bac-ae5f-bdc21fb476c6"
+        ],
+        "6468d288-a155-4a7b-80f5-1c1cfb5df058": [
+          "435b1b3a-79e6-4911-84d0-e869feef489b"
+        ],
+        "04d630ee-9bfd-4839-ad88-3f8ea19f2dbf": [
+          "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c"
+        ],
+        "4e988cfd-8f44-4720-9f23-128ace6bd5c9": [
+          "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c"
+        ],
+        "b63ddc78-944c-493a-bd30-9d49fdc31efb": [
+          "435b1b3a-79e6-4911-84d0-e869feef489b"
+        ],
+        "466272e3-655c-4aee-88e4-e548b5ac2535": [
+          "5af9a64a-d647-4a09-aca8-381599f3154f"
+        ],
+        "588a94cf-96cd-43a2-8599-8a0fef204bb5": [
+          "4744a4ae-32c5-43e7-b05e-4df8fe99943a"
+        ],
+        "76559a2f-f463-4399-a7aa-653d6a02cb50": [
+          "93fa17c2-187e-47dd-85c4-c3a544a67647"
+        ],
+        "ccdf41ca-0c46-4427-93e5-73c3358bbdaf": [
+          "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c"
+        ],
+        "065b05d5-96bf-4432-b169-87da47858bef": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "e1ff1b31-af73-44fe-92a9-9c0c257d09ae": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "2dddfa6b-07bd-4c27-8de5-644b36408687": [
+          "e1ff1b31-af73-44fe-92a9-9c0c257d09ae"
+        ],
+        "43a38c22-ea0f-4bcd-8cf6-cadcd899d408": [
+          "561c7b03-579d-4d3c-a273-d22de43ff4f0"
+        ],
+        "2049c77a-220d-4208-b7ea-6586328dd1b0": [
+          "3c483b91-d08e-4180-b403-0fd580ed220c"
+        ]
+      },
+      "children": {
+        "c62523c7-4050-4877-ae90-933baeb55b2d": [
+          "1eea8fbd-5788-4ee1-afb6-a6c1e1dfc710"
+        ],
+        "1eea8fbd-5788-4ee1-afb6-a6c1e1dfc710": [
+          "c37885df-4f40-4bac-ae5f-bdc21fb476c6"
+        ],
+        "c37885df-4f40-4bac-ae5f-bdc21fb476c6": [
+          "1c787ad8-955a-4952-b36c-b2c93273f78b",
+          "ac93aaf4-21fd-4876-9e52-64a6c2547ac3",
+          "e4475c50-2da3-4b4a-9d0a-c4cc59909666"
+        ],
+        "435b1b3a-79e6-4911-84d0-e869feef489b": [
+          "6468d288-a155-4a7b-80f5-1c1cfb5df058",
+          "b63ddc78-944c-493a-bd30-9d49fdc31efb"
+        ],
+        "540ab7c3-b6c1-4a3d-bca2-fcbe4cb3d10c": [
+          "04d630ee-9bfd-4839-ad88-3f8ea19f2dbf",
+          "4e988cfd-8f44-4720-9f23-128ace6bd5c9",
+          "ccdf41ca-0c46-4427-93e5-73c3358bbdaf"
+        ],
+        "5af9a64a-d647-4a09-aca8-381599f3154f": [
+          "466272e3-655c-4aee-88e4-e548b5ac2535"
+        ],
+        "4744a4ae-32c5-43e7-b05e-4df8fe99943a": [
+          "588a94cf-96cd-43a2-8599-8a0fef204bb5"
+        ],
+        "93fa17c2-187e-47dd-85c4-c3a544a67647": [
+          "76559a2f-f463-4399-a7aa-653d6a02cb50"
+        ],
+        "561c7b03-579d-4d3c-a273-d22de43ff4f0": [
+          "065b05d5-96bf-4432-b169-87da47858bef",
+          "e1ff1b31-af73-44fe-92a9-9c0c257d09ae",
+          "43a38c22-ea0f-4bcd-8cf6-cadcd899d408"
+        ],
+        "e1ff1b31-af73-44fe-92a9-9c0c257d09ae": [
+          "2dddfa6b-07bd-4c27-8de5-644b36408687"
+        ],
+        "3c483b91-d08e-4180-b403-0fd580ed220c": [
+          "2049c77a-220d-4208-b7ea-6586328dd1b0"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use scipy.linalg.solve_discrete_are for steady-state Kalman filter",
+        "description": "Implement a steady-state Kalman filter by solving the discrete algebraic Riccati equation (DARE) using scipy.linalg.solve_discrete_are. Model the signal as a random walk process with measurement noise. The DARE directly computes the optimal steady-state Kalman gain in a single matrix operation, avoiding iterative tuning. The Kalman filter naturally balances smoothness (reducing slope changes and false reversals) with tracking accuracy (minimizing lag error). Process noise parameter Q controls the smoothness-responsiveness tradeoff. Apply the filter in a single pass: x[k+1] = x[k] + K*(y[k] - x[k]) where K is the steady-state gain computed from DARE. This is fundamentally different from TV denoising and EMA approaches that have been tried.",
+        "what_to_optimize": "Lag error (\u03b1\u2082=0.2) and false reversals (\u03b1\u2084=0.3) through natural Kalman filter tradeoff; slope changes (\u03b1\u2081=0.3) through process noise tuning",
+        "cautions": "DARE requires positive semi-definite Q and R matrices; tune Q (process noise) to balance smoothness vs tracking; ensure output length matches len(x) - window_size + 1; handle edge cases where signal is too short",
+        "approach_type": "scipy.linalg.solve_discrete_are"
+      },
+      {
+        "idea": "Use scipy.signal.filtfilt for zero-phase FIR filtering",
+        "description": "Design a low-pass FIR filter using scipy.signal.firwin with optimized cutoff frequency, then apply it bidirectionally using scipy.signal.filtfilt to achieve zero phase delay. Zero-phase filtering eliminates lag error entirely since the filtered output is perfectly aligned with the input (no phase shift). This directly optimizes L_recent and L_avg metrics. The FIR filter design allows precise control over the passband/stopband characteristics. Choose cutoff frequency based on the dominant frequency content of the test signals (0.5-2 Hz range). Apply filtfilt which performs forward-backward filtering to cancel phase delay. This approach is fundamentally different from the current TV denoising and adaptive EMA pipeline.",
+        "what_to_optimize": "Lag error (\u03b1\u2082=0.2, \u03b1\u2083=0.2) through zero-phase property; slope changes (\u03b1\u2081=0.3) through low-pass filtering; noise reduction through frequency domain attenuation",
+        "cautions": "filtfilt requires full signal (not streaming); edge effects at boundaries need careful handling; filter order should be odd; ensure output length matches expected value after processing",
+        "approach_type": "scipy.signal.filtfilt"
+      },
+      {
+        "idea": "Use scipy.signal.find_peaks for trend-change detection and piecewise smoothing",
+        "description": "Detect genuine trend changes (peaks and troughs) using scipy.signal.find_peaks with adaptive prominence thresholds based on signal statistics. Use these detected turning points as anchors to preserve genuine signal dynamics. Apply piecewise smoothing between turning points using weighted averaging that preserves the anchor points. This directly addresses the false_reversals metric by only allowing trend changes at verified turning points. The prominence parameter scales with local signal variance to adapt to non-stationary characteristics. Smooth regions between turning points with a simple moving average or exponential smoothing. This approach explicitly targets the R(\u03b8) penalty by filtering out noise-induced reversals while preserving genuine ones.",
+        "what_to_optimize": "False reversals (\u03b1\u2084=0.3) through verified turning point detection; slope changes (\u03b1\u2081=0.3) by smoothing between anchors; tracking accuracy by preserving genuine trend changes",
+        "cautions": "find_peaks parameters (prominence, distance) must be tuned to signal characteristics; handle edge cases with few or no detected peaks; ensure output length matches expected value; avoid over-smoothing that creates new artificial reversals",
+        "approach_type": "scipy.signal.find_peaks"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 2,
+      "1": 2,
+      "2": 1
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [
+      {
+        "idea": "Use scipy.signal.wiener for adaptive noise estimation and filtering",
+        "description": "Apply scipy.signal.wiener with an adaptive neighborhood size based on local signal characteristics. Wiener filtering estimates local mean and variance from a neighborhood, then applies optimal filtering for each region. This is inherently adaptive to non-stationary signals without requiring manual parameter tuning. The filter automatically reduces noise in high-variance regions while preserving signal in low-variance regions. Set the neighborhood size to window_size // 2 for optimal trade-off between noise reduction and responsiveness. Wiener filtering is particularly effective for Gaussian noise which matches the test signal generation. Unlike the current multi-stage approach, this is a single-pass adaptive filter.",
+        "what_to_optimize": "Reduce avg_error (L_avg) and improve noise_reduction while maintaining correlation",
+        "cautions": "Wiener filter assumes Gaussian noise statistics. Ensure the neighborhood size is appropriate for the signal characteristics. Handle edge cases properly. The filter may introduce slight lag which needs to be accounted for in output alignment.",
+        "approach_type": "scipy.signal.wiener",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.medfilt with adaptive window size",
+        "description": "Implement median filtering with adaptive window sizing based on local signal variance. Median filtering is fundamentally different from mean-based smoothing and TV denoising - it's robust to outliers and preserves edges while suppressing noise. The adaptive window size increases with local variance to provide stronger smoothing in noisy regions and decreases in smooth regions to maintain tracking accuracy. This approach directly targets slope changes (S) and false reversals (R) by removing spurious noise-induced variations while preserving genuine signal edges. The implementation uses scipy.signal.medfilt with a dynamically computed window size for each segment of the signal.",
+        "what_to_optimize": "slope changes (S) and false reversals (R) - the highest weighted metrics at 0.3 each",
+        "cautions": "Ensure window size is always odd, handle edge cases at signal boundaries, and clip window size to valid range [3, window_size]. Median filtering can introduce slight lag, so compensate by adjusting output alignment.",
+        "approach_type": "scipy.signal.medfilt",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.wiener for adaptive local noise estimation",
+        "description": "Apply Wiener filtering which estimates local signal statistics (mean and variance) and adapts the filter strength accordingly. Unlike TV denoising which uses global regularization, Wiener filtering computes optimal filtering coefficients for each window based on local noise estimates. This provides better tracking accuracy for non-stationary signals where noise characteristics change over time. The approach uses scipy.signal.wiener with adaptive noise estimation from the signal's local variance. This directly improves tracking accuracy (L_avg) and lag error (L_recent) while maintaining reasonable smoothness.",
+        "what_to_optimize": "tracking accuracy (L_avg) and lag error (L_recent) - improves responsiveness while maintaining smoothness",
+        "cautions": "Wiener filter assumes locally stationary signals, so window size must be chosen carefully. The filter can be conservative in smoothing, so tune the noise estimation parameters to balance smoothness vs tracking.",
+        "approach_type": "scipy.signal.wiener",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.ndimage.uniform_filter1d with multi-scale cascading",
+        "description": "Implement cascaded uniform filtering with multiple scales - first apply a small window filter for noise reduction, then a larger window filter for trend preservation. This multi-scale approach is computationally efficient and different from TV denoising. The cascading strategy allows fine noise removal while preserving larger signal trends. Each stage uses scipy.ndimage.uniform_filter1d with progressively larger window sizes. The approach directly targets slope changes by removing high-frequency noise while the multi-scale design preserves genuine trend changes. This is particularly effective for step changes and non-stationary signals.",
+        "what_to_optimize": "slope changes (S) and false reversals (R) with minimal computational cost",
+        "cautions": "Cascade depth and window sizes must be tuned to avoid excessive lag. Ensure the total effective window size doesn't exceed the specified window_size parameter. Handle edge effects carefully at signal boundaries.",
+        "approach_type": "scipy.ndimage.uniform_filter1d",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.savgol_filter with polynomial smoothing for edge-preserving denoising",
+        "description": "Apply Savitzky-Golay filter which fits polynomials to sliding windows, preserving higher-order signal derivatives while reducing noise. This is fundamentally different from the TV denoising approach - it uses polynomial interpolation rather than L1 gradient regularization. Set polynomial order=2 for quadratic fitting, window_size based on input parameter, and use it on the full signal before any post-processing. The filter naturally preserves edges and trends while smoothing high-frequency noise. Unlike the current multi-stage pipeline, this is a single operation that directly addresses slope changes through polynomial fitting rather than gradient penalization. The polynomial coefficients can be precomputed for efficiency.",
+        "what_to_optimize": "Slope changes (S), false reversals (R), and correlation with clean signal. The polynomial fitting preserves genuine trends while smoothing noise-induced fluctuations.",
+        "cautions": "Window size must be odd and >= polynomial_order+1. Choose polynomial_order=2 or 3 for balance between smoothness and trend preservation. Avoid using with window_size that's too small (<7) as it won't smooth effectively.",
+        "approach_type": "scipy.signal.savgol_filter",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.optimize.lsq_linear with explicit L1 gradient constraints for direct slope change minimization",
+        "description": "Formulate the filtering problem as a constrained least squares optimization where we minimize ||y-x||^2 subject to explicit constraints on gradient changes. Create a constraint matrix that limits consecutive gradient sign changes directly - if gradient[i] > 0 then gradient[i+1] cannot be < -threshold. Use lsq_linear to solve this efficiently. This is different from the current TV denoising which uses IRLS approximation - here we use hard constraints on gradient behavior. The constraints directly penalize slope changes at the optimization level rather than through regularization. This should give more precise control over the S metric.",
+        "what_to_optimize": "Slope changes (S) directly through gradient constraints, while maintaining tracking accuracy through the least squares objective.",
+        "cautions": "Constraint matrix can become large for long signals. Use sparse matrix representation if available. Ensure constraints are feasible - don't make them too strict or the problem becomes infeasible. The bound constraints in lsq_linear can handle gradient magnitude limits.",
+        "approach_type": "scipy.optimize.lsq_linear",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use piecewise linear regression with adaptive breakpoint detection via change point analysis",
+        "description": "Instead of continuous smoothing, fit a piecewise linear model where the signal is represented as connected linear segments. Detect breakpoints where the slope significantly changes using statistical change point detection. For each segment, fit a linear model (slope and intercept). The filtered output is the piecewise linear reconstruction. This directly minimizes slope changes by design - each segment has constant slope. Only accept new segments when statistical evidence of slope change is strong (using F-test or similar). This is fundamentally different from smoothing approaches - it models the signal structure explicitly rather than filtering noise.",
+        "what_to_optimize": "Slope changes (S) and false reversals (R) by design - the model only has slope changes where statistically justified. Correlation should be good as linear segments track genuine trends.",
+        "cautions": "Need to handle edge cases where signal is too short for segment fitting. Minimum segment length should be enforced to avoid overfitting noise. The breakpoint detection threshold must be tuned - too sensitive creates false reversals, too insensitive misses genuine changes.",
+        "approach_type": "numpy.polynomial.polynomial.polyfit",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Signal decomposition with separate trend and noise filtering",
+        "description": "Extract the trend component using a simple moving average over the window_size, then filter the residual (noise) component separately using Savitzky-Golay filtering. This approach separates slow-varying trends from high-frequency noise, allowing each to be processed optimally. The trend component preserves genuine signal dynamics while the residual is aggressively smoothed to reduce spurious slope changes. Finally, reconstruct by adding the trend back to the filtered residual. This directly addresses both tracking accuracy (preserving trend) and slope change minimization (smoothing noise).",
+        "what_to_optimize": "L_avg (tracking accuracy), S (slope changes), R (false reversals) - separating trend from noise allows aggressive noise smoothing without losing signal dynamics",
+        "cautions": "Ensure moving average window matches the window_size parameter for proper alignment. Handle edge effects carefully. The polynomial order for Savitzky-Golay should be small (2-3) to avoid overfitting noise. Test with different decomposition ratios.",
+        "approach_type": "scipy.signal.savgol_filter",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Forward-backward Savitzky-Golay filtering for zero-lag processing",
+        "description": "Apply Savitzky-Golay filtering in forward direction, then apply it again in backward direction on the forward-filtered result. This forward-backward approach cancels out the phase lag introduced by the forward filter, achieving zero-lag filtering while maintaining smoothness. The Savitzky-Golay filter preserves signal features better than simple smoothing while reducing noise. This directly addresses L_recent (lag error) while maintaining good S (slope changes) and L_avg (tracking error) metrics.",
+        "what_to_optimize": "L_recent (lag error), S (slope changes), L_avg (tracking error) - zero-lag filtering eliminates lag penalty while maintaining smoothness",
+        "cautions": "Handle boundary effects carefully - pad the signal before filtering. The polynomial order should be low (2-3) and window size should be odd. Apply the same window size in both directions. Ensure output length matches expected len(x) - window_size + 1.",
+        "approach_type": "scipy.signal.savgol_filter",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Multi-filter ensemble with weighted combination",
+        "description": "Apply three different filters (Savitzky-Golay, moving average, and exponential moving average) to the same input, then combine their outputs using weighted averaging. The weights can be tuned to balance smoothness vs. responsiveness. Savitzky-Golay preserves signal features, moving average provides robust smoothing, and EMA offers low-latency tracking. The ensemble approach leverages the strengths of each filter while mitigating individual weaknesses. This provides a balanced solution across all four metrics.",
+        "what_to_optimize": "All metrics balanced - ensemble provides smoothness (S), low lag (L_recent), tracking accuracy (L_avg), and reduced false reversals (R)",
+        "cautions": "Ensure all filters produce outputs of the same length for proper combination. Tune weights based on signal characteristics. Use consistent window sizes across filters. The combination should be linear to maintain stability. Test different weight combinations.",
+        "approach_type": "scipy.signal.savgol_filter",
+        "uses": 2,
+        "starting_score": 0.6543921709001166,
+        "ending_score": 0.6543921709001166,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.6543921709001166,
+    "best_score_during_paradigm": 0.6543921709001166
+  }
+}

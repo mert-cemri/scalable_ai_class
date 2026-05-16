@@ -1,0 +1,28 @@
+{
+  "id": "78f6fb6e-9d1c-44d8-9765-094fa34a1f0c",
+  "generation": 2,
+  "iteration": 37,
+  "current_iteration": 200,
+  "metrics": {
+    "runs_successfully": 1.0,
+    "composite_score": 0.45439735388046004,
+    "output_length": 91.0,
+    "combined_score": 0.5512999551455892,
+    "overall_score": 0.5512999551455892,
+    "slope_changes": 133.6,
+    "lag_error": 0.12745363310180774,
+    "avg_error": 0.2709551065161482,
+    "false_reversals": 105.4,
+    "correlation": 0.934021895424765,
+    "noise_reduction": 0.5669496784178539,
+    "smoothness_score": 0.13020833333333334,
+    "responsiveness_score": 0.8869544348789209,
+    "accuracy_score": 0.934021895424765,
+    "efficiency_score": 1.0,
+    "execution_time": 0.029411172866821288,
+    "success_rate": 1.0
+  },
+  "language": "python",
+  "timestamp": 1778414049.119661,
+  "saved_at": 1778416530.9156406
+}

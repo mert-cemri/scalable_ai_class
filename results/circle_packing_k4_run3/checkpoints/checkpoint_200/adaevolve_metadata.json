@@ -1,0 +1,479 @@
+{
+  "num_islands": 2,
+  "current_island": 0,
+  "iteration_count": 71,
+  "global_best_score": 0.9942471914027446,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.10022762124234476,
+        "best_score": 0.9942471914027446,
+        "improvement_count": 7,
+        "total_evaluations": 35,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.14155713262963235,
+        "best_score": 0.9942471914027446,
+        "improvement_count": 4,
+        "total_evaluations": 36,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      35,
+      36
+    ],
+    "dimension_rewards": [
+      0.10122048050596677,
+      0.026420538575347294
+    ],
+    "decayed_visits": [
+      9.749684449500679,
+      9.77471600455061
+    ],
+    "global_best_score": 0.9942471914027446,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "0e18b95a-8e3e-406f-a837-bf8a92384e76",
+      "1591a0a3-fad5-4cdf-9f9e-37c36681b551",
+      "7f44b882-b249-47cc-82b0-9a8db1edc5a2",
+      "5ee7597f-430b-49d3-b899-b7000d27c0e5",
+      "87063dae-c6e4-48af-af29-f617b440d96e",
+      "881ea806-1b06-44a5-b230-546dd9ddadc7",
+      "c008adff-1602-4d58-856b-99220f3ad788",
+      "b2386f26-9f5a-47cf-9790-feca45e765fb",
+      "0900b579-2d25-431d-9dc3-4fe145d3daf1",
+      "cef293e6-a224-4cf1-bd80-6dacc07d813c",
+      "c363efe8-7bd4-43e8-b4c0-673ac95445f8",
+      "a786960a-ea58-4324-bc0d-9827c285c197",
+      "7e8b78f8-f819-451d-99c6-00ab107f360b",
+      "4e89cd6d-a16a-477c-95f3-db3bcba7f64f",
+      "59e28706-c545-468d-b7b2-60fd793dbb7c",
+      "e1ca67cf-89ea-4689-9120-bb23a36e4b76",
+      "dd79e2f3-e761-4e4f-a950-206477f06aa3",
+      "7d53d918-a542-4f63-9852-946090e72fbe",
+      "01bff297-20d4-4e54-8699-d58c61d18644",
+      "746ff29a-6b39-40c5-bb03-b4d66d762991"
+    ],
+    [
+      "2ddfcf51-0d1c-4ac7-a515-aa3dd3a6b9bd",
+      "5823dc8b-b491-4577-8cde-a04a8cea1b8f",
+      "599455b3-9614-48c7-a538-4cf1e7d12d3f",
+      "6a6ca5fa-f3ff-477f-a75b-810219d72deb",
+      "c33f4920-1a27-48ee-831c-72b0f8462680",
+      "68141289-ad56-493a-84a2-0e0502f82f4f",
+      "6234ac33-b96e-4dda-b8bb-59049465f19f",
+      "1764b6a2-5315-4255-867e-9028472a8a77",
+      "43fafb77-afca-4be5-89b5-278033f09601",
+      "0b65de73-e35b-45ab-b34b-127c125de40f",
+      "f45ad42d-2063-4e80-85a3-314f345cf1e3",
+      "dfe80fbc-fb16-4eef-bd2f-268e0b422e25",
+      "85163101-dd9c-4224-9d84-d4afa0a401b2",
+      "96a42792-bef0-4bba-8155-1aed4e014d92",
+      "01c3d6fa-95fd-406c-8300-795c1a4476e6",
+      "1fafcd35-4bfc-4583-9ef2-1bc3eb62893a",
+      "0efd9c63-1f52-4f60-9105-f9e461f94f4d",
+      "a8b127b8-a0db-4db5-8638-012e86ac0a47",
+      "f4bb3d66-91eb-4fd7-ac23-43fe78826f36",
+      "213b4937-ac45-4ff3-9e6f-35d2db9e49d8"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "0e18b95a-8e3e-406f-a837-bf8a92384e76": [],
+        "1591a0a3-fad5-4cdf-9f9e-37c36681b551": [
+          "0e18b95a-8e3e-406f-a837-bf8a92384e76"
+        ],
+        "7f44b882-b249-47cc-82b0-9a8db1edc5a2": [
+          "0e18b95a-8e3e-406f-a837-bf8a92384e76"
+        ],
+        "5ee7597f-430b-49d3-b899-b7000d27c0e5": [
+          "0e18b95a-8e3e-406f-a837-bf8a92384e76"
+        ],
+        "87063dae-c6e4-48af-af29-f617b440d96e": [
+          "0e18b95a-8e3e-406f-a837-bf8a92384e76"
+        ],
+        "881ea806-1b06-44a5-b230-546dd9ddadc7": [
+          "5ee7597f-430b-49d3-b899-b7000d27c0e5"
+        ],
+        "c008adff-1602-4d58-856b-99220f3ad788": [
+          "5ee7597f-430b-49d3-b899-b7000d27c0e5"
+        ],
+        "b2386f26-9f5a-47cf-9790-feca45e765fb": [
+          "5ee7597f-430b-49d3-b899-b7000d27c0e5"
+        ],
+        "0900b579-2d25-431d-9dc3-4fe145d3daf1": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "cef293e6-a224-4cf1-bd80-6dacc07d813c": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "c363efe8-7bd4-43e8-b4c0-673ac95445f8": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "a786960a-ea58-4324-bc0d-9827c285c197": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "7e8b78f8-f819-451d-99c6-00ab107f360b": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "4e89cd6d-a16a-477c-95f3-db3bcba7f64f": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "59e28706-c545-468d-b7b2-60fd793dbb7c": [
+          "85163101-dd9c-4224-9d84-d4afa0a401b2"
+        ],
+        "e1ca67cf-89ea-4689-9120-bb23a36e4b76": [
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "dd79e2f3-e761-4e4f-a950-206477f06aa3": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "7d53d918-a542-4f63-9852-946090e72fbe": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "01bff297-20d4-4e54-8699-d58c61d18644": [
+          "dd79e2f3-e761-4e4f-a950-206477f06aa3"
+        ],
+        "746ff29a-6b39-40c5-bb03-b4d66d762991": [
+          "dd79e2f3-e761-4e4f-a950-206477f06aa3"
+        ]
+      },
+      "children": {
+        "0e18b95a-8e3e-406f-a837-bf8a92384e76": [
+          "1591a0a3-fad5-4cdf-9f9e-37c36681b551",
+          "7f44b882-b249-47cc-82b0-9a8db1edc5a2",
+          "5ee7597f-430b-49d3-b899-b7000d27c0e5",
+          "87063dae-c6e4-48af-af29-f617b440d96e"
+        ],
+        "5ee7597f-430b-49d3-b899-b7000d27c0e5": [
+          "881ea806-1b06-44a5-b230-546dd9ddadc7",
+          "c008adff-1602-4d58-856b-99220f3ad788",
+          "b2386f26-9f5a-47cf-9790-feca45e765fb"
+        ],
+        "f45ad42d-2063-4e80-85a3-314f345cf1e3": [
+          "0900b579-2d25-431d-9dc3-4fe145d3daf1",
+          "cef293e6-a224-4cf1-bd80-6dacc07d813c",
+          "c363efe8-7bd4-43e8-b4c0-673ac95445f8",
+          "a786960a-ea58-4324-bc0d-9827c285c197",
+          "7e8b78f8-f819-451d-99c6-00ab107f360b",
+          "4e89cd6d-a16a-477c-95f3-db3bcba7f64f",
+          "dd79e2f3-e761-4e4f-a950-206477f06aa3",
+          "7d53d918-a542-4f63-9852-946090e72fbe"
+        ],
+        "85163101-dd9c-4224-9d84-d4afa0a401b2": [
+          "59e28706-c545-468d-b7b2-60fd793dbb7c"
+        ],
+        "6234ac33-b96e-4dda-b8bb-59049465f19f": [
+          "e1ca67cf-89ea-4689-9120-bb23a36e4b76"
+        ],
+        "dd79e2f3-e761-4e4f-a950-206477f06aa3": [
+          "01bff297-20d4-4e54-8699-d58c61d18644",
+          "746ff29a-6b39-40c5-bb03-b4d66d762991"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "2ddfcf51-0d1c-4ac7-a515-aa3dd3a6b9bd": [],
+        "5823dc8b-b491-4577-8cde-a04a8cea1b8f": [
+          "2ddfcf51-0d1c-4ac7-a515-aa3dd3a6b9bd"
+        ],
+        "599455b3-9614-48c7-a538-4cf1e7d12d3f": [
+          "2ddfcf51-0d1c-4ac7-a515-aa3dd3a6b9bd"
+        ],
+        "6a6ca5fa-f3ff-477f-a75b-810219d72deb": [
+          "2ddfcf51-0d1c-4ac7-a515-aa3dd3a6b9bd"
+        ],
+        "c33f4920-1a27-48ee-831c-72b0f8462680": [
+          "2ddfcf51-0d1c-4ac7-a515-aa3dd3a6b9bd"
+        ],
+        "68141289-ad56-493a-84a2-0e0502f82f4f": [
+          "5823dc8b-b491-4577-8cde-a04a8cea1b8f"
+        ],
+        "6234ac33-b96e-4dda-b8bb-59049465f19f": [
+          "5823dc8b-b491-4577-8cde-a04a8cea1b8f"
+        ],
+        "1764b6a2-5315-4255-867e-9028472a8a77": [
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "43fafb77-afca-4be5-89b5-278033f09601": [
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "0b65de73-e35b-45ab-b34b-127c125de40f": [
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "f45ad42d-2063-4e80-85a3-314f345cf1e3": [
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "dfe80fbc-fb16-4eef-bd2f-268e0b422e25": [
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "85163101-dd9c-4224-9d84-d4afa0a401b2": [
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "96a42792-bef0-4bba-8155-1aed4e014d92": [
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3"
+        ],
+        "01c3d6fa-95fd-406c-8300-795c1a4476e6": [
+          "0900b579-2d25-431d-9dc3-4fe145d3daf1"
+        ],
+        "1fafcd35-4bfc-4583-9ef2-1bc3eb62893a": [
+          "dd79e2f3-e761-4e4f-a950-206477f06aa3"
+        ],
+        "0efd9c63-1f52-4f60-9105-f9e461f94f4d": [
+          "dd79e2f3-e761-4e4f-a950-206477f06aa3"
+        ],
+        "a8b127b8-a0db-4db5-8638-012e86ac0a47": [
+          "746ff29a-6b39-40c5-bb03-b4d66d762991"
+        ],
+        "f4bb3d66-91eb-4fd7-ac23-43fe78826f36": [
+          "7d53d918-a542-4f63-9852-946090e72fbe"
+        ],
+        "213b4937-ac45-4ff3-9e6f-35d2db9e49d8": [
+          "01bff297-20d4-4e54-8699-d58c61d18644"
+        ]
+      },
+      "children": {
+        "2ddfcf51-0d1c-4ac7-a515-aa3dd3a6b9bd": [
+          "5823dc8b-b491-4577-8cde-a04a8cea1b8f",
+          "599455b3-9614-48c7-a538-4cf1e7d12d3f",
+          "6a6ca5fa-f3ff-477f-a75b-810219d72deb",
+          "c33f4920-1a27-48ee-831c-72b0f8462680"
+        ],
+        "5823dc8b-b491-4577-8cde-a04a8cea1b8f": [
+          "68141289-ad56-493a-84a2-0e0502f82f4f",
+          "6234ac33-b96e-4dda-b8bb-59049465f19f"
+        ],
+        "6234ac33-b96e-4dda-b8bb-59049465f19f": [
+          "1764b6a2-5315-4255-867e-9028472a8a77",
+          "43fafb77-afca-4be5-89b5-278033f09601",
+          "0b65de73-e35b-45ab-b34b-127c125de40f",
+          "f45ad42d-2063-4e80-85a3-314f345cf1e3",
+          "dfe80fbc-fb16-4eef-bd2f-268e0b422e25",
+          "85163101-dd9c-4224-9d84-d4afa0a401b2"
+        ],
+        "f45ad42d-2063-4e80-85a3-314f345cf1e3": [
+          "96a42792-bef0-4bba-8155-1aed4e014d92"
+        ],
+        "0900b579-2d25-431d-9dc3-4fe145d3daf1": [
+          "01c3d6fa-95fd-406c-8300-795c1a4476e6"
+        ],
+        "dd79e2f3-e761-4e4f-a950-206477f06aa3": [
+          "1fafcd35-4bfc-4583-9ef2-1bc3eb62893a",
+          "0efd9c63-1f52-4f60-9105-f9e461f94f4d"
+        ],
+        "746ff29a-6b39-40c5-bb03-b4d66d762991": [
+          "a8b127b8-a0db-4db5-8638-012e86ac0a47"
+        ],
+        "7d53d918-a542-4f63-9852-946090e72fbe": [
+          "f4bb3d66-91eb-4fd7-ac23-43fe78826f36"
+        ],
+        "01bff297-20d4-4e54-8699-d58c61d18644": [
+          "213b4937-ac45-4ff3-9e6f-35d2db9e49d8"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use sympy.nsolve for exact algebraic solution of circle tangency constraints",
+        "description": "Instead of gradient-based optimization, formulate the circle packing as a system of nonlinear equations where each touching circle pair satisfies dist(c1,c2) = r1+r2, and boundary circles satisfy x\u00b1r=0 or y\u00b1r=0. Use sympy.nsolve to find exact solutions to this algebraic system. The key insight is that optimal packings have specific contact graphs where circles touch at precise points, creating a solvable system of equations rather than an optimization problem. This fundamentally changes the problem from 'find good positions' to 'solve for positions that satisfy exact geometric constraints'.",
+        "what_to_optimize": "Find exact algebraic solutions to the contact constraints that maximize sum_radii by trying different contact graph configurations",
+        "cautions": "Need to enumerate possible contact graphs, nsolve requires good initial guesses, system may be underdetermined or overdetermined depending on graph structure",
+        "approach_type": "sympy.nsolve"
+      },
+      {
+        "idea": "Use scipy.spatial.Delaunay with contact graph enumeration and geometric solving",
+        "description": "The contact graph (which circles touch which) is a fundamental discrete structure in circle packing. Use scipy.spatial.Delaunay to analyze the geometric structure, then enumerate possible contact graph topologies for 26 circles. For each contact graph, solve the exact geometric constraints: if circles i and j touch, then ||ci-cj||\u00b2 = (ri+rj)\u00b2. This transforms the continuous optimization into a discrete enumeration problem where each discrete choice (contact graph) has an exact geometric solution. The breakthrough is recognizing that optimal packings correspond to specific contact graph topologies that can be enumerated and solved exactly.",
+        "what_to_optimize": "Enumerate contact graph configurations and solve exact geometric constraints to find globally optimal packing",
+        "cautions": "Contact graph enumeration is combinatorial, need to filter valid graphs, must ensure solution satisfies all non-touching circle constraints",
+        "approach_type": "scipy.spatial.Delaunay"
+      },
+      {
+        "idea": "Use direct geometric construction from known optimal packings with perturbation search",
+        "description": "Circle packing for n=26 has been studied extensively with known near-optimal configurations in the literature. Instead of general optimization, use a library of known good packings (from papers on circle packing in squares) as starting points. Then apply a focused perturbation search: systematically move individual circles by small amounts, checking if the perturbation allows radius expansion. The key is to search in the neighborhood of known good solutions rather than from scratch. This leverages the fact that the global optimum is likely close to previously discovered good packings, making the search space much smaller and more tractable.",
+        "what_to_optimize": "Start from known good packings and use local perturbation to find improvements by checking which perturbations allow radius expansion",
+        "cautions": "Need to implement perturbation carefully to avoid overlaps, must check all constraints after each perturbation, convergence may be slow",
+        "approach_type": "custom.perturbation_search"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 1,
+      "1": 1
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [
+      {
+        "idea": "Use scipy.sparse.csgraph for contact graph structure analysis and geometric constraint propagation",
+        "description": "Build a contact graph where edges connect circles that are nearly touching (distance within tolerance of sum of radii). Use scipy.sparse.csgraph.connected_components to identify rigid clusters in the packing. For each cluster, use scipy.optimize.least_squares to solve the geometric constraints exactly (distance = r1 + r2 for contacts). The key insight is that optimal packings have rigid structures where local adjustments propagate through the contact graph. Use the sparse graph structure to identify which circles can move independently and which are locked together. This geometric approach exploits the structure of circle packings rather than treating it as a black-box optimization problem.",
+        "what_to_optimize": "Exploit the rigid geometric structure of circle packings to find better local configurations by solving contact constraints exactly",
+        "cautions": "Must choose appropriate tolerance for identifying contacts; need to handle cases where contact graph changes during optimization; least_squares may need good initial guesses from current configuration",
+        "approach_type": "scipy.sparse.csgraph",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Physics-based elastic relaxation simulation",
+        "description": "Implement a custom physics engine where circles are elastic objects with repulsive forces. Each iteration computes overlap-based forces between all circle pairs and boundary forces, then applies damped velocity updates. This is fundamentally different from gradient-based optimization - it uses force relaxation that naturally handles constraints through elastic collision physics. The simulation runs for fixed iterations with decreasing damping to settle into equilibrium. No scipy optimization is used - purely iterative force-based movement.",
+        "what_to_optimize": "sum_radii by letting elastic forces naturally push circles into optimal positions",
+        "cautions": "Need careful tuning of stiffness, damping, and time step. Too stiff causes oscillation, too soft converges slowly. Must ensure circles stay within bounds during simulation.",
+        "approach_type": "custom.physics_simulation",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Penalty method with gradient-free optimization",
+        "description": "Reformulate the constrained optimization as unconstrained using quadratic penalty terms for constraint violations. Create objective: -sum_radii + lambda*(sum of squared distance violations + sum of squared boundary violations). Use gradient-free optimizer like Nelder-Mead or coordinate descent instead of scipy.minimize. The penalty parameter lambda increases iteratively (penalty parameter continuation) to enforce constraints more strictly over iterations. This avoids constraint handling issues entirely.",
+        "what_to_optimize": "penalized objective that balances radius maximization with constraint satisfaction",
+        "cautions": "Penalty parameter schedule is critical - too aggressive causes numerical issues, too slow doesn't converge. Need to handle NaN when constraints are severely violated.",
+        "approach_type": "custom.penalty_method",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Contact graph enumeration with geometric solving",
+        "description": "Optimal circle packings have specific contact graphs (which circles touch which). Enumerate plausible contact graph topologies based on known packing patterns (e.g., 4-5-6-5-5, 5-5-5-5-6, etc.). For each topology, formulate as a system of equations: touching circles have distance = r_i + r_j, boundary circles have center distance = r from edge. Use scipy.linalg.solve or least_squares on this reduced system (only contact constraints, not all pairs). This reduces from 325 constraints to ~40-60 contact constraints.",
+        "what_to_optimize": "feasible radius assignments for each contact graph topology, then pick best sum_radii",
+        "cautions": "Need to enumerate reasonable topologies - too many graphs is expensive, too few may miss optimal. Some topologies may have no feasible solution. Must validate final solution satisfies all non-contact constraints.",
+        "approach_type": "custom.contact_graph_solver",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.optimize.basinhopping for global optimization with local SLSQP refinement",
+        "description": "Replace the current SLSQP-only approach with scipy.optimize.basinhopping, which combines global exploration with local refinement. Use SLSQP as the local optimizer within each basin. The key innovation is that basinhopping can escape local minima that trap pure SLSQP. Define the objective as negative sum of radii with penalty terms for constraint violations. Use a custom step function that proposes random perturbations to circle positions, then let the local optimizer refine. Run multiple independent basinhopping searches with different random seeds and keep the best valid solution. This approach is fundamentally different from failed dual_annealing because it uses gradient-based local refinement rather than simulated annealing.",
+        "what_to_optimize": "Escape local minima that trap SLSQP by using global basin exploration while maintaining constraint satisfaction through penalty functions",
+        "cautions": "Must implement penalty functions carefully - too weak and constraints are violated, too strong and optimization stalls. Use penalty = max(0, constraint_violation)^2 for smooth gradients. Set stepsize around 0.05-0.1 for meaningful exploration. Limit total function evaluations to stay within timeout.",
+        "approach_type": "scipy.optimize.basinhopping",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use NetworkX contact graph analysis with geometric constraint propagation",
+        "description": "Construct a contact graph where nodes are circles and edges represent potential contacts (distances within 2*r tolerance). Use NetworkX to identify structural patterns: find cliques of mutually touching circles, identify articulation points, and detect rigid subgraphs. Then use this graph structure to guide optimization by fixing rigid subgraphs and only optimizing degrees of freedom in flexible regions. The key insight is that optimal packings have specific contact graph structures (often triangulations). Use NetworkX algorithms like connected_components, clique finding, and articulation_points to identify which circles form rigid clusters. Optimize only the flexible degrees of freedom within each cluster while maintaining inter-cluster constraints.",
+        "what_to_optimize": "Reduce optimization dimensionality by identifying and fixing rigid subgraphs, focusing optimization on true degrees of freedom",
+        "cautions": "Contact graph must be computed with appropriate tolerance - too small misses contacts, too large creates false constraints. Need to recompute graph after each optimization step as contacts change. Rigid clusters should be optimized together, not fixed entirely.",
+        "approach_type": "networkx.algorithms",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.integrate.quad for density-based gap identification with gradient ascent",
+        "description": "Instead of Voronoi vertices, compute the 'gap density field' by integrating over the square to find regions with lowest circle coverage. Use scipy.integrate.quad to compute the coverage integral at candidate points, identifying true gap centers. Then use gradient ascent on the sum of radii function by computing gradients analytically: for each circle, the gradient of the objective with respect to its position is the sum of unit vectors toward constraint boundaries (other circles and square edges). This creates a continuous optimization landscape rather than discrete Voronoi vertices. The key difference from Voronoi is that density integration captures the continuous nature of available space, not just discrete equidistant points.",
+        "what_to_optimize": "Find optimal gap locations through continuous density analysis rather than discrete Voronoi vertices, then use analytical gradients for efficient optimization",
+        "cautions": "Density computation is expensive - use coarse grid sampling first, then refine. Analytical gradients must account for all active constraints simultaneously. Need to handle constraint switching (when a circle stops touching one neighbor and starts touching another).",
+        "approach_type": "scipy.integrate.quad",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.optimize.least_squares with contact graph constraints",
+        "description": "Instead of optimization with penalty, directly solve the geometric constraints as a root-finding problem. Build a contact graph by identifying which circle pairs should touch based on current configuration. Define residuals as (distance - r1 - r2) for touching pairs. Use scipy.optimize.least_squares with 'lm' or 'trf' method to find positions where all contacts are exactly satisfied. This reformulates the problem from constrained optimization to direct geometric constraint solving, which is fundamentally different from the failed minimize approaches. The contact graph can be updated iteratively as the solution converges.",
+        "what_to_optimize": "Directly satisfy touching constraints to achieve optimal packing density",
+        "cautions": "Must correctly identify the contact graph topology; use robust solver methods like 'lm' or 'trf' that handle nonlinear systems; may need to restart with different contact graph assumptions if stuck in local minima",
+        "approach_type": "scipy.optimize.least_squares",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use constraint propagation for feasible region reduction",
+        "description": "Implement a constraint propagation algorithm that iteratively reduces the feasible region for each circle. Start with full [0,1]x[0,1] bounds for each circle center. For each pair of circles, propagate the constraint that their centers must be at least r1+r2 apart, which eliminates impossible regions from each circle's feasible area. After propagation, sample uniformly from the reduced feasible regions to generate candidate configurations. This is a fundamentally different approach from optimization - it's a constraint satisfaction method that systematically eliminates infeasible regions before searching.",
+        "what_to_optimize": "Reduce search space to only valid configurations, improving solution quality",
+        "cautions": "Constraint propagation may be computationally intensive for 26 circles; need to handle circular constraints carefully; sampling from reduced regions requires care to maintain uniformity; may need to iterate propagation multiple times for full convergence",
+        "approach_type": "custom.constraint_propagation",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use Newton-Raphson for contact constraint solving",
+        "description": "Implement a Newton-Raphson solver for the nonlinear system of contact constraints. For a given contact graph (which circles touch), define the system of equations: ||c_i - c_j||^2 = (r_i + r_j)^2 for all touching pairs. Compute the Jacobian analytically (derivatives of distance constraints with respect to positions). Use the Jacobian to iteratively update positions until all contact constraints are satisfied. This is a direct geometric solver that exploits the mathematical structure of the problem, fundamentally different from gradient-based optimization. Can be combined with contact graph enumeration to try different topologies.",
+        "what_to_optimize": "Solve exact geometric constraints for optimal circle positions",
+        "cautions": "Requires analytical Jacobian computation; Newton-Raphson may diverge if initial guess is poor; need good contact graph initialization; may need damping or line search for stability; best combined with multiple contact graph configurations",
+        "approach_type": "custom.newton_raphson",
+        "uses": 2,
+        "starting_score": 0.9942471914027446,
+        "ending_score": 0.9942471914027446,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.9942471914027446,
+    "best_score_during_paradigm": 0.9942471914027446
+  }
+}

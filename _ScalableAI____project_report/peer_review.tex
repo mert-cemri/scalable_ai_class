@@ -1,0 +1,104 @@
+\documentclass{article}
+
+
+\usepackage[preprint]{utils_packages/neurips_2023}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colorsp
+\usepackage{float}
+\usepackage{listings}
+
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+
+\newcommand{\Eric}[1]{{\color{mint}[Eric: #1]}}
+\definecolor{mint}{RGB}{62, 180, 137}
+% [Custom packages] from here down 
+\input{utils_packages/_packages_ontopof_neurips_}
+% [Custom packages] from here up 
+
+
+\title{Peer Review for Group 2}
+\author{
+Group 7 \\ Matteo Guarrera \quad Elizabeth Polito \quad Dongwei Lyu \\ Mert Cemri \quad Sultan Daniels \quad Eric Xu
+}
+
+\begin{document}
+\maketitle
+% \vspace{-5cm}
+\author{}
+% 
+\vspace{-0.5cm}
+
+\vspace{-0.3cm}
+
+\section{Summary of the Project}
+
+This project studies self-summarization and context compaction methods for improving long-context reasoning in large language models. The authors investigate whether summaries can function not only as a memory-saving mechanism, but also as a tool for improving reasoning diversity and inference effectiveness.
+
+\paragraph{Inference Scaling Behavior} Building on a comprehensive review of prior approaches, including \textit{Reasoning Cache}, \textit{Cursor Compaction}, and \textit{Mementos}, the project first analyzes the inference-time scaling behavior of context compaction methods through comparisons of \textit{pass@k} and \textit{best-of-N} performance. Using Qwen3-1.7B on mathematical reasoning benchmarks under constrained token budgets, the authors show that self-summarization can increase reasoning diversity and improve \textit{pass@k} accuracy.
+
+\paragraph{RL with Self-Summarization}  The project further explores reinforcement learning approaches for self-summarization on mathematical reasoning tasks, demonstrating additional performance improvements after RL fine-tuning with summarization-enabled reasoning. To address the information discrepancy between summarized and full-context reasoning, the authors also propose a distillation-based framework that transfers information from full-context trajectories into summarized reasoning processes.
+
+\paragraph{Evaluation Benchmarks and Metrics} Beyond quantitative evaluation, the project provides qualitative analysis and identify a potential “summary hacking” issue in math benchmarks, where models may leak intermediate or final answers into summaries, leading to misleading accuracy improvements. Motivated by this observation, the project argues for more natural long-horizon reasoning evaluation environments such as MultiHopQA, Sudoku, WikiRace, and Chess.
+
+The project also highlights several open problems in evaluating long-context reasoning, including measuring reasoning trace quality, quantifying information loss from summarization, and designing adaptive strategies for triggering self-summarization beyond fixed context-window cutoffs.
+\section{Strengths and Weaknesses}
+
+\paragraph{Strengths}
+\begin{itemize}
+    \item The project addresses an important and timely problem: improving long-context reasoning under limited context budgets.
+    
+    \item The experimental observations are interesting, particularly the finding that self-summarization may improve reasoning diversity rather than simply acting as a memory compression mechanism, potentially due to reducing excessive conditioning from the original context.
+    
+    \item The team analyzes the results carefully instead of simply reporting benchmark numbers. The qualitative analysis of potentially misleading metrics and ``summary hacking'' on math benchmarks demonstrates strong research intuition.
+    
+    \item The discussion of alternative evaluation environments is thoughtful, and the proposed benchmarks align more naturally with sequential and long-horizon reasoning than standard retrieval-heavy benchmarks.
+\end{itemize}
+
+\paragraph{Weaknesses}
+
+\begin{itemize}
+    \item The results from the RL self-summarization experiments are kind of hard to interpret without baseline comparisons. It is not yet clear whether self-summarization further improves reasoning efficiency or final reasoning accuracy beyound RL finetuning.
+    
+    \item The distillation-based framework is currently more conceptual, and the initial experimental results do not yet demonstrate clear effectiveness.
+
+    \item The project discusses many interesting open problems, but several are not explored in sufficient depth. For example, results on the proposed alternative benchmarks are still missing, and the discussion of summarization quality metrics has not yet been integrated into the RL training framework. Focusing more deeply on one or two core questions may lead to stronger and more concrete conclusions.
+\end{itemize}
+
+\section{Questions for the Authors}
+
+\begin{enumerate}
+    \item In the inference-time scaling experiments, how much of the observed improvement comes from effective information compression versus increased reasoning diversity? For example, if another LLM simply rephrases the context without compressing it, would it achieve similar gains? In other words, does summarization help primarily by preserving essential information more efficiently, or by perturbing the reasoning trajectory and encouraging alternative reasoning paths?
+    
+    \item Does RL with self-summarization ultimately improve long-context reasoning accuracy or inference efficiency compared with a baseline RL setup, or does it mainly enable longer reasoning rollouts?
+    
+    \item Could the KL-based information gap objective unintentionally encourage summaries that mimic surface token statistics rather than preserving causal reasoning structure?
+\end{enumerate}
+
+\section{Suggestions for Improvement}
+
+\begin{enumerate}
+    \item Beyond the prior works discussed, there is also a relevant line of work on latent-space compression, such as \textit{AutoCompressor}. Compared with fixed-size latent compression, explicit token-space summarization has less controllable compression ratios and may be less efficient, but offers significantly better interpretability. This makes evaluating summary quality during RL training important as an additional training signal.
+    
+    \item The project could benefit from further analysis of what information is preserved or discarded in successful summaries. For example, probing hidden states or measuring semantic consistency across summarization stages may provide additional insight.
+    
+    \item It would also be valuable to compare learned summarization against simpler baselines such as heuristic truncation, retrieval, or selective token dropping.
+    
+    \item For adaptive summarization triggering, works such as \textit{Byte Latent Transformer} suggest using token prediction entropy as a signal, which may be worth exploring.
+\end{enumerate}
+\end{document}

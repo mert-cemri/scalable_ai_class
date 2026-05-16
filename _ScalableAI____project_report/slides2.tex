@@ -1,0 +1,264 @@
+
+
+\textbf{OpenEvolve-MARL}
+
+Open-Source Adaptive Evolutionary Algorithm Discovery for Multi-Agent
+Systems
+
+Project Proposal \textbar{} Compute Budget: 8 × H100 GPUs
+
+\textbf{1. Theme and Motivation}
+
+The central challenge in multi-agent reinforcement learning (MARL) ---
+particularly in imperfect-information game solving --- has long been
+that state-of-the-art algorithmic variants such as Discounted CFR (DCFR)
+and SHOR-PSRO emerge not from systematic search, but from human
+intuition applied painstakingly over years. The recent paper AdaEvolve
+(Cemri et al., 2026, arXiv:2602.20133) demonstrates that this bottleneck
+can be broken: a hierarchical adaptive optimization framework wrapped
+around large language model (LLM) mutation operators can discover novel
+algorithms --- autonomously, at scale, and with greater compute
+efficiency than prior systems like AlphaEvolve. However, AdaEvolve, like
+its predecessors, is built entirely on proprietary models (e.g., Gemini
+Flash / Pro). This creates a fundamental reproducibility crisis and a
+hard dependency on API cost and rate limits that makes democratized
+scientific discovery essentially impossible.
+
+OpenEvolve-MARL proposes to replicate and extend
+AdaEvolve\textquotesingle s core architecture using exclusively
+open-source LLMs --- specifically models from the Qwen 2.5 Coder,
+DeepSeek-Coder-V3, and Llama 3.3 families --- running on our 8 × H100
+cluster. Beyond simple replication, we will use the evolutionary loop
+itself as a training signal to fine-tune the mutation LLMs via
+reinforcement learning from execution feedback (RLEF), creating a
+self-improving discovery engine. The domain of application is the same
+as in the original paper: evolving CFR variants for regret minimization
+and meta-solver logic for PSRO, with the explicit goal of exceeding the
+performance of both human-designed and proprietary-LLM-discovered
+baselines.
+
+The timing is ideal. The open-source ecosystem now has coding LLMs
+competitive with GPT-4o on standard benchmarks, quantization tooling
+(AWQ, GPTQ) that allows 70B-parameter models to run at high throughput
+on 8 × H100, and efficient serving frameworks (vLLM, SGLang) that make
+population-scale evolutionary sampling tractable without proprietary
+APIs. This project is designed to sit at the intersection of three
+high-impact frontiers: automated algorithm discovery, open-source AI
+research infrastructure, and MARL theory.
+
+\textbf{2. Method}
+
+\textbf{2.1 Framework Architecture}
+
+We will build directly on the AdaEvolve three-level hierarchy --- Local
+Adaptation (exploration intensity per island), Global Adaptation
+(bandit-based compute routing across islands), and Meta-Adaptation
+(dynamic prompt generation from an accumulated improvement signal) ---
+but replace every proprietary model call with local inference. The
+architecture will consist of two LLM tiers analogous to
+AlphaEvolve\textquotesingle s Flash/Pro split:
+
+\begin{itemize}
+\item
+  High-throughput Mutation Agent: Qwen2.5-Coder-7B-Instruct or
+  DeepSeek-Coder-1.3B, quantized to INT4 via AWQ, served with vLLM for
+  maximum token throughput (\textasciitilde2,000 tokens/sec on a single
+  H100). This agent handles the bulk of population mutations.
+\item
+  High-quality Proposal Agent: DeepSeek-Coder-V3 (7B parameter
+  distillate) or Qwen2.5-Coder-32B, served at FP8 precision. This agent
+  is invoked selectively by the global bandit for high-promise islands,
+  generating more structurally novel mutations.
+\end{itemize}
+
+The evolutionary search targets the same evolvable code skeletons as in
+the original paper: (i) the update\_accumulate\_regret,
+get\_updated\_current\_policy, and update\_accumulate\_policy methods
+for CFR, and (ii) the TrainMetaStrategySolver and EvalMetaStrategySolver
+for PSRO. These skeletons define the search space while keeping the
+fitness evaluator (exploitability computation on Kuhn Poker, Leduc
+Hold\textquotesingle em, and Blotto) deterministic and fast.
+
+\textbf{2.2 Fine-Tuning Pipeline}
+
+The most technically novel contribution of this project is closing the
+loop between evolutionary search and model improvement. After each
+generation of the evolutionary search, any mutation that results in a
+fitness improvement above a threshold delta becomes a positive training
+example: the (prompt, diff) pair is retained for fine-tuning. Mutations
+that compile and run but worsen fitness provide hard negatives. We will
+apply Direct Preference Optimization (DPO) with a short rolling window
+of examples to continuously update the high-throughput mutation agent.
+This is feasible on our hardware: with LoRA adapters (rank 16, targeting
+q/v projections), a DPO update over 512 examples on a 7B model takes
+roughly 8 minutes on a single H100, meaning we can interleave one
+fine-tuning pass per every 20--30 evolutionary generations without
+meaningfully interrupting the search. The expected effect is that the
+mutation agent internalizes domain-specific code patterns --- CFR update
+structures, regret discount schemes --- and produces higher-quality
+proposals over time, a dynamic not present in any prior AdaEvolve-style
+system.
+
+\textbf{2.3 Compute Allocation}
+
+Across our 8 × H100 cluster we propose the following allocation. Six
+GPUs will run the vLLM inference server hosting both agent tiers,
+partitioned so that four cards serve the high-throughput agent (tensor
+parallel 2) and two cards serve the high-quality agent. One GPU will run
+the evolutionary orchestrator, fitness evaluators (which are CPU-light
+but benefit from GPU for batch Nash computation at scale), and the
+program database. The final GPU is reserved for DPO fine-tuning runs. A
+complete evolutionary run targeting CFR on Leduc Hold\textquotesingle em
+for 1,000 generations is estimated to consume approximately 40--60
+GPU-hours, meaning we can run multiple full experiments, ablations, and
+domain extensions within a reasonable wall-clock budget.
+
+\textbf{3. Evaluation Plan}
+
+We will evaluate on three dimensions: algorithmic performance, discovery
+efficiency, and model improvement signal. For algorithmic performance,
+the primary metric is exploitability (measured in milli-big-blinds for
+poker games) of evolved CFR variants versus DCFR, PCFR+, and the
+AdaEvolve-discovered VAD-CFR baseline. For PSRO, we track NashConv
+against SHOR-PSRO on normal-form games. We will also measure wall-clock
+convergence time at fixed exploitability thresholds, since MARL
+practitioners care about iteration speed as much as asymptotic
+performance.
+
+For discovery efficiency, we will report the number of LLM calls
+required to first exceed each baseline --- directly comparable to the
+numbers reported in AdaEvolve --- as well as the fraction of generated
+mutations that compile and improve fitness (the \textquotesingle useful
+mutation rate\textquotesingle). This metric is where we expect the DPO
+fine-tuning to show the most measurable gain over time, and where our
+results will most directly demonstrate the value of the self-improving
+loop relative to a frozen open-source model. Finally, we will run an
+ablation comparing our two-tier open-source ensemble against a
+single-model configuration and against the AdaEvolve setup, to isolate
+the contribution of the tiered architecture independent of model
+quality.
+
+\textbf{4. Risks and Mitigations}
+
+The primary technical risk is that open-source coding LLMs produce a
+substantially lower useful mutation rate than Gemini Pro, leading to
+stagnation in the evolutionary search. Our mitigation is twofold: the
+DPO fine-tuning loop is specifically designed to address this over time,
+and the AdaEvolve hierarchical adaptation mechanism will reduce wasted
+compute on stagnating islands regardless of per-mutation quality. A
+secondary risk is that the DPO signal is too sparse or noisy early in
+training, before the population has produced enough positive examples.
+We will address this with a warm-start phase using synthetic preference
+data generated by prompting the high-quality agent to rate and rewrite
+its own outputs. A third risk is that inference throughput on the
+quantized 7B model is insufficient to sustain a competitive evolutionary
+rate. We will validate throughput in the first week and fall back to a
+smaller model (1.3B) if necessary, accepting a trade-off in mutation
+quality. Finally, there is the question of fitness evaluator coverage:
+exploitability is only tractable for small games. For larger games we
+will use approximate best-response computation with a fixed oracle
+budget, which introduces noise. We will report confidence intervals and
+validate trends on small games first.
+
+\textbf{5. Potential Impact}
+
+This project\textquotesingle s potential impact extends well beyond the
+specific domain of imperfect-information game solving, and we believe it
+constitutes one of the highest-leverage uses of 8 × H100 GPUs currently
+available to an academic or independent research team.
+
+\textbf{5.1 Democratizing Automated Scientific Discovery}
+
+AlphaEvolve and AdaEvolve have demonstrated that LLM-driven evolutionary
+search can discover algorithms competitive with or superior to decades
+of human expert work. But every result to date has been produced using
+proprietary models behind closed APIs. This means the community cannot
+reproduce the results, cannot inspect the models, cannot fine-tune them
+on domain-specific data, and cannot run experiments without per-token
+costs that are prohibitive for most research groups. OpenEvolve-MARL
+would be the first fully reproducible, open-weight implementation of an
+adaptive LLM-driven evolutionary discovery system. If successful, it
+becomes infrastructure --- a platform other research groups can deploy
+on their own hardware to run evolutionary searches in their own domains.
+The multiplier effect on the broader community could be enormous: every
+domain in which AdaEvolve-style search could discover better algorithms
+(numerical optimization, compiler passes, cryptographic primitives, ML
+training recipes) becomes accessible to researchers who currently cannot
+afford proprietary API costs at the scale required.
+
+\textbf{5.2 Self-Improving Discovery as a Research Paradigm}
+
+The DPO fine-tuning loop is not merely an engineering improvement over
+AdaEvolve --- it represents a qualitatively new paradigm. In standard
+evolutionary search, the mutation operator is stationary: its quality is
+fixed by pretraining. In our system, the mutation operator improves as
+it accumulates evidence about what kinds of code changes produce fitness
+gains in the target domain. This is, in essence, a form of online
+meta-learning for algorithm discovery. If the fine-tuning signal is
+strong enough, the mutation LLM will converge toward a specialist that
+generates domain-relevant code perturbations far more reliably than a
+general-purpose coding model. This has implications beyond MARL: the
+same architecture could be applied to any domain with a fast,
+differentiable fitness evaluator, and the resulting specialist model
+would be a more efficient discovery engine than a frontier proprietary
+model for that specific domain. Demonstrating this principle empirically
+--- even on a small scale, on 8 × H100 --- would be a significant
+contribution to the growing literature on inference-time compute scaling
+and self-improving AI systems.
+
+\textbf{5.3 Direct Impact on Multi-Agent Systems Research}
+
+Within MARL specifically, the algorithms discovered by AdaEvolve
+(VAD-CFR, SHOR-PSRO) have already outperformed state-of-the-art
+baselines on standard benchmarks. If OpenEvolve-MARL can match or exceed
+these results with open-source models --- and potentially improve upon
+them via the fine-tuning loop --- the practical impact for practitioners
+is immediate. CFR and PSRO are the backbone algorithms behind every
+competitive poker AI, every deployed multi-agent negotiation system, and
+much of the theoretical work on equilibrium computation. Faster, more
+robust variants discovered by our system would be directly usable by the
+community. Crucially, because our entire pipeline is open-source, any
+novel algorithm we discover can be immediately inspected, verified, and
+extended by others. Compare this to AlphaEvolve\textquotesingle s
+discoveries, which are published as results but not as reproducible
+artifacts --- our work would lower the barrier from
+\textquotesingle interesting result\textquotesingle{} to
+\textquotesingle usable contribution\textquotesingle{} to near zero.
+
+\textbf{5.4 Positioning at the Frontier of Inference-Time Compute
+Scaling}
+
+The field is converging on a view that the most important axis of LLM
+capability scaling in the near term is not parameters but inference-time
+compute --- the ability to spend more FLOPs at test time to produce
+better outputs. AdaEvolve is already an instance of this, using
+evolutionary search as a structured inference-time procedure. Our
+project pushes further: by fine-tuning the mutation model on search
+outcomes, we are using inference-time experience to improve future
+inference, closing a loop between test-time compute and model quality
+that is novel in the algorithmic discovery literature. The 8 × H100
+budget is well-matched to this: it is exactly the scale at which we can
+run a high-throughput evolutionary search while simultaneously
+fine-tuning a 7B model in the background, but it is far below the scale
+at which proprietary systems operate. Demonstrating that the
+self-improving loop yields measurable gains at this compute tier would
+be a strong argument that the paradigm is accessible --- and that the
+marginal return on open-source research infrastructure in this space is
+high.
+
+\textbf{5.5 Summary}
+
+In short: if this project succeeds, it produces (a) an open,
+reproducible implementation of the most advanced adaptive evolutionary
+discovery system in the literature, (b) the first empirical evidence
+that open-source LLMs with domain-specific fine-tuning can match
+proprietary models in evolutionary algorithm search, (c) newly
+discovered MARL algorithms that the community can immediately use and
+build on, and (d) a general-purpose platform that other groups can
+deploy for their own discovery tasks. Each of these outcomes is
+independently valuable; together, they represent a contribution that is
+disproportionately large relative to the compute investment required ---
+which is precisely the kind of high-leverage research that 8 × H100 GPUs
+are best suited to enable.
+
+OpenEvolve-MARL \textbar{} Confidential Draft Proposal

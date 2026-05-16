@@ -1,0 +1,343 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 9,
+  "global_best_score": 0.9583899184566799,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.12641731652465338,
+        "best_score": 0.9583899184566799,
+        "improvement_count": 6,
+        "total_evaluations": 20,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.13997711818202874,
+        "best_score": 0.9548540045622022,
+        "improvement_count": 4,
+        "total_evaluations": 20,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      20,
+      20
+    ],
+    "dimension_rewards": [
+      0.3984187059240077,
+      0.1367680495237491
+    ],
+    "decayed_visits": [
+      8.784233454094307,
+      8.784233454094307
+    ],
+    "global_best_score": 0.9583899184566799,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "5e63005a-c899-40de-95d4-87d90d327866",
+      "d109e07f-bacd-4da4-affa-0063c0a37265",
+      "4471347a-51de-4d1f-8752-5cfe48ea14ca",
+      "0761b0bb-e275-4574-b763-5f2e46f0fd42",
+      "69f934cc-22e0-4133-8a9c-f532eea0f8ae",
+      "e2499c06-4f81-4952-b14b-eed69994b9d1",
+      "91dfafb5-cd79-4127-bf18-67f6ff7eac9c",
+      "dcf0c24b-7b29-4ad7-aec4-92936905d9b7",
+      "bef5170e-73b0-4744-9184-e293feb76009",
+      "1ed7061a-5152-4886-a04e-264e897bf152",
+      "995e24d6-2586-41e2-beb4-6e9b419d9af5",
+      "9c28da1e-740f-4e9a-8292-defc16260458",
+      "67f9fd45-cc0f-4b40-a86d-3c3fb5636824",
+      "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d",
+      "47c9477e-b888-4437-b5d2-88d51595bd7c",
+      "3efdf21f-c6cb-4bb1-bb2d-46ae762087a2",
+      "187fae1f-e714-47f7-933a-2c90e52b94ec",
+      "1595e3e6-3076-4d8e-a647-0301829d4f8b",
+      "58cbf314-3900-4d3c-a369-3429fa5215ad",
+      "a130dab0-8a9f-426a-96a7-b24290ef7360"
+    ],
+    [
+      "5e91d485-c924-4d2f-8706-a35618eab2c3",
+      "fdd54212-e116-4a5a-831c-d422183e146c",
+      "135efb8e-7b60-4f3f-b7d5-b6b667d80082",
+      "6d534bab-bc50-4314-85fc-3dc1f6bf1ec1",
+      "a8b9e8d2-ac77-41c7-99ee-170af7e2af1d",
+      "1967e287-9b3b-4244-8322-3e7f46115d85",
+      "aa11f02f-8836-4d12-8eb2-f6f5ec2d72c5",
+      "84478820-c449-4fe7-b29f-31c93e1b3e60",
+      "3bdc4b31-b74e-4867-ab55-ea064100be6e",
+      "6cf44610-d7b4-4e96-8713-4a5f3b9515eb",
+      "c2a5fba9-2b9a-4f44-95e1-623028eb0ab6",
+      "bbb93db1-4780-4ace-b6cd-76affb6a0b57",
+      "71e490c1-0d57-4b16-a2d8-a3085547b27c",
+      "7c049ef1-eeb4-4f9e-9141-f86dd84a7fbb",
+      "21b72f5d-179b-450b-b573-ecb4457cee91",
+      "8ae00257-35cd-42ad-ac6f-7a6d66c3c32b",
+      "1e84bed7-3409-4b66-a0ba-8a728d797154",
+      "4605c287-4c9f-4171-ab38-8bad34692ec8",
+      "cc297e8b-1947-4651-a933-fecd75736dc2",
+      "f2acec70-c289-4ec5-8614-c70ebfc96d16"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "5e63005a-c899-40de-95d4-87d90d327866": [],
+        "d109e07f-bacd-4da4-affa-0063c0a37265": [
+          "5e63005a-c899-40de-95d4-87d90d327866"
+        ],
+        "4471347a-51de-4d1f-8752-5cfe48ea14ca": [
+          "5e63005a-c899-40de-95d4-87d90d327866"
+        ],
+        "0761b0bb-e275-4574-b763-5f2e46f0fd42": [
+          "5e63005a-c899-40de-95d4-87d90d327866"
+        ],
+        "69f934cc-22e0-4133-8a9c-f532eea0f8ae": [
+          "5e63005a-c899-40de-95d4-87d90d327866"
+        ],
+        "e2499c06-4f81-4952-b14b-eed69994b9d1": [
+          "5e63005a-c899-40de-95d4-87d90d327866"
+        ],
+        "91dfafb5-cd79-4127-bf18-67f6ff7eac9c": [
+          "5e63005a-c899-40de-95d4-87d90d327866"
+        ],
+        "dcf0c24b-7b29-4ad7-aec4-92936905d9b7": [
+          "5e63005a-c899-40de-95d4-87d90d327866"
+        ],
+        "bef5170e-73b0-4744-9184-e293feb76009": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "1ed7061a-5152-4886-a04e-264e897bf152": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "995e24d6-2586-41e2-beb4-6e9b419d9af5": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "9c28da1e-740f-4e9a-8292-defc16260458": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "67f9fd45-cc0f-4b40-a86d-3c3fb5636824": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "47c9477e-b888-4437-b5d2-88d51595bd7c": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "3efdf21f-c6cb-4bb1-bb2d-46ae762087a2": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "187fae1f-e714-47f7-933a-2c90e52b94ec": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "1595e3e6-3076-4d8e-a647-0301829d4f8b": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "58cbf314-3900-4d3c-a369-3429fa5215ad": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "a130dab0-8a9f-426a-96a7-b24290ef7360": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ]
+      },
+      "children": {
+        "5e63005a-c899-40de-95d4-87d90d327866": [
+          "d109e07f-bacd-4da4-affa-0063c0a37265",
+          "4471347a-51de-4d1f-8752-5cfe48ea14ca",
+          "0761b0bb-e275-4574-b763-5f2e46f0fd42",
+          "69f934cc-22e0-4133-8a9c-f532eea0f8ae",
+          "e2499c06-4f81-4952-b14b-eed69994b9d1",
+          "91dfafb5-cd79-4127-bf18-67f6ff7eac9c",
+          "dcf0c24b-7b29-4ad7-aec4-92936905d9b7"
+        ],
+        "e2499c06-4f81-4952-b14b-eed69994b9d1": [
+          "bef5170e-73b0-4744-9184-e293feb76009",
+          "1ed7061a-5152-4886-a04e-264e897bf152",
+          "995e24d6-2586-41e2-beb4-6e9b419d9af5",
+          "9c28da1e-740f-4e9a-8292-defc16260458",
+          "67f9fd45-cc0f-4b40-a86d-3c3fb5636824",
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d",
+          "47c9477e-b888-4437-b5d2-88d51595bd7c",
+          "3efdf21f-c6cb-4bb1-bb2d-46ae762087a2"
+        ],
+        "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d": [
+          "187fae1f-e714-47f7-933a-2c90e52b94ec",
+          "1595e3e6-3076-4d8e-a647-0301829d4f8b",
+          "58cbf314-3900-4d3c-a369-3429fa5215ad",
+          "a130dab0-8a9f-426a-96a7-b24290ef7360"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "5e91d485-c924-4d2f-8706-a35618eab2c3": [],
+        "fdd54212-e116-4a5a-831c-d422183e146c": [
+          "5e91d485-c924-4d2f-8706-a35618eab2c3"
+        ],
+        "135efb8e-7b60-4f3f-b7d5-b6b667d80082": [
+          "5e91d485-c924-4d2f-8706-a35618eab2c3"
+        ],
+        "6d534bab-bc50-4314-85fc-3dc1f6bf1ec1": [
+          "5e91d485-c924-4d2f-8706-a35618eab2c3"
+        ],
+        "a8b9e8d2-ac77-41c7-99ee-170af7e2af1d": [
+          "5e91d485-c924-4d2f-8706-a35618eab2c3"
+        ],
+        "1967e287-9b3b-4244-8322-3e7f46115d85": [
+          "135efb8e-7b60-4f3f-b7d5-b6b667d80082"
+        ],
+        "aa11f02f-8836-4d12-8eb2-f6f5ec2d72c5": [
+          "135efb8e-7b60-4f3f-b7d5-b6b667d80082"
+        ],
+        "84478820-c449-4fe7-b29f-31c93e1b3e60": [
+          "135efb8e-7b60-4f3f-b7d5-b6b667d80082"
+        ],
+        "3bdc4b31-b74e-4867-ab55-ea064100be6e": [
+          "135efb8e-7b60-4f3f-b7d5-b6b667d80082"
+        ],
+        "6cf44610-d7b4-4e96-8713-4a5f3b9515eb": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "c2a5fba9-2b9a-4f44-95e1-623028eb0ab6": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "bbb93db1-4780-4ace-b6cd-76affb6a0b57": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "71e490c1-0d57-4b16-a2d8-a3085547b27c": [
+          "e2499c06-4f81-4952-b14b-eed69994b9d1"
+        ],
+        "7c049ef1-eeb4-4f9e-9141-f86dd84a7fbb": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "21b72f5d-179b-450b-b573-ecb4457cee91": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "8ae00257-35cd-42ad-ac6f-7a6d66c3c32b": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "1e84bed7-3409-4b66-a0ba-8a728d797154": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "4605c287-4c9f-4171-ab38-8bad34692ec8": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "cc297e8b-1947-4651-a933-fecd75736dc2": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ],
+        "f2acec70-c289-4ec5-8614-c70ebfc96d16": [
+          "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d"
+        ]
+      },
+      "children": {
+        "5e91d485-c924-4d2f-8706-a35618eab2c3": [
+          "fdd54212-e116-4a5a-831c-d422183e146c",
+          "135efb8e-7b60-4f3f-b7d5-b6b667d80082",
+          "6d534bab-bc50-4314-85fc-3dc1f6bf1ec1",
+          "a8b9e8d2-ac77-41c7-99ee-170af7e2af1d"
+        ],
+        "135efb8e-7b60-4f3f-b7d5-b6b667d80082": [
+          "1967e287-9b3b-4244-8322-3e7f46115d85",
+          "aa11f02f-8836-4d12-8eb2-f6f5ec2d72c5",
+          "84478820-c449-4fe7-b29f-31c93e1b3e60",
+          "3bdc4b31-b74e-4867-ab55-ea064100be6e"
+        ],
+        "e2499c06-4f81-4952-b14b-eed69994b9d1": [
+          "6cf44610-d7b4-4e96-8713-4a5f3b9515eb",
+          "c2a5fba9-2b9a-4f44-95e1-623028eb0ab6",
+          "bbb93db1-4780-4ace-b6cd-76affb6a0b57",
+          "71e490c1-0d57-4b16-a2d8-a3085547b27c"
+        ],
+        "e33e6bf8-3697-4cb2-b4da-fbd3a3a4898d": [
+          "7c049ef1-eeb4-4f9e-9141-f86dd84a7fbb",
+          "21b72f5d-179b-450b-b573-ecb4457cee91",
+          "8ae00257-35cd-42ad-ac6f-7a6d66c3c32b",
+          "1e84bed7-3409-4b66-a0ba-8a728d797154",
+          "4605c287-4c9f-4171-ab38-8bad34692ec8",
+          "cc297e8b-1947-4651-a933-fecd75736dc2",
+          "f2acec70-c289-4ec5-8614-c70ebfc96d16"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use scipy.optimize.minimize with SLSQP for direct constrained optimization",
+        "description": "Optimize all 26 circle centers simultaneously using scipy.optimize.minimize with SLSQP method. Define the objective as maximizing the sum of radii, where each radius is computed as min(distance_to_boundary, min_overall_half_distances_to_other_circles). Add nonlinear constraints for non-overlap (dist_ij >= r_i + r_j for all pairs) and boundary constraints (0 <= x,y <= 1). Start from the current hexagonal lattice configuration as initial guess. Use bounds=[0,1] for all coordinates. This directly optimizes the geometric configuration rather than using greedy radius reduction.",
+        "what_to_optimize": "sum_radii by optimizing center positions while respecting all geometric constraints",
+        "cautions": "The objective function has min() operations making it non-smooth; use multiple random restarts; set appropriate tolerance (ftol=1e-8); may need 500-1000 iterations; verify constraints are properly formatted as constraint dict with 'type':'ineq'",
+        "approach_type": "scipy.optimize.minimize"
+      },
+      {
+        "idea": "Use scipy.optimize.differential_evolution for global optimization of centers",
+        "description": "Apply differential evolution to find globally optimal center positions before computing radii. Define bounds for each coordinate as [0.01, 0.99] to avoid boundary issues. The objective function computes sum of radii given centers (using the current compute_max_radii approach). Differential evolution is robust to non-smooth objectives and local optima. After finding best centers, optionally refine with scipy.optimize.minimize using L-BFGS-B. Set workers=1, maxiter=500, tol=1e-7, and seed for reproducibility. This escapes the hexagonal lattice local optimum.",
+        "what_to_optimize": "global optimum of center positions to maximize sum_radii, avoiding local optima",
+        "cautions": "Differential evolution is slower than gradient methods; use population_size=30 for 52 variables; may need 1000+ generations; wrap objective to ensure it returns scalar; test with smaller n first; ensure the objective handles invalid configurations gracefully",
+        "approach_type": "scipy.optimize.differential_evolution"
+      },
+      {
+        "idea": "Use scipy.spatial.Delaunay to optimize based on contact graph structure",
+        "description": "Build Delaunay triangulation of circle centers using scipy.spatial.Delaunay. The triangulation identifies which circles are 'neighbors' and should potentially touch. Compute the sum of radii where each radius is min(distance_to_boundary, min_half_distance_to_Delaunay_neighbors). Optimize center positions to maximize this sum using scipy.optimize.minimize with trust-constr method. The Delaunay graph provides a sparse representation of critical constraints, reducing computational complexity from O(n^2) to O(n) for constraint evaluation. Rebuild the Delaunay triangulation at each optimization step or use it as an initial guide.",
+        "what_to_optimize": "sum_radii using sparse neighbor constraints from Delaunay triangulation for efficiency",
+        "cautions": "Delaunay triangulation must be recomputed as centers move; handle degenerate cases (collinear points); may need to add small perturbations; the triangulation changes topology during optimization which can cause discontinuities; use try-except for triangulation failures",
+        "approach_type": "scipy.spatial.Delaunay"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 2,
+      "1": 2,
+      "2": 2
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [],
+    "best_score_at_paradigm_gen": 0.8456114660215168,
+    "best_score_during_paradigm": 0.9583899184566799
+  }
+}

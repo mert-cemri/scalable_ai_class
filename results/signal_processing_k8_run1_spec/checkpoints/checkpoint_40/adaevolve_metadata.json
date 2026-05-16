@@ -1,0 +1,461 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 39,
+  "global_best_score": 0.7202655533900263,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.05636150356312961,
+        "best_score": 0.7177771261409126,
+        "improvement_count": 7,
+        "total_evaluations": 81,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.040284580522866494,
+        "best_score": 0.7202655533900263,
+        "improvement_count": 8,
+        "total_evaluations": 79,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      81,
+      79
+    ],
+    "dimension_rewards": [
+      0.052347427188337604,
+      0.04587058148291304
+    ],
+    "decayed_visits": [
+      9.998033729495246,
+      9.997572505549686
+    ],
+    "global_best_score": 0.7202655533900263,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "20bc2348-ce8d-498d-9529-1655f3bf346a",
+      "83e15fa8-0374-4d11-8f90-a5014c4fbac2",
+      "6c7b6977-5f45-4f00-b2e5-e37e4fc0db89",
+      "a763118d-556e-4768-a221-8aaecd038f14",
+      "06ae3e38-f7f1-4cc3-b9b1-e473e5c7a7f0",
+      "6a31072b-66ca-4f92-8242-429deb519064",
+      "cb97e521-69b6-4e5c-b077-df9b908b3204",
+      "8a61b564-91ba-401d-bee3-53005493d73a",
+      "fd2e1675-9925-469c-9084-85cfa35fa628",
+      "6b76d990-a57b-4a67-811c-6140b44b0229",
+      "cad21753-acf1-4233-bf1d-dfecbf82eb1f",
+      "03744631-d120-4ec9-95bb-f13f7b472f95",
+      "d63eb99f-b9e3-450f-a99d-a5bb8b9cc01a",
+      "118d5ce2-774a-46f1-8f9e-84ca20949610",
+      "8f037f1d-bed7-4170-9f56-3f3604fc6dfa",
+      "434d9c43-6efb-4a78-9ef0-737b65ac59d1",
+      "933a6390-f432-4eca-87d4-6ef24de6970c",
+      "dc8c0ce8-7102-4c21-9d1b-254909fc411d",
+      "cae53b24-5355-4b62-b675-7f8305ce2992",
+      "25c0f701-c964-47b6-ad07-572ba147e663"
+    ],
+    [
+      "6e5ca241-bbbf-48f2-a2e3-d658a9386f87",
+      "9ef0ab4f-746b-47d5-bffb-16d6d483ecda",
+      "cacd3bb8-ce55-4d82-8f88-ec642f0d4334",
+      "40223503-4a90-4e0d-872c-bbc2c798f021",
+      "a223c683-2fff-47bb-ad37-eb5810a4bc78",
+      "83092a16-91d4-4c1b-a6cb-8ffb2a3a2630",
+      "13b7f42f-5db3-43e6-9937-3bb4640f9f7e",
+      "ec049281-4b51-415d-a53c-65966b1d9b48",
+      "4425faa9-e809-4e85-b2a0-1433168f53e8",
+      "a40d5c29-6f46-4ca3-8c02-67904fe733c6",
+      "a347eab3-f57d-4c66-b2a8-6c6e8fda54d2",
+      "dc57eece-c687-4667-a418-bbeb7a5afbab",
+      "8cda94c4-e78e-4b8d-978f-342fd0477ff0",
+      "34eb3b73-c2e3-4c57-aba6-f43c7159ae52",
+      "04989c48-9ba2-4375-8927-79547caf7a21",
+      "537e5120-c9e2-4a80-9797-3dd38b2d6377",
+      "d80dca6d-75d1-4ce0-8f52-2a1acb41a744",
+      "97b9fe5c-1a25-4ad3-bcbd-c10b2671fbdf",
+      "d1a424ed-c939-4a14-b4dc-d8a6c0b698de",
+      "bb55da0b-0e11-488e-a6e1-5617765ef778"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "20bc2348-ce8d-498d-9529-1655f3bf346a": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "83e15fa8-0374-4d11-8f90-a5014c4fbac2": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "6c7b6977-5f45-4f00-b2e5-e37e4fc0db89": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "a763118d-556e-4768-a221-8aaecd038f14": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "06ae3e38-f7f1-4cc3-b9b1-e473e5c7a7f0": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "6a31072b-66ca-4f92-8242-429deb519064": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "cb97e521-69b6-4e5c-b077-df9b908b3204": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "8a61b564-91ba-401d-bee3-53005493d73a": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "fd2e1675-9925-469c-9084-85cfa35fa628": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "6b76d990-a57b-4a67-811c-6140b44b0229": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "cad21753-acf1-4233-bf1d-dfecbf82eb1f": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "03744631-d120-4ec9-95bb-f13f7b472f95": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "d63eb99f-b9e3-450f-a99d-a5bb8b9cc01a": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "118d5ce2-774a-46f1-8f9e-84ca20949610": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "8f037f1d-bed7-4170-9f56-3f3604fc6dfa": [
+          "067369cf-d0b9-4bc1-94e3-4fdb1baa4fac"
+        ],
+        "434d9c43-6efb-4a78-9ef0-737b65ac59d1": [
+          "3727662a-e1cb-4fdf-9973-041743ace8d4"
+        ],
+        "933a6390-f432-4eca-87d4-6ef24de6970c": [
+          "3727662a-e1cb-4fdf-9973-041743ace8d4"
+        ],
+        "dc8c0ce8-7102-4c21-9d1b-254909fc411d": [
+          "537e5120-c9e2-4a80-9797-3dd38b2d6377"
+        ],
+        "cae53b24-5355-4b62-b675-7f8305ce2992": [
+          "537e5120-c9e2-4a80-9797-3dd38b2d6377"
+        ],
+        "25c0f701-c964-47b6-ad07-572ba147e663": [
+          "537e5120-c9e2-4a80-9797-3dd38b2d6377"
+        ]
+      },
+      "children": {
+        "cb97e521-69b6-4e5c-b077-df9b908b3204": [
+          "8a61b564-91ba-401d-bee3-53005493d73a",
+          "fd2e1675-9925-469c-9084-85cfa35fa628",
+          "6b76d990-a57b-4a67-811c-6140b44b0229",
+          "cad21753-acf1-4233-bf1d-dfecbf82eb1f",
+          "03744631-d120-4ec9-95bb-f13f7b472f95",
+          "d63eb99f-b9e3-450f-a99d-a5bb8b9cc01a",
+          "118d5ce2-774a-46f1-8f9e-84ca20949610"
+        ],
+        "537e5120-c9e2-4a80-9797-3dd38b2d6377": [
+          "dc8c0ce8-7102-4c21-9d1b-254909fc411d",
+          "cae53b24-5355-4b62-b675-7f8305ce2992",
+          "25c0f701-c964-47b6-ad07-572ba147e663"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "6e5ca241-bbbf-48f2-a2e3-d658a9386f87": [
+          "6771691c-db95-4509-9b01-5352dfae3883"
+        ],
+        "9ef0ab4f-746b-47d5-bffb-16d6d483ecda": [
+          "6771691c-db95-4509-9b01-5352dfae3883"
+        ],
+        "cacd3bb8-ce55-4d82-8f88-ec642f0d4334": [
+          "6771691c-db95-4509-9b01-5352dfae3883"
+        ],
+        "40223503-4a90-4e0d-872c-bbc2c798f021": [
+          "6771691c-db95-4509-9b01-5352dfae3883"
+        ],
+        "a223c683-2fff-47bb-ad37-eb5810a4bc78": [
+          "e6744b49-97e7-46c5-8566-adcf2471ccb0"
+        ],
+        "83092a16-91d4-4c1b-a6cb-8ffb2a3a2630": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "13b7f42f-5db3-43e6-9937-3bb4640f9f7e": [
+          "47168598-547f-424e-b277-b492eddf6861"
+        ],
+        "ec049281-4b51-415d-a53c-65966b1d9b48": [
+          "8a61b564-91ba-401d-bee3-53005493d73a"
+        ],
+        "4425faa9-e809-4e85-b2a0-1433168f53e8": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "a40d5c29-6f46-4ca3-8c02-67904fe733c6": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "a347eab3-f57d-4c66-b2a8-6c6e8fda54d2": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "dc57eece-c687-4667-a418-bbeb7a5afbab": [
+          "cb97e521-69b6-4e5c-b077-df9b908b3204"
+        ],
+        "8cda94c4-e78e-4b8d-978f-342fd0477ff0": [
+          "da7a25fb-a002-49e8-be19-565a0c6c07e5"
+        ],
+        "34eb3b73-c2e3-4c57-aba6-f43c7159ae52": [
+          "118d5ce2-774a-46f1-8f9e-84ca20949610"
+        ],
+        "04989c48-9ba2-4375-8927-79547caf7a21": [
+          "933a6390-f432-4eca-87d4-6ef24de6970c"
+        ],
+        "537e5120-c9e2-4a80-9797-3dd38b2d6377": [
+          "933a6390-f432-4eca-87d4-6ef24de6970c"
+        ],
+        "d80dca6d-75d1-4ce0-8f52-2a1acb41a744": [
+          "933a6390-f432-4eca-87d4-6ef24de6970c"
+        ],
+        "97b9fe5c-1a25-4ad3-bcbd-c10b2671fbdf": [
+          "933a6390-f432-4eca-87d4-6ef24de6970c"
+        ],
+        "d1a424ed-c939-4a14-b4dc-d8a6c0b698de": [
+          "933a6390-f432-4eca-87d4-6ef24de6970c"
+        ],
+        "bb55da0b-0e11-488e-a6e1-5617765ef778": [
+          "537e5120-c9e2-4a80-9797-3dd38b2d6377"
+        ]
+      },
+      "children": {
+        "e6744b49-97e7-46c5-8566-adcf2471ccb0": [
+          "a223c683-2fff-47bb-ad37-eb5810a4bc78"
+        ],
+        "cb97e521-69b6-4e5c-b077-df9b908b3204": [
+          "83092a16-91d4-4c1b-a6cb-8ffb2a3a2630",
+          "4425faa9-e809-4e85-b2a0-1433168f53e8",
+          "a40d5c29-6f46-4ca3-8c02-67904fe733c6",
+          "a347eab3-f57d-4c66-b2a8-6c6e8fda54d2",
+          "dc57eece-c687-4667-a418-bbeb7a5afbab"
+        ],
+        "47168598-547f-424e-b277-b492eddf6861": [
+          "13b7f42f-5db3-43e6-9937-3bb4640f9f7e"
+        ],
+        "8a61b564-91ba-401d-bee3-53005493d73a": [
+          "ec049281-4b51-415d-a53c-65966b1d9b48"
+        ],
+        "da7a25fb-a002-49e8-be19-565a0c6c07e5": [
+          "8cda94c4-e78e-4b8d-978f-342fd0477ff0"
+        ],
+        "118d5ce2-774a-46f1-8f9e-84ca20949610": [
+          "34eb3b73-c2e3-4c57-aba6-f43c7159ae52"
+        ],
+        "933a6390-f432-4eca-87d4-6ef24de6970c": [
+          "04989c48-9ba2-4375-8927-79547caf7a21",
+          "537e5120-c9e2-4a80-9797-3dd38b2d6377",
+          "d80dca6d-75d1-4ce0-8f52-2a1acb41a744",
+          "97b9fe5c-1a25-4ad3-bcbd-c10b2671fbdf",
+          "d1a424ed-c939-4a14-b4dc-d8a6c0b698de"
+        ],
+        "537e5120-c9e2-4a80-9797-3dd38b2d6377": [
+          "bb55da0b-0e11-488e-a6e1-5617765ef778"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use scipy.linalg for Kalman filter with constant velocity state-space model",
+        "description": "Implement a Kalman filter using scipy.linalg for matrix operations. Model the signal as a constant velocity system with state [position, velocity]. Use process noise to control smoothness (higher Q = smoother) and measurement noise to control tracking (higher R = more smoothing). The Kalman filter naturally balances lag and smoothness through its covariance propagation. Extract only the position state as the filtered output. This approach succeeded before (+0.1241) and provides principled state-space estimation that directly models both signal value and its derivative, naturally reducing spurious slope changes.",
+        "what_to_optimize": "Reduce slope changes (S) and false reversals (R) through velocity state modeling; improve tracking accuracy through adaptive Kalman gain",
+        "cautions": "Ensure scipy.linalg is used for matrix operations (inv, solve). Tune Q/R ratio: higher R/Q = more smoothing. Output length must match len(x) - window_size + 1. Handle edge cases for short signals.",
+        "approach_type": "scipy.linalg"
+      },
+      {
+        "idea": "Use scipy.signal.wiener for adaptive Wiener filtering",
+        "description": "Apply scipy.signal.wiener filter which performs adaptive Wiener filtering based on local statistics. The Wiener filter estimates the local mean and variance in a sliding window, then applies optimal linear filtering that minimizes mean squared error. It naturally adapts to local signal characteristics - smoother in high-noise regions and more responsive in signal-dominant regions. This is fundamentally different from the current FFT-based adaptive cutoff approach, using statistical estimation instead of spectral analysis. The filter handles non-stationary signals well and preserves edges better than simple low-pass filters.",
+        "what_to_optimize": "Reduce false reversals (R) through statistical adaptation; improve average tracking error (L_avg) through optimal MSE minimization",
+        "cautions": "Wiener filter uses a fixed blocksize - tune based on window_size parameter. The filter assumes local stationarity within the block. May need to combine with zero-phase approach for minimal lag. Ensure output length matches evaluator expectations.",
+        "approach_type": "scipy.signal.wiener"
+      },
+      {
+        "idea": "Use scipy.signal.lfilter with exponential moving average and zero-phase correction",
+        "description": "Implement a simple exponential moving average (EMA) filter using scipy.signal.lfilter with coefficients [alpha, 0] and [1, -alpha*(1-alpha)]. Apply the filter twice (forward-backward) to achieve zero-phase response similar to filtfilt but with simpler first-order dynamics. The EMA has excellent real-time properties and the zero-phase correction eliminates lag. Adapt alpha based on local signal variance: higher alpha (less smoothing) for stable regions, lower alpha for noisy regions. This is simpler than Kalman filtering but provides similar lag-smoothness trade-off control through a single parameter.",
+        "what_to_optimize": "Reduce lag error (L_recent) through zero-phase processing; improve responsiveness while maintaining smoothness through adaptive alpha",
+        "cautions": "First-order EMA may not handle rapid changes as well as higher-order filters. Ensure proper zero-phase implementation to match evaluator's delay expectations. Test alpha values in range [0.05, 0.5] for different noise levels.",
+        "approach_type": "scipy.signal.lfilter"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 1,
+      "1": 1
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [
+      {
+        "idea": "Use double exponential smoothing (Holt's method) for better trend tracking",
+        "description": "Implement Holt's double exponential smoothing which tracks both level and trend components separately, providing better responsiveness to genuine signal changes than Wiener filter. Use two smoothing parameters: alpha for level (0.1-0.3) and beta for trend (0.05-0.15). This method naturally reduces lag error while maintaining smoothness, addressing the 40% combined penalty from lag and tracking error. The trend component allows the filter to anticipate direction changes rather than just react to them. Implement using numpy array operations for efficiency.",
+        "what_to_optimize": "Lag error (20% weight) and average tracking error (20% weight) by better tracking genuine signal trends while maintaining responsiveness",
+        "cautions": "Two parameters (alpha, beta) need tuning for optimal performance. Different test signals may require different parameter values. Ensure causal implementation (only use past data) for real-time compatibility. Initialize level and trend from first few samples carefully.",
+        "approach_type": "numpy.ndarray",
+        "uses": 2,
+        "starting_score": 0.5817307582391097,
+        "ending_score": 0.5817307582391097,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Implement adaptive Kalman filter with state-space estimation using numpy.linalg",
+        "description": "Build a custom Kalman filter using numpy.linalg.inv for matrix operations that estimates both signal value and velocity (slope). The filter uses a constant velocity state-space model where the state vector contains [value, velocity]. Initialize with adaptive covariance based on local signal variance. Update the measurement noise covariance dynamically based on recent signal volatility (higher noise = more smoothing, lower noise = more tracking). This approach directly addresses the lag error vs false reversal tradeoff by predicting signal movement rather than just smoothing. The Kalman filter's predictive nature reduces lag while the state estimation smooths out spurious reversals.",
+        "what_to_optimize": "Lag error (L_recent, L_avg) and false reversal penalty (R) by balancing prediction and smoothing",
+        "cautions": "Ensure matrix operations are numerically stable, handle edge cases at signal boundaries, tune process noise covariance to match signal dynamics, avoid over-smoothing which increases lag error",
+        "approach_type": "numpy.linalg",
+        "uses": 2,
+        "starting_score": 0.5817307582391097,
+        "ending_score": 0.5817307582391097,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.decimate with wavelet-based multi-scale decomposition",
+        "description": "Apply multi-resolution analysis using scipy.signal.decimate combined with custom wavelet-like decomposition to separate signal into multiple frequency bands. Decompose the signal into approximation (low-frequency trend) and detail (high-frequency noise) components across 2-3 scales. Analyze the variance ratio between scales to identify which detail coefficients represent noise vs signal dynamics. Reconstruct the signal by keeping approximation coefficients and selectively preserving detail coefficients that exceed a volatility threshold. This preserves genuine rapid signal changes while removing high-frequency noise that causes false reversals.",
+        "what_to_optimize": "False reversal penalty (R) and slope changes (S) by distinguishing noise from genuine signal dynamics",
+        "cautions": "Choose appropriate decomposition levels to avoid losing signal content, ensure boundary handling doesn't introduce artifacts, threshold selection must balance noise removal vs signal preservation",
+        "approach_type": "scipy.signal.decimate",
+        "uses": 2,
+        "starting_score": 0.5817307582391097,
+        "ending_score": 0.5817307582391097,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Implement robust Hampel-Savitzky-Golay hybrid filter with adaptive windowing",
+        "description": "Create a two-stage filter combining Hampel outlier detection with Savitzky-Golay polynomial smoothing. First stage: use Hampel filter to identify and correct outliers by comparing each sample to local median and median absolute deviation (MAD). Second stage: apply Savitzky-Golay filter with polynomial order 2 or 3 to smooth the outlier-corrected signal while preserving trend dynamics. Implement adaptive windowing where the Savitzky-Golay window size varies based on local signal volatility (larger window for high variance regions, smaller for stable regions). This hybrid approach handles impulsive noise while maintaining trend accuracy.",
+        "what_to_optimize": "Slope changes (S) and false reversal penalty (R) while maintaining low lag error",
+        "cautions": "Hampel filter MAD threshold must be calibrated (typically 3 MAD), Savitzky-Golay window must be odd and less than signal length, adaptive windowing must avoid excessive computational overhead",
+        "approach_type": "scipy.signal.savgol_filter",
+        "uses": 2,
+        "starting_score": 0.5817307582391097,
+        "ending_score": 0.5817307582391097,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.linalg for Kalman filter state-space estimation",
+        "description": "Implement a Kalman filter using scipy.linalg for matrix operations. Model the signal as a state-space system with position (signal value) and velocity (trend) states. Use a transition matrix F=[[1,dt],[0,1]] to propagate states, and measurement matrix H=[1,0] to observe position. Tune process noise Q and measurement noise R to balance responsiveness vs. smoothness. The Kalman filter naturally handles non-stationary signals and minimizes lag through predictive state updates. Return filtered position estimates as the output signal. This differs from the previous numpy.linalg attempt by using scipy.linalg for more stable matrix operations and proper state-space formulation.",
+        "what_to_optimize": "Lag error and false reversal penalty - Kalman filter predicts signal values rather than just smoothing, reducing lag while maintaining smoothness",
+        "cautions": "Ensure proper initialization of state covariance P. Tune Q/R ratio carefully - too much Q causes noise amplification, too little causes lag. Handle edge cases where signal length < window_size.",
+        "approach_type": "scipy.linalg",
+        "uses": 2,
+        "starting_score": 0.5817307582391097,
+        "ending_score": 0.7058127712960912,
+        "score_improvement": 0.12408201305698152,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Use scipy.signal.butter with scipy.signal.filtfilt for zero-phase Butterworth filtering",
+        "description": "Design a Butterworth low-pass filter using scipy.signal.butter with order based on window_size. Apply zero-phase filtering using scipy.signal.filtfilt which filters forward and backward, eliminating phase delay entirely. Set cutoff frequency inversely proportional to window_size to match the smoothing scale. This approach fundamentally differs from Wiener filtering by using frequency-domain design and zero-phase processing. The Butterworth filter provides maximally flat passband response, preserving signal dynamics while attenuating high-frequency noise.",
+        "what_to_optimize": "Lag error and tracking accuracy - zero-phase filtering eliminates the lag penalty completely while maintaining good noise reduction",
+        "cautions": "Filter order should be moderate (3-5) to avoid edge artifacts. Cutoff frequency must be carefully scaled to window_size. Handle edge effects by extending signal or using appropriate padding.",
+        "approach_type": "scipy.signal.butter",
+        "uses": 2,
+        "starting_score": 0.5817307582391097,
+        "ending_score": 0.7058127712960912,
+        "score_improvement": 0.12408201305698152,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Use scipy.signal.firwin with scipy.signal.lfilter for custom FIR filtering",
+        "description": "Design a custom FIR low-pass filter using scipy.signal.firwin with a window length matching the processing window. Use a Kaiser window for optimal stopband attenuation. Apply the filter using scipy.signal.lfilter with zero-phase initialization via lfilter_zi. The FIR filter provides linear phase response and precise control over frequency characteristics. Design the filter with a cutoff that balances noise reduction and trend preservation based on the window_size parameter.",
+        "what_to_optimize": "Slope changes and false reversals - FIR filters with linear phase preserve signal structure better than IIR filters, reducing spurious directional changes",
+        "cautions": "FIR filter length affects computational cost and edge effects. Use appropriate window function (Kaiser or Hamming) for good stopband rejection. Ensure filter coefficients sum to 1 for unity gain.",
+        "approach_type": "scipy.signal.firwin",
+        "uses": 2,
+        "starting_score": 0.5817307582391097,
+        "ending_score": 0.7058127712960912,
+        "score_improvement": 0.12408201305698152,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Multi-scale slope validation using numpy.diff at multiple temporal scales",
+        "description": "Implement a validation mechanism that computes slope differences at multiple scales (1, 2, 4, 8 samples) and only accepts directional reversals that appear consistently across at least 2 scales. This approach directly targets the false reversal penalty (R) by distinguishing genuine trend changes from noise-induced fluctuations. The implementation uses numpy.diff to compute differences at each scale, then validates reversals by checking sign changes across scales. This is fundamentally different from wavelet-based approaches (which failed) as it uses simple differencing rather than wavelet transforms. The method preserves tracking accuracy while significantly reducing spurious reversals.",
+        "what_to_optimize": "false_reversals (R) and slope_changes (S) metrics, which together contribute 60% of the composite score",
+        "cautions": "Ensure scale selection is appropriate for the window_size (avoid scales larger than window_size/2). Handle edge cases where signal length is insufficient for all scales. The validation threshold (2 scales) should be tuned to balance false reversal reduction vs. legitimate change detection.",
+        "approach_type": "numpy.diff",
+        "uses": 2,
+        "starting_score": 0.7058127712960912,
+        "ending_score": 0.7202655533900263,
+        "score_improvement": 0.01445278209393508,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Local FFT-based adaptive Butterworth filtering with dynamic cutoff frequency",
+        "description": "Use numpy.fft to compute local spectral content in sliding windows, then dynamically adjust the Butterworth filter cutoff frequency based on the dominant frequency of the signal. In regions where noise dominates (high-frequency content), use stronger filtering with lower cutoff. In regions where signal dominates (low-frequency content), use weaker filtering with higher cutoff to preserve tracking accuracy. This approach directly addresses the tracking accuracy (L_avg) and lag error (L_recent) metrics by adapting filter strength to local signal characteristics. The implementation uses numpy.fft.fft for spectral analysis and scipy.signal.butter for filter design, but with adaptive rather than fixed parameters.",
+        "what_to_optimize": "lag_error (L_recent) and avg_error (L_avg) metrics, which contribute 40% of the composite score, while maintaining low false reversals",
+        "cautions": "FFT computation must be efficient enough to meet the 10-second timeout. Use overlapping windows with appropriate overlap to avoid artifacts. Ensure cutoff frequency stays within valid range (0.02 to 0.49). The window size for FFT should be small enough to capture local characteristics but large enough for meaningful frequency estimation.",
+        "approach_type": "numpy.fft",
+        "uses": 2,
+        "starting_score": 0.7058127712960912,
+        "ending_score": 0.7202655533900263,
+        "score_improvement": 0.01445278209393508,
+        "outcome": "SUCCESS"
+      },
+      {
+        "idea": "Duration-based slope confirmation with minimum persistence requirement",
+        "description": "Implement a slope confirmation mechanism that requires a directional change to persist for a minimum number of consecutive samples before accepting it as a genuine reversal. This is fundamentally different from the current hysteresis approach (which only checks slope magnitude) as it adds a temporal persistence requirement. The implementation tracks the current slope direction and only updates it when the new direction persists for N consecutive samples (e.g., 3-5 samples). This directly reduces false reversals caused by brief noise spikes while maintaining responsiveness to genuine trend changes. Uses numpy operations for efficient implementation.",
+        "what_to_optimize": "false_reversals (R) metric while minimizing impact on slope_changes (S) and lag_error (L_recent)",
+        "cautions": "The minimum persistence threshold (N samples) must be carefully tuned - too high causes lag, too low doesn't reduce false reversals. Consider making N adaptive based on local signal characteristics. Ensure the implementation handles edge cases at signal boundaries properly.",
+        "approach_type": "numpy.ndarray",
+        "uses": 2,
+        "starting_score": 0.7058127712960912,
+        "ending_score": 0.7202655533900263,
+        "score_improvement": 0.01445278209393508,
+        "outcome": "SUCCESS"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.7202655533900263,
+    "best_score_during_paradigm": 0.7202655533900263
+  }
+}

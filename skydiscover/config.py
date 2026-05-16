@@ -568,6 +568,7 @@ _DB_CONFIG_BY_TYPE: Dict[str, type] = {
     "best_of_n": BestOfNDatabaseConfig,
     "topk": DatabaseConfig,
     "adaevolve": AdaEvolveDatabaseConfig,
+    "adaevolve_batched": AdaEvolveDatabaseConfig,
     "openevolve_native": OpenEvolveNativeDatabaseConfig,
     "gepa_native": GEPANativeDatabaseConfig,
     "claude_code": ClaudeCodeConfig,
@@ -648,6 +649,7 @@ class Config:
 
     # General settings
     max_iterations: int = 100
+    max_wall_clock_time: Optional[float] = None  # seconds; None = no limit
     checkpoint_interval: int = 10
     log_level: str = "INFO"
     log_dir: Optional[str] = None

@@ -1,0 +1,471 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 106,
+  "global_best_score": 0.7375745041646352,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.03672156464723911,
+        "best_score": 0.7375745041646352,
+        "improvement_count": 11,
+        "total_evaluations": 72,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.06579691365149114,
+        "best_score": 0.7375745041646352,
+        "improvement_count": 2,
+        "total_evaluations": 70,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      72,
+      70
+    ],
+    "dimension_rewards": [
+      0.04257657180298618,
+      0.002510435469711386
+    ],
+    "decayed_visits": [
+      9.994924712139438,
+      9.993734212517824
+    ],
+    "global_best_score": 0.7375745041646352,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "69fd5d9a-0d72-40b1-bdd0-c339347acab2",
+      "89c07cfe-35b6-48cc-b2eb-e14b9615a55a",
+      "be02034b-51e2-4d64-a6ea-ae2efe0ad99a",
+      "d5eec01a-415d-4679-9913-383bf46ca806",
+      "d22aa50f-da1c-4b2d-bf9c-a9bfeefd54a9",
+      "ef265029-52e4-4fa4-bcd1-de820f57781b",
+      "e91f2680-4f82-4d6f-95aa-3c6d3d8ec773",
+      "5fd9836d-7c60-4306-b468-b17414b8f8c3",
+      "bda151e0-cf2d-45c3-a3ad-cbea7599eeed",
+      "b70bee8a-914f-4cdc-9baf-9365c45c696b",
+      "3f545d39-472d-4679-9231-6f1933978a96",
+      "19b64a0c-1b6f-40c9-a75f-19951a508d5d",
+      "255e1f3c-b389-47fe-a5aa-9449a3f44801",
+      "897932d6-e2ad-406c-a029-8e4437745965",
+      "26d1bbfd-6e1e-4f62-b46c-a12332a76a88",
+      "145705aa-50be-422d-9733-09e326a2755d",
+      "e2438780-187c-4d8c-b2b2-36398e0242f4",
+      "dadfdf1c-337f-4a18-9ad2-83a9f312cd55",
+      "36ad070b-5b69-494a-8061-a226e79ab88b",
+      "8e8e8e90-99e2-4b38-bcc9-b6dc969ce477"
+    ],
+    [
+      "3dbd7a51-286d-451b-aff3-8e76e6acb9a4",
+      "afdc079d-1e94-4009-9b18-68ab140a1cbd",
+      "211f6ce7-9edd-4666-b1d5-58834f2bc73f",
+      "df6a4076-1494-495c-b925-db0e8e73dfab",
+      "8eeab665-cf35-45ea-93d6-ebaf8f5c3798",
+      "bf8658e8-fb0d-4395-bf57-7c05169ff915",
+      "f935acb4-e4ed-49c8-b329-c60a08adcb17",
+      "389a32d4-3386-4131-95a9-344f07396969",
+      "8926570a-e5b2-42a2-aca3-3447cdfe6a6c",
+      "76e8bc60-b632-4aa9-b3af-383f90426341",
+      "dd680465-4ba4-478c-9e68-8c503af83c66",
+      "c3e680aa-39c3-4f8a-ac8c-90d6ef5f6472",
+      "2df6e3b0-2e30-4453-894c-efecbc31bc62",
+      "ed28fca5-3e04-4db0-b326-834a5561f8ac",
+      "6e7a64ea-51a4-4d29-9e92-969ed71d5d5a",
+      "783964db-d668-42f5-9f47-c35814e2d79a",
+      "6b1660a8-049e-42a6-afff-933725ff2515",
+      "e16ac5ac-fecd-481d-ae30-8b2818ef37c1",
+      "414da69e-51e4-41aa-b843-c12f2720ba58",
+      "64e473be-5cf9-449e-972b-d8945c19c4cc"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "69fd5d9a-0d72-40b1-bdd0-c339347acab2": [
+          "fc43ecd0-19f3-43fa-b524-b32cb0625a7a"
+        ],
+        "89c07cfe-35b6-48cc-b2eb-e14b9615a55a": [
+          "fc43ecd0-19f3-43fa-b524-b32cb0625a7a"
+        ],
+        "be02034b-51e2-4d64-a6ea-ae2efe0ad99a": [
+          "fc43ecd0-19f3-43fa-b524-b32cb0625a7a"
+        ],
+        "d5eec01a-415d-4679-9913-383bf46ca806": [
+          "fc43ecd0-19f3-43fa-b524-b32cb0625a7a"
+        ],
+        "d22aa50f-da1c-4b2d-bf9c-a9bfeefd54a9": [
+          "d6016eb5-efbf-4a0e-bed9-62cfc66b66a6"
+        ],
+        "ef265029-52e4-4fa4-bcd1-de820f57781b": [
+          "14bbb6da-b7f8-4fce-9629-008e4f2731e3"
+        ],
+        "e91f2680-4f82-4d6f-95aa-3c6d3d8ec773": [
+          "14bbb6da-b7f8-4fce-9629-008e4f2731e3"
+        ],
+        "5fd9836d-7c60-4306-b468-b17414b8f8c3": [
+          "d3042527-f00d-4771-ab6d-7f76b0f9c437"
+        ],
+        "bda151e0-cf2d-45c3-a3ad-cbea7599eeed": [
+          "d3042527-f00d-4771-ab6d-7f76b0f9c437"
+        ],
+        "b70bee8a-914f-4cdc-9baf-9365c45c696b": [
+          "bda151e0-cf2d-45c3-a3ad-cbea7599eeed"
+        ],
+        "3f545d39-472d-4679-9231-6f1933978a96": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "19b64a0c-1b6f-40c9-a75f-19951a508d5d": [
+          "b85fa293-eb97-41b7-b062-5d60631661bd"
+        ],
+        "255e1f3c-b389-47fe-a5aa-9449a3f44801": [
+          "b85fa293-eb97-41b7-b062-5d60631661bd"
+        ],
+        "897932d6-e2ad-406c-a029-8e4437745965": [
+          "b85fa293-eb97-41b7-b062-5d60631661bd"
+        ],
+        "26d1bbfd-6e1e-4f62-b46c-a12332a76a88": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "145705aa-50be-422d-9733-09e326a2755d": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "e2438780-187c-4d8c-b2b2-36398e0242f4": [
+          "2df6e3b0-2e30-4453-894c-efecbc31bc62"
+        ],
+        "dadfdf1c-337f-4a18-9ad2-83a9f312cd55": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "36ad070b-5b69-494a-8061-a226e79ab88b": [
+          "c3e680aa-39c3-4f8a-ac8c-90d6ef5f6472"
+        ],
+        "8e8e8e90-99e2-4b38-bcc9-b6dc969ce477": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ]
+      },
+      "children": {
+        "d3042527-f00d-4771-ab6d-7f76b0f9c437": [
+          "5fd9836d-7c60-4306-b468-b17414b8f8c3",
+          "bda151e0-cf2d-45c3-a3ad-cbea7599eeed"
+        ],
+        "bda151e0-cf2d-45c3-a3ad-cbea7599eeed": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "b70bee8a-914f-4cdc-9baf-9365c45c696b": [
+          "3f545d39-472d-4679-9231-6f1933978a96",
+          "26d1bbfd-6e1e-4f62-b46c-a12332a76a88",
+          "145705aa-50be-422d-9733-09e326a2755d",
+          "dadfdf1c-337f-4a18-9ad2-83a9f312cd55",
+          "8e8e8e90-99e2-4b38-bcc9-b6dc969ce477"
+        ],
+        "b85fa293-eb97-41b7-b062-5d60631661bd": [
+          "255e1f3c-b389-47fe-a5aa-9449a3f44801",
+          "897932d6-e2ad-406c-a029-8e4437745965"
+        ],
+        "2df6e3b0-2e30-4453-894c-efecbc31bc62": [
+          "e2438780-187c-4d8c-b2b2-36398e0242f4"
+        ],
+        "c3e680aa-39c3-4f8a-ac8c-90d6ef5f6472": [
+          "36ad070b-5b69-494a-8061-a226e79ab88b"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "3dbd7a51-286d-451b-aff3-8e76e6acb9a4": [
+          "75efea3f-2c51-4dcc-a29b-f941072fa2bc"
+        ],
+        "afdc079d-1e94-4009-9b18-68ab140a1cbd": [
+          "75efea3f-2c51-4dcc-a29b-f941072fa2bc"
+        ],
+        "211f6ce7-9edd-4666-b1d5-58834f2bc73f": [
+          "fc43ecd0-19f3-43fa-b524-b32cb0625a7a"
+        ],
+        "df6a4076-1494-495c-b925-db0e8e73dfab": [
+          "67737066-7b45-4afa-8c5c-9c83fed08d6e"
+        ],
+        "8eeab665-cf35-45ea-93d6-ebaf8f5c3798": [
+          "02969d0b-4f4b-4349-abe8-3f24f970da6b"
+        ],
+        "bf8658e8-fb0d-4395-bf57-7c05169ff915": [
+          "02969d0b-4f4b-4349-abe8-3f24f970da6b"
+        ],
+        "f935acb4-e4ed-49c8-b329-c60a08adcb17": [
+          "14bbb6da-b7f8-4fce-9629-008e4f2731e3"
+        ],
+        "389a32d4-3386-4131-95a9-344f07396969": [
+          "14bbb6da-b7f8-4fce-9629-008e4f2731e3"
+        ],
+        "8926570a-e5b2-42a2-aca3-3447cdfe6a6c": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "76e8bc60-b632-4aa9-b3af-383f90426341": [
+          "b563daa7-4629-4f19-9682-d93514b2a3d3"
+        ],
+        "dd680465-4ba4-478c-9e68-8c503af83c66": [
+          "f340a583-608c-47cd-b373-debb5a96dbda"
+        ],
+        "c3e680aa-39c3-4f8a-ac8c-90d6ef5f6472": [
+          "f340a583-608c-47cd-b373-debb5a96dbda"
+        ],
+        "2df6e3b0-2e30-4453-894c-efecbc31bc62": [
+          "f340a583-608c-47cd-b373-debb5a96dbda"
+        ],
+        "ed28fca5-3e04-4db0-b326-834a5561f8ac": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "6e7a64ea-51a4-4d29-9e92-969ed71d5d5a": [
+          "3f545d39-472d-4679-9231-6f1933978a96"
+        ],
+        "783964db-d668-42f5-9f47-c35814e2d79a": [
+          "897932d6-e2ad-406c-a029-8e4437745965"
+        ],
+        "6b1660a8-049e-42a6-afff-933725ff2515": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "e16ac5ac-fecd-481d-ae30-8b2818ef37c1": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "414da69e-51e4-41aa-b843-c12f2720ba58": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ],
+        "64e473be-5cf9-449e-972b-d8945c19c4cc": [
+          "b70bee8a-914f-4cdc-9baf-9365c45c696b"
+        ]
+      },
+      "children": {
+        "fc43ecd0-19f3-43fa-b524-b32cb0625a7a": [
+          "211f6ce7-9edd-4666-b1d5-58834f2bc73f"
+        ],
+        "67737066-7b45-4afa-8c5c-9c83fed08d6e": [
+          "df6a4076-1494-495c-b925-db0e8e73dfab"
+        ],
+        "02969d0b-4f4b-4349-abe8-3f24f970da6b": [
+          "8eeab665-cf35-45ea-93d6-ebaf8f5c3798",
+          "bf8658e8-fb0d-4395-bf57-7c05169ff915"
+        ],
+        "14bbb6da-b7f8-4fce-9629-008e4f2731e3": [
+          "f935acb4-e4ed-49c8-b329-c60a08adcb17",
+          "389a32d4-3386-4131-95a9-344f07396969"
+        ],
+        "b70bee8a-914f-4cdc-9baf-9365c45c696b": [
+          "8926570a-e5b2-42a2-aca3-3447cdfe6a6c",
+          "ed28fca5-3e04-4db0-b326-834a5561f8ac",
+          "6b1660a8-049e-42a6-afff-933725ff2515",
+          "e16ac5ac-fecd-481d-ae30-8b2818ef37c1",
+          "414da69e-51e4-41aa-b843-c12f2720ba58",
+          "64e473be-5cf9-449e-972b-d8945c19c4cc"
+        ],
+        "f340a583-608c-47cd-b373-debb5a96dbda": [
+          "dd680465-4ba4-478c-9e68-8c503af83c66",
+          "c3e680aa-39c3-4f8a-ac8c-90d6ef5f6472",
+          "2df6e3b0-2e30-4453-894c-efecbc31bc62"
+        ],
+        "3f545d39-472d-4679-9231-6f1933978a96": [
+          "6e7a64ea-51a4-4d29-9e92-969ed71d5d5a"
+        ],
+        "897932d6-e2ad-406c-a029-8e4437745965": [
+          "783964db-d668-42f5-9f47-c35814e2d79a"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use scipy.signal.savgol_filter for polynomial smoothing with lag compensation",
+        "description": "Apply scipy.signal.savgol_filter which fits a polynomial to each sliding window via least squares, preserving signal shape better than spline interpolation. Use window_length=15 (odd) and polyorder=3 to balance noise reduction with responsiveness. The Savitzky-Golay filter has known frequency response and minimal phase distortion compared to UnivariateSpline. After filtering, apply a simple lag compensation by adding a fraction of the first derivative (estimated via np.diff). The polynomial fitting naturally reduces spurious slope changes while maintaining tracking of genuine trends. Truncate output to len(x) - window_size + 1 to match evaluator expectations. This approach is fundamentally different from spline methods as it uses local polynomial fitting rather than global spline fitting.",
+        "what_to_optimize": "Slope changes (S) and false reversals (R) through polynomial smoothing, while maintaining correlation with clean signal",
+        "cautions": "Window length must be odd and less than signal length. Polyorder must be less than window_length. Truncate output to match expected length. Test different polyorder values (2, 3, 4) for optimal smoothing.",
+        "approach_type": "scipy.signal.savgol_filter"
+      },
+      {
+        "idea": "Use scipy.ndimage.median_filter for robust outlier-resistant smoothing",
+        "description": "Apply scipy.ndimage.median_filter which computes the median in a sliding window, making it highly robust to outliers and noise spikes. Use a smaller window size (7-9) to reduce lag while still providing effective noise reduction. Median filtering preserves edges and trend changes better than mean-based filters, reducing false reversals. The filter naturally produces smooth output without the overshoot/undershoot issues of spline methods. For enhanced smoothness, optionally apply a second pass with a slightly larger window or combine with a gentle moving average. This approach is fundamentally different from polynomial/spline methods as it uses rank-order statistics rather than fitting functions to data.",
+        "what_to_optimize": "False reversals (R) and slope changes (S) through robust median-based filtering that rejects outliers",
+        "cautions": "Window size must be odd. Median filtering can flatten signal features if window is too large. May need to tune window size based on noise level. Output length should be truncated to match expected length.",
+        "approach_type": "scipy.ndimage.median_filter"
+      },
+      {
+        "idea": "Use scipy.signal.lfilter with adaptive IIR exponential smoothing",
+        "description": "Apply scipy.signal.lfilter with a simple first-order IIR filter (exponential moving average) where the smoothing coefficient alpha is adaptively estimated from local noise statistics. Estimate noise level from first differences, then set alpha = 1/(1 + noise_estimate) to balance smoothing vs responsiveness. The IIR filter is computationally efficient and has minimal phase lag compared to FIR filters. Use lfilter with b=[alpha], a=[1, alpha-1] coefficients for exponential smoothing. This provides real-time processing capability with minimal latency. The adaptive alpha allows the filter to respond to changing noise levels across non-stationary signals.",
+        "what_to_optimize": "Lag error (L_recent, L_avg) through low-latency IIR filtering while maintaining smoothness",
+        "cautions": "Alpha must be in (0,1) range for stability. Initial conditions affect early samples - may need warmup period. Ensure output length matches expected length after filtering.",
+        "approach_type": "scipy.signal.lfilter"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 1
+    },
+    "current_paradigm_index": 1,
+    "tried_paradigms": [
+      {
+        "idea": "Use scipy.signal.lfilter_zi for zero-initialized IIR filtering with signal-adaptive coefficients",
+        "description": "Implement IIR filtering using scipy.signal.lfilter_zi to compute zero-initialization conditions that eliminate transient response artifacts. Design a simple first-order IIR filter (exponential moving average variant) where the smoothing coefficient alpha is adaptively computed from local signal variance. The zero-initialization ensures the filter starts at the steady-state value, reducing initial lag and edge effects. This approach differs from UnivariateSpline by using recursive filtering with explicit state management, and from filtfilt by being causal (real-time compatible). The adaptive alpha parameter directly trades off between smoothing (reducing S and R) and responsiveness (reducing L_recent and L_avg).",
+        "what_to_optimize": "lag_error through zero-initialization eliminating transients, slope_changes and false_reversals through adaptive smoothing coefficient, and real-time compatibility through causal filtering",
+        "cautions": "Ensure alpha stays in valid range (0 < alpha < 1), compute zero-initialization correctly using lfilter_zi, handle the first few samples carefully, ensure output length matches expected, avoid alpha values that cause instability",
+        "approach_type": "scipy.signal.lfilter_zi",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.filtfilt with adaptive Butterworth filter based on local signal statistics",
+        "description": "Design a zero-phase IIR low-pass filter using scipy.signal.butter with a cutoff frequency that adapts to local signal characteristics. For each segment of the signal, estimate the local variance and frequency content, then design a filter with appropriate cutoff frequency. Apply scipy.signal.filtfilt for zero-phase filtering which eliminates phase delay entirely, directly addressing the lag error L_recent and L_avg metrics. The adaptive cutoff can be determined by computing the ratio of local signal variance to noise estimate - higher ratios use higher cutoff frequencies to preserve dynamics, lower ratios use lower cutoff to smooth more aggressively. This fundamentally differs from the current global spline approach by operating in the frequency domain with zero-phase processing.",
+        "what_to_optimize": "Lag error (L_recent, L_avg) through zero-phase filtering, and slope changes through adaptive smoothing that responds to local signal characteristics",
+        "cautions": "Ensure filter order is kept low (2-4) to avoid edge artifacts with filtfilt. Handle edge cases where local variance estimate is near zero. The adaptive cutoff should have reasonable bounds (e.g., 0.1-0.5 normalized frequency) to avoid numerical instability.",
+        "approach_type": "scipy.signal.filtfilt",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.wiener with adaptive local noise estimation for each signal segment",
+        "description": "Apply scipy.signal.wiener which performs local Wiener filtering by estimating noise statistics from a moving window around each sample. Unlike the current global spline approach, Wiener filtering adapts to local signal-to-noise ratio at each point. For each sample, compute local mean and variance within a neighborhood, estimate the noise power spectrum, and apply frequency-domain optimal filtering. The Wiener filter naturally balances noise reduction with signal preservation based on local SNR - regions with high SNR get less smoothing, low SNR regions get more aggressive denoising. This directly addresses false reversals R(\u03b8) by reducing noise-induced trend changes while preserving genuine signal dynamics.",
+        "what_to_optimize": "False reversals (R) and slope changes (S) through adaptive noise reduction that responds to local signal-to-noise characteristics",
+        "cautions": "The mysize parameter (neighborhood size) should be tuned relative to window_size - too small gives poor noise estimates, too large loses local adaptivity. Test values like mysize=5, 10, or 15 relative to window_size=20. Ensure the filter doesn't over-smooth rapid but genuine signal changes.",
+        "approach_type": "scipy.signal.wiener",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.hilbert for envelope-based adaptive smoothing with dynamic compensation",
+        "description": "Compute the analytic signal using scipy.signal.hilbert to extract the instantaneous amplitude envelope and phase. Use the envelope to identify regions of high vs low signal activity - high envelope regions indicate genuine signal changes requiring minimal smoothing, while low envelope regions indicate noise-dominated segments requiring aggressive smoothing. Apply adaptive smoothing where the smoothing strength is inversely proportional to the envelope magnitude. Additionally, use the instantaneous phase to estimate and compensate for any residual lag by predicting forward based on the phase derivative (instantaneous frequency). This approach fundamentally differs by using time-frequency analysis to guide adaptive processing rather than simple derivative-based lag compensation.",
+        "what_to_optimize": "Lag error through phase-based prediction, false reversals through envelope-guided adaptive smoothing, and tracking accuracy by preserving high-energy signal components",
+        "cautions": "The Hilbert transform assumes narrowband signals; for broadband signals, consider applying it to a bandpass-filtered version first. Handle edge effects where the envelope is computed. Ensure the adaptive smoothing doesn't introduce discontinuities at envelope transition points. The phase derivative can be noisy - smooth it before using for lag compensation.",
+        "approach_type": "scipy.signal.hilbert",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.interpolate.LSQUnivariateSpline with adaptive knot placement",
+        "description": "Replace UnivariateSpline with LSQUnivariateSpline which uses explicit knot points for local least-squares fitting. Detect signal change points using first/second derivative thresholding, then place knots at these locations for better non-stationarity handling. This allows the spline to adapt locally to rapid signal changes while maintaining smoothness in stable regions. The explicit knot control provides better handling of step changes (signal 3) and non-stationary frequency variations (signal 2) compared to the global smoothing approach of UnivariateSpline. Apply derivative-based lag compensation similar to current approach but with adjusted factor based on local knot density.",
+        "what_to_optimize": "Reduce false reversals (R) and slope changes (S) while improving tracking on non-stationary signals",
+        "cautions": "Need to ensure enough knots for signal complexity but not too many to overfit noise; use np.diff and sign changes to detect change points; set k=3 for cubic spline; handle edge cases where signal is too short",
+        "approach_type": "scipy.interpolate.LSQUnivariateSpline",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.ndimage.uniform_filter1d with multi-scale adaptive weighting",
+        "description": "Apply scipy.ndimage.uniform_filter1d at multiple scales (e.g., window sizes 3, 7, 15) and combine outputs using adaptive weights based on local signal variance. Compute local variance using a sliding window of first differences, then assign higher weights to smaller windows in high-variance regions (for tracking) and larger windows in low-variance regions (for smoothing). This multi-scale approach naturally reduces false reversals while maintaining responsiveness to genuine trend changes. Apply linear extrapolation using filtered signal slope for lag compensation. This is fundamentally different from spline-based approaches and more robust to outliers.",
+        "what_to_optimize": "Balance lag error (L_recent, L_avg) with slope changes (S) through adaptive multi-scale filtering",
+        "cautions": "Ensure weights sum to 1; handle edge regions carefully; use cval='reflect' or 'nearest' for boundary handling; avoid very large windows that introduce excessive lag",
+        "approach_type": "scipy.ndimage.uniform_filter1d",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.interpolate.make_interp_spline with k=2 quadratic spline and enhanced lag compensation",
+        "description": "Replace UnivariateSpline with make_interp_spline using k=2 (quadratic spline) for faster response to signal changes. Quadratic splines have less smoothing than cubic, making them better for step changes and rapid transitions. Implement enhanced lag compensation using both first and second derivatives: compensation = c1*first_derivative + c2*second_derivative, where coefficients are tuned based on window_size. The reduced spline order provides better phase response while maintaining sufficient smoothness to reduce slope changes. This approach targets the step-change signal (signal 3) and random walk (signal 5) more effectively than cubic splines.",
+        "what_to_optimize": "Improve tracking accuracy on step changes and rapid transitions while maintaining acceptable smoothness",
+        "cautions": "Quadratic splines may be less smooth than cubic; need to tune c1, c2 coefficients carefully; ensure extrapolation handles signal edges properly; validate that smoothness doesn't degrade below acceptable threshold",
+        "approach_type": "scipy.interpolate.make_interp_spline",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.linalg.cholesky for Kalman filter state-space estimation",
+        "description": "Implement a Kalman filter using scipy.linalg.cholesky for efficient covariance matrix updates. Model state as [position, velocity] with state transition matrix and observation matrix. The Kalman gain naturally adapts to signal dynamics, providing optimal lag compensation through velocity prediction. This directly addresses non-stationarity by tracking both signal value and its rate of change. The filter recursively updates estimates with each sample, handling varying noise levels through adaptive process and measurement noise covariance matrices.",
+        "what_to_optimize": "Lag error (L_recent) and false reversals (R) through velocity-based prediction, while maintaining tracking accuracy",
+        "cautions": "Initialize state covariance properly to avoid divergence; tune process noise (Q) and measurement noise (R) matrices based on signal statistics; ensure numerical stability in Cholesky decomposition",
+        "approach_type": "scipy.linalg.cholesky",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.interpolate.LSQUnivariateSpline with local variance-based smoothing",
+        "description": "Apply LSQUnivariateSpline in a sliding window manner with adaptive smoothing parameter computed from local variance. Unlike the global UnivariateSpline, this computes a local smoothing parameter for each window based on local signal statistics. The spline is fit to overlapping windows, with smoothing strength proportional to local variance. This preserves sharp transitions (reducing false reversals) while smoothing noisy regions. Output is reconstructed by averaging overlapping window predictions.",
+        "what_to_optimize": "Slope changes (S) and false reversals (R) through adaptive local smoothing that responds to signal non-stationarity",
+        "cautions": "Handle edge effects at window boundaries; ensure sufficient overlap to avoid artifacts; compute local variance efficiently without excessive computation",
+        "approach_type": "scipy.interpolate.LSQUnivariateSpline",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use exponential moving average with adaptive alpha from local variance",
+        "description": "Implement an exponential moving average where the smoothing factor alpha is computed from local variance in a sliding window. In high-variance (noisy) regions, alpha decreases for more smoothing; in low-variance (stable) regions, alpha increases for better responsiveness. This creates a real-time adaptive filter with O(n) complexity that naturally balances smoothness and tracking. The local variance is computed over the window_size samples, and alpha is inversely proportional to variance. This approach is computationally efficient and handles non-stationarity well.",
+        "what_to_optimize": "All four metrics simultaneously through adaptive smoothing that responds to local signal characteristics",
+        "cautions": "Bound alpha between reasonable limits (e.g., 0.05-0.4) to prevent over-smoothing or over-reacting; handle initialization carefully; ensure local variance computation is stable",
+        "approach_type": "numpy.sliding_window_view",
+        "uses": 2,
+        "starting_score": 0.7375745041646352,
+        "ending_score": 0.7375745041646352,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.7375745041646352,
+    "best_score_during_paradigm": 0.7375745041646352
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "num_islands": 2,
+  "current_island": 1,
+  "iteration_count": 79,
+  "global_best_score": 0.7529330594503141,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.050562788261101596,
+        "best_score": 0.7529330594503141,
+        "improvement_count": 8,
+        "total_evaluations": 61,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.028147942864989797,
+        "best_score": 0.7529330594503141,
+        "improvement_count": 12,
+        "total_evaluations": 61,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      61,
+      61
+    ],
+    "dimension_rewards": [
+      0.03235187874147707,
+      0.03616806745271349
+    ],
+    "decayed_visits": [
+      9.983826907300774,
+      9.983826907300774
+    ],
+    "global_best_score": 0.7529330594503141,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "ae417c4c-f94b-4e49-a78f-d2289e529f15",
+      "b55e352c-c999-41e3-91f8-38e4186c9384",
+      "2c3332d8-693d-45b0-accf-ce07d7e4d8a2",
+      "f4ef128d-5182-48fb-a4d7-fb10e7151974",
+      "72fca8ea-f36f-48c0-bf74-acc2aded849a",
+      "51efea3d-b044-4f46-aeb6-6599b9018806",
+      "1a19bcd8-9e61-4c0f-a330-ac0ac2d8f714",
+      "44e83c6b-6026-4f04-a0f0-6b6118e53960",
+      "c766dc57-374e-4668-a7c0-0cac525c9954",
+      "f12aa9a7-8cd0-45a8-a103-7468a4842edc",
+      "cc67d1ed-f537-40bb-95fe-0c13540dd1d1",
+      "a0947d9d-597f-4d44-9556-9d3b76602e12",
+      "5892431d-1b01-4baa-b7a3-cf089d4d9845",
+      "28891996-4c92-49f7-b65f-b7225f01cf55",
+      "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353",
+      "3b0121cb-5d86-4081-9978-f9abc1ba49ed",
+      "5d6934d3-6b36-4469-b3ec-233834a498d3",
+      "c563c652-6537-4b07-a192-b16fc1bc8893",
+      "c6dc788c-61cb-4845-82ee-3ef0b6a4c2da",
+      "66706f26-a18d-49d2-8e87-c202f3ee1b13"
+    ],
+    [
+      "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43",
+      "b5688a90-e735-4262-b974-4477fd43605d",
+      "6951db11-5d59-48d9-911b-fc198827906c",
+      "73a8dce8-b96d-453e-b6f2-c33ec2141066",
+      "ac067891-262e-469b-9d9e-df4ea33e1a09",
+      "cd0e85c7-3db5-40c4-aeef-cd712992332a",
+      "0031c766-b40c-44c6-adc6-29bacea51aff",
+      "6b34568b-ae58-4a36-bd7e-e3168b1b4249",
+      "ae9314b1-d2bb-456e-a750-86defb69bdfe",
+      "bad4512c-ebc1-49cf-8374-057b95c7c6c1",
+      "cd6a9241-46b0-44ec-b1ad-a09160618131",
+      "a251faa5-1634-4add-8a4a-e0bff05ac5ba",
+      "b376abc7-eb33-4cad-99cc-acf2eb26a2a4",
+      "218e028d-3a6c-4c4a-b09d-4aa1e9e600c8",
+      "33063ac6-6b37-4dd4-8c04-68e981443d24",
+      "fe383ade-4566-49f7-909d-15b9c0ba9319",
+      "ac5fe303-d7e1-41ad-898a-c2625ef36640",
+      "646b9408-7e23-4b17-9a4b-365d395b1ea8",
+      "def7fa47-f316-43c5-b785-85e3f51d6639",
+      "4a6d8efa-c48c-4ddf-8bc8-772408baff9f"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "ae417c4c-f94b-4e49-a78f-d2289e529f15": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "b55e352c-c999-41e3-91f8-38e4186c9384": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "2c3332d8-693d-45b0-accf-ce07d7e4d8a2": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "f4ef128d-5182-48fb-a4d7-fb10e7151974": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "72fca8ea-f36f-48c0-bf74-acc2aded849a": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "51efea3d-b044-4f46-aeb6-6599b9018806": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "1a19bcd8-9e61-4c0f-a330-ac0ac2d8f714": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "44e83c6b-6026-4f04-a0f0-6b6118e53960": [
+          "77d3b73d-f400-4848-9c9a-aa6e0ac375e6"
+        ],
+        "c766dc57-374e-4668-a7c0-0cac525c9954": [
+          "e12f8849-a5a7-4433-8371-ef617c517197"
+        ],
+        "f12aa9a7-8cd0-45a8-a103-7468a4842edc": [
+          "fe8bc4d5-72d0-4a52-86b0-bc60f0d0f9ce"
+        ],
+        "cc67d1ed-f537-40bb-95fe-0c13540dd1d1": [
+          "68a88d7c-7eca-42e0-8442-29427de96311"
+        ],
+        "a0947d9d-597f-4d44-9556-9d3b76602e12": [
+          "68a88d7c-7eca-42e0-8442-29427de96311"
+        ],
+        "5892431d-1b01-4baa-b7a3-cf089d4d9845": [
+          "b376abc7-eb33-4cad-99cc-acf2eb26a2a4"
+        ],
+        "28891996-4c92-49f7-b65f-b7225f01cf55": [
+          "b376abc7-eb33-4cad-99cc-acf2eb26a2a4"
+        ],
+        "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353": [
+          "b376abc7-eb33-4cad-99cc-acf2eb26a2a4"
+        ],
+        "3b0121cb-5d86-4081-9978-f9abc1ba49ed": [
+          "b376abc7-eb33-4cad-99cc-acf2eb26a2a4"
+        ],
+        "5d6934d3-6b36-4469-b3ec-233834a498d3": [
+          "ac5fe303-d7e1-41ad-898a-c2625ef36640"
+        ],
+        "c563c652-6537-4b07-a192-b16fc1bc8893": [
+          "fe383ade-4566-49f7-909d-15b9c0ba9319"
+        ],
+        "c6dc788c-61cb-4845-82ee-3ef0b6a4c2da": [
+          "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353"
+        ],
+        "66706f26-a18d-49d2-8e87-c202f3ee1b13": [
+          "4a6d8efa-c48c-4ddf-8bc8-772408baff9f"
+        ]
+      },
+      "children": {
+        "fe8bc4d5-72d0-4a52-86b0-bc60f0d0f9ce": [
+          "f12aa9a7-8cd0-45a8-a103-7468a4842edc"
+        ],
+        "b376abc7-eb33-4cad-99cc-acf2eb26a2a4": [
+          "5892431d-1b01-4baa-b7a3-cf089d4d9845",
+          "28891996-4c92-49f7-b65f-b7225f01cf55",
+          "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353",
+          "3b0121cb-5d86-4081-9978-f9abc1ba49ed"
+        ],
+        "ac5fe303-d7e1-41ad-898a-c2625ef36640": [
+          "5d6934d3-6b36-4469-b3ec-233834a498d3"
+        ],
+        "fe383ade-4566-49f7-909d-15b9c0ba9319": [
+          "c563c652-6537-4b07-a192-b16fc1bc8893"
+        ],
+        "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353": [
+          "c6dc788c-61cb-4845-82ee-3ef0b6a4c2da"
+        ],
+        "4a6d8efa-c48c-4ddf-8bc8-772408baff9f": [
+          "66706f26-a18d-49d2-8e87-c202f3ee1b13"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43": [],
+        "b5688a90-e735-4262-b974-4477fd43605d": [
+          "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43"
+        ],
+        "6951db11-5d59-48d9-911b-fc198827906c": [
+          "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43"
+        ],
+        "73a8dce8-b96d-453e-b6f2-c33ec2141066": [
+          "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43"
+        ],
+        "ac067891-262e-469b-9d9e-df4ea33e1a09": [
+          "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43"
+        ],
+        "cd0e85c7-3db5-40c4-aeef-cd712992332a": [
+          "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43"
+        ],
+        "0031c766-b40c-44c6-adc6-29bacea51aff": [
+          "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43"
+        ],
+        "6b34568b-ae58-4a36-bd7e-e3168b1b4249": [
+          "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43"
+        ],
+        "ae9314b1-d2bb-456e-a750-86defb69bdfe": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "bad4512c-ebc1-49cf-8374-057b95c7c6c1": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "cd6a9241-46b0-44ec-b1ad-a09160618131": [
+          "d907cf39-f8f4-4b5d-9732-0efc47b708d8"
+        ],
+        "a251faa5-1634-4add-8a4a-e0bff05ac5ba": [
+          "cd6a9241-46b0-44ec-b1ad-a09160618131"
+        ],
+        "b376abc7-eb33-4cad-99cc-acf2eb26a2a4": [
+          "fe8bc4d5-72d0-4a52-86b0-bc60f0d0f9ce"
+        ],
+        "218e028d-3a6c-4c4a-b09d-4aa1e9e600c8": [
+          "fe8bc4d5-72d0-4a52-86b0-bc60f0d0f9ce"
+        ],
+        "33063ac6-6b37-4dd4-8c04-68e981443d24": [
+          "cc67d1ed-f537-40bb-95fe-0c13540dd1d1"
+        ],
+        "fe383ade-4566-49f7-909d-15b9c0ba9319": [
+          "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353"
+        ],
+        "ac5fe303-d7e1-41ad-898a-c2625ef36640": [
+          "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353"
+        ],
+        "646b9408-7e23-4b17-9a4b-365d395b1ea8": [
+          "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353"
+        ],
+        "def7fa47-f316-43c5-b785-85e3f51d6639": [
+          "3b0121cb-5d86-4081-9978-f9abc1ba49ed"
+        ],
+        "4a6d8efa-c48c-4ddf-8bc8-772408baff9f": [
+          "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353"
+        ]
+      },
+      "children": {
+        "ddf3a245-9f7e-4ced-8d8d-ecbfcfbeea43": [
+          "b5688a90-e735-4262-b974-4477fd43605d",
+          "6951db11-5d59-48d9-911b-fc198827906c",
+          "73a8dce8-b96d-453e-b6f2-c33ec2141066",
+          "ac067891-262e-469b-9d9e-df4ea33e1a09",
+          "cd0e85c7-3db5-40c4-aeef-cd712992332a",
+          "0031c766-b40c-44c6-adc6-29bacea51aff",
+          "6b34568b-ae58-4a36-bd7e-e3168b1b4249"
+        ],
+        "d907cf39-f8f4-4b5d-9732-0efc47b708d8": [
+          "ae9314b1-d2bb-456e-a750-86defb69bdfe",
+          "bad4512c-ebc1-49cf-8374-057b95c7c6c1",
+          "cd6a9241-46b0-44ec-b1ad-a09160618131"
+        ],
+        "cd6a9241-46b0-44ec-b1ad-a09160618131": [
+          "a251faa5-1634-4add-8a4a-e0bff05ac5ba"
+        ],
+        "fe8bc4d5-72d0-4a52-86b0-bc60f0d0f9ce": [
+          "218e028d-3a6c-4c4a-b09d-4aa1e9e600c8"
+        ],
+        "cc67d1ed-f537-40bb-95fe-0c13540dd1d1": [
+          "33063ac6-6b37-4dd4-8c04-68e981443d24"
+        ],
+        "d0c8d2e5-65cb-4adc-b81d-b7a4bfed5353": [
+          "fe383ade-4566-49f7-909d-15b9c0ba9319",
+          "ac5fe303-d7e1-41ad-898a-c2625ef36640",
+          "646b9408-7e23-4b17-9a4b-365d395b1ea8",
+          "4a6d8efa-c48c-4ddf-8bc8-772408baff9f"
+        ],
+        "3b0121cb-5d86-4081-9978-f9abc1ba49ed": [
+          "def7fa47-f316-43c5-b785-85e3f51d6639"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use pywt wavelet denoising with soft thresholding for non-stationary signals",
+        "description": "Apply wavelet transform using pywt (PyWavelets) to decompose the signal into multiple frequency scales. Use soft thresholding on wavelet coefficients to remove noise while preserving signal features and trend changes. Wavelets excel at handling non-stationary signals because they provide time-frequency localization, unlike global splines. Select an appropriate wavelet basis (e.g., 'db4' or 'sym4') and use universal threshold or Stein's unbiased risk estimate for adaptive threshold selection. Reconstruct the signal from thresholded coefficients. This approach naturally handles step changes and frequency variations in the test signals while minimizing spurious slope changes.",
+        "what_to_optimize": "slope_changes and false_reversals metrics by preserving genuine trend transitions while removing noise at appropriate scales",
+        "cautions": "Select wavelet family appropriate for signal type, tune threshold parameter carefully to avoid over-smoothing, ensure reconstruction length matches expected output length (len(x) - window_size + 1)",
+        "approach_type": "pywt.wavelet_transform"
+      },
+      {
+        "idea": "Use scipy.signal.lfilter with adaptive ARIMA-like coefficients based on local autocorrelation",
+        "description": "Implement an adaptive recursive filter using scipy.signal.lfilter with coefficients that change based on local signal statistics. Compute local autocorrelation in sliding windows to estimate signal dynamics, then derive filter coefficients that match the estimated ARIMA model order. This creates a state-space-like filter that adapts to changing signal properties without the lag issues of zero-phase filtering. The recursive nature allows the filter to track trends while smoothing noise, and adaptive coefficients prevent overfitting to local noise patterns. This differs fundamentally from spline approaches by using autoregressive modeling rather than interpolation.",
+        "what_to_optimize": "lag_error and avg_error while maintaining reasonable slope_changes through adaptive coefficient selection",
+        "cautions": "Ensure filter stability by checking pole locations, compute local autocorrelation efficiently without excessive computation, handle edge cases at signal boundaries, ensure output length matches requirements",
+        "approach_type": "scipy.signal.lfilter"
+      },
+      {
+        "idea": "Use scipy.optimize.minimize with custom objective function directly minimizing slope changes and false reversals",
+        "description": "Formulate signal filtering as an optimization problem where the objective function directly minimizes the composite score components: slope changes, lag error, and false reversals. Use scipy.optimize.minimize with SLSQP method to find the filtered signal that best balances these competing objectives. The optimization variables are the filtered signal values, constrained to stay within reasonable bounds of the input signal. Add regularization to prevent overfitting. This approach directly targets the scoring metrics rather than using proxy smoothing techniques, potentially finding better solutions than heuristic filters.",
+        "what_to_optimize": "composite_score by directly minimizing the weighted sum of slope_changes, lag_error, avg_error, and false_reversals",
+        "cautions": "Must handle optimization carefully to avoid local minima, use appropriate bounds and constraints, ensure computation completes within timeout, may need warm-start from spline solution, handle numerical stability issues",
+        "approach_type": "scipy.optimize.minimize"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 1,
+      "1": 1
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [
+      {
+        "idea": "Use scipy.ndimage.grey_closing for morphological smoothing",
+        "description": "Apply morphological closing (dilation followed by erosion) using scipy.ndimage.grey_closing with a structuring element sized to window_size. This operation fills small valleys and removes noise peaks while preserving larger signal features. The morphological approach is fundamentally different from polynomial fitting and provides excellent edge preservation. Use a flat structuring element with size matching window_size. This builds on the successful grey_dilation approach but adds erosion for symmetric smoothing. Directly targets slope_changes and false_reversals by removing small-scale noise features.",
+        "what_to_optimize": "Slope changes (S) and false reversals (R) through morphological feature preservation",
+        "cautions": "Structuring element size affects smoothing strength. Larger elements smooth more but may remove legitimate features. Ensure output length matches expected value. Works best for signals with clear trend structure.",
+        "approach_type": "scipy.ndimage.grey_closing",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.savgol_filter with adaptive polynomial order",
+        "description": "Apply Savitzky-Golay filter which fits local polynomials to smooth data while preserving peaks and inflection points. Unlike UnivariateSpline which uses global cubic splines, Savitzky-Golay uses local polynomial fitting that better preserves signal shape and reduces false reversals. The polynomial order (typically 2-4) and window size control the smoothness-accuracy tradeoff. Compute local noise variance to adapt the polynomial order: higher noise = higher order for more smoothing. This approach directly targets slope_changes and false_reversals by preserving genuine trend changes while filtering noise.",
+        "what_to_optimize": "slope_changes and false_reversals metrics by preserving signal shape better than splines",
+        "cautions": "Window size must be odd and less than signal length. Polynomial order must be less than window size. Test different polynomial orders (2, 3, 4) to find optimal tradeoff. Ensure output length matches expected value.",
+        "approach_type": "scipy.signal.savgol_filter",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Implement adaptive Kalman filter for state estimation",
+        "description": "Implement a simple Kalman filter using numpy for recursive state estimation with minimal lag. The Kalman filter maintains a state estimate and covariance, updating based on new measurements with adaptive process noise and measurement noise parameters. This approach is fundamentally different from spline-based filtering as it uses Bayesian estimation rather than curve fitting. Tune the Kalman gain based on local noise variance: higher noise = lower gain for more smoothing. The recursive nature provides minimal lag compared to window-based filters.",
+        "what_to_optimize": "lag_error and tracking accuracy through minimal-lag recursive estimation",
+        "cautions": "Implement carefully to avoid numerical instability. Initialize state with first few samples. Tune process noise (Q) and measurement noise (R) parameters based on local variance estimates. Handle edge cases at signal boundaries.",
+        "approach_type": "numpy.kalman_filter",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.butter with zero-phase filtering and adaptive cutoff",
+        "description": "Design a Butterworth low-pass filter using scipy.signal.butter with cutoff frequency adapted to local signal characteristics. Apply the filter using scipy.signal.filtfilt for zero-phase filtering to eliminate lag penalty. The cutoff frequency can be adapted based on local noise variance and signal frequency content. This frequency-domain approach is fundamentally different from both spline fitting and polynomial smoothing. The Butterworth filter provides maximally flat passband response, preserving signal amplitude while attenuating high-frequency noise.",
+        "what_to_optimize": "lag_error through zero-phase filtering and avg_error through frequency-domain noise suppression",
+        "cautions": "Use filtfilt for zero-phase filtering to avoid lag. Cutoff frequency must be chosen carefully to preserve signal dynamics. Filter order affects transition bandwidth - higher order = sharper cutoff but more computational cost. Handle signal boundaries carefully.",
+        "approach_type": "scipy.signal.butter",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.medfilt with adaptive window size based on local noise",
+        "description": "The previous successful medfilt approach (+0.0211) should be enhanced with adaptive window sizing. Compute local noise variance using sliding windows and adjust the median filter window size dynamically: larger windows in high-noise regions for more smoothing, smaller windows in low-noise regions for better tracking. This directly targets slope_changes and false_reversals while maintaining responsiveness. The adaptive window should be capped to avoid excessive lag. This builds on the proven success of median filtering while adding intelligence to handle non-stationary noise levels.",
+        "what_to_optimize": "slope_changes and false_reversals while maintaining lag_error",
+        "cautions": "Ensure window size stays within reasonable bounds (3-50), handle edge cases at signal boundaries, verify output length matches expected len(x) - window_size + 1",
+        "approach_type": "scipy.signal.medfilt",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.interpolate.CubicSpline with tension parameter for local control",
+        "description": "Replace UnivariateSpline with CubicSpline which uses a tension parameter to control smoothness differently. Unlike UnivariateSpline's global smoothing parameter s, CubicSpline can be combined with local noise estimation to create piecewise splines with varying tension. High tension regions (more smoothing) in noisy segments, low tension regions (less smoothing) in clean segments. This provides finer-grained control over the smoothness-accuracy tradeoff than the current approach while maintaining the spline benefits for reducing slope changes.",
+        "what_to_optimize": "smoothness-accuracy tradeoff with local control over tension",
+        "cautions": "CubicSpline doesn't have built-in smoothing like UnivariateSpline, need to implement smoothing separately, ensure proper handling of boundary conditions",
+        "approach_type": "scipy.interpolate.CubicSpline",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.sosfiltfilt with Butterworth filter for zero-phase filtering",
+        "description": "Implement zero-phase IIR filtering using sosfiltfilt with a Butterworth filter design. The sosfiltfilt function applies the filter forward and backward, eliminating phase delay which directly addresses the lag_error penalty. Design the Butterworth filter with order and cutoff frequency based on signal characteristics and noise level. This is fundamentally different from spline/median approaches - it uses frequency-domain filtering rather than spatial smoothing. The zero-phase property is particularly valuable for minimizing lag_error while still providing good noise reduction.",
+        "what_to_optimize": "lag_error and tracking accuracy through zero-phase filtering",
+        "cautions": "sosfiltfilt requires stable filter design, avoid filter ringing at signal boundaries, ensure output length is correct, filter order affects computational cost",
+        "approach_type": "scipy.signal.sosfiltfilt",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.interpolate.PchipInterpolator for monotonicity-preserving piecewise cubic Hermite interpolation",
+        "description": "Replace UnivariateSpline with PchipInterpolator which guarantees monotonicity between data points, directly reducing slope changes and false reversals. PCHIP uses piecewise cubic Hermite interpolation that preserves local shape characteristics without overshooting, making it ideal for signals with genuine trend changes. Apply a light median pre-filter to reduce extreme outliers before PCHIP interpolation. The key advantage is that PCHIP inherently minimizes spurious oscillations while preserving genuine signal dynamics. This fundamentally differs from UnivariateSpline's global smoothing approach by using local monotonicity constraints.",
+        "what_to_optimize": "slope_changes and false_reversals metrics through monotonicity preservation",
+        "cautions": "PCHIP can be less smooth than splines in low-noise regions; may need to adjust window-based pre-filtering; ensure output length matches expected len(x) - window_size + 1",
+        "approach_type": "scipy.interpolate.PchipInterpolator",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.signal.medfilt with adaptive kernel size based on local signal variance",
+        "description": "Implement median filtering with kernel sizes that adapt to local noise characteristics. Calculate local variance using a sliding window, then select kernel size inversely proportional to variance (higher noise = larger kernel). Median filtering is robust to outliers and preserves edges better than mean-based filters. Process the signal in segments with different kernel sizes based on local noise level. This approach directly targets noise reduction while maintaining signal dynamics and minimizing phase delay since median filters are inherently causal.",
+        "what_to_optimize": "lag_error and noise_reduction through robust median-based filtering",
+        "cautions": "Median filter introduces some lag proportional to kernel size; need to handle edge cases carefully; ensure kernel sizes remain odd integers; balance between smoothing and preserving genuine signal changes",
+        "approach_type": "scipy.signal.medfilt",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      },
+      {
+        "idea": "Use scipy.interpolate.CubicSpline with tension parameter for controlled smoothness",
+        "description": "Replace UnivariateSpline with CubicSpline which offers explicit tension parameter control (bc_type='natural' with varying tension). CubicSpline provides more direct control over smoothness versus fidelity tradeoff through the tension parameter. Use adaptive tension based on local signal characteristics - higher tension in high-noise regions for more smoothing, lower tension in low-noise regions to preserve dynamics. This differs from UnivariateSpline's smoothing parameter approach by using tension-based regularization instead of least-squares fitting.",
+        "what_to_optimize": "tracking accuracy and slope_changes through tension-controlled smoothness",
+        "cautions": "Tension parameter interpretation differs from UnivariateSpline's smoothing parameter; may need to experiment with tension scaling; ensure proper handling of boundary conditions; maintain output length consistency",
+        "approach_type": "scipy.interpolate.CubicSpline",
+        "uses": 2,
+        "starting_score": 0.7529330594503141,
+        "ending_score": 0.7529330594503141,
+        "score_improvement": 0.0,
+        "outcome": "FAILED"
+      }
+    ],
+    "best_score_at_paradigm_gen": 0.7529330594503141,
+    "best_score_during_paradigm": 0.7529330594503141
+  }
+}

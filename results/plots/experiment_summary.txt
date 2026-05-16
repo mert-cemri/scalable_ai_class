@@ -1,0 +1,129 @@
+AdaEvolve Batched K-Sweep: Experiment Summary
+=============================================
+Generated: 2026-05-11
+Benchmarks: Circle Packing (26 circles in unit square), Signal Processing (adaptive filter)
+Runs: 3 runs per K value, 2-hour wall-clock budget each
+K values: 1, 2, 4, 8 (candidates generated per iteration from a shared prompt)
+
+
+SETUP
+-----
+The BatchedAdaEvolveController generates K LLM calls per iteration using the
+identical prompt (same parent program, same context). Because all K calls share
+the same prefix, vLLM's prefix cache is reused across sibling calls within each
+batch, driving cache hit rates far higher than K independent single-call workers
+would achieve. Each batch produces K candidate programs which are evaluated in
+parallel before the next iteration begins.
+
+
+KEY RESULTS BY METRIC
+---------------------
+
+1. KV Cache Hit Rate (overall hits / total queries across full run)
+   Circle Packing:      K=1: 22.9%,  K=2: 65.9%,  K=4: 76.7%,  K=8: 84.9%
+   Signal Processing:   K=1: 12.6%,  K=2: 68.5%,  K=4: 79.1%,  K=8: 86.3%
+
+   Hit rate increases monotonically with K across both benchmarks. At K=1 (no
+   batching), hit rates are low (12-23%) because each call has a unique prompt.
+   By K=8, hit rates approach 85-87%, meaning only the first sibling call pays
+   the full prefill cost; the remaining 7 reuse the cached KV blocks. This is
+   the primary efficiency mechanism of the batched approach.
+
+2. LLM Generation Time per Candidate
+   Circle Packing:      K=1: 65.7s,  K=2: 37.5s,  K=4: 18.6s,  K=8: 14.0s
+   Signal Processing:   K=1: 28.5s,  K=2: 27.2s,  K=4: 12.4s,  K=8:  4.6s
+
+   LLM time per candidate drops substantially with K due to prefix cache reuse.
+   For signal processing, K=8 achieves a ~6x reduction vs K=1 (28.5s → 4.6s).
+   Circle packing shows a ~4.7x reduction (65.7s → 14.0s). The diminishing
+   returns between K=2 and K=4 vs K=4 and K=8 suggest the cache benefit largely
+   saturates by K=4-8, consistent with the hit rate plateauing.
+
+3. Eval Time per Candidate
+   Circle Packing:      K=1: 45.7s,  K=2: 113.6s, K=4: 159.9s, K=8: 261.8s
+   Signal Processing:   K=1:  0.2s,  K=2:   3.6s,  K=4:   0.3s, K=8:   0.6s
+
+   The two benchmarks tell opposite stories. Signal processing evaluation is
+   near-instant (<1s typically), so LLM time dominates and higher K gives a
+   large net speedup. Circle packing evaluation is expensive and grows with K:
+   with K=8 parallel evaluations running concurrently, each candidate waits
+   longer (likely resource contention and more cascade timeout events), reaching
+   ~262s per candidate at K=8. This means the eval bottleneck partially offsets
+   the LLM speedup for circle packing at high K.
+
+4. Per-Candidate Improvement Rate (fraction of candidates that improve best score)
+   Circle Packing:      K=1: 9.8%,   K=2: 8.4%,   K=4: 5.1%,   K=8: 4.3%
+   Signal Processing:   K=1: 1.5%,   K=2: 4.5%,   K=4: 2.1%,   K=8: 1.1%
+
+   Improvement rate per candidate generally declines with K. This is expected:
+   K siblings share the same prompt and parent, so they explore correlated
+   mutations — the marginal value of each additional sibling diminishes. However,
+   the absolute number of improvements per hour still benefits from higher K
+   because more candidates are generated per unit time, particularly for signal
+   processing. Signal processing K=2 is an interesting outlier with the highest
+   improvement rate (4.5%), suggesting a sweet spot where batch diversity is
+   high enough to be useful but sibling correlation is not yet excessive.
+
+5. Best Score at 2 Hours (mean ± std across 3 runs)
+   Circle Packing:      K=1: 0.9947±0.0016, K=2: 0.9897±0.0064,
+                        K=4: 0.9957±0.0020, K=8: 0.9961±0.0006
+   Signal Processing:   K=1: 0.5902±0.0457, K=2: 0.6540±0.1077,
+                        K=4: 0.6737±0.0517, K=8: 0.6678±0.0645
+
+   Circle packing scores are high across all K values (>0.98), with no strong
+   trend — the task may be near-saturated within 2 hours regardless of K.
+   Signal processing shows more variance and a slight improvement from K=1 to
+   K=4, but K=8 does not further improve and has high variance. The fixed-
+   candidate-count analysis (see fixed_num_cand plots) is more informative for
+   isolating solution quality from throughput differences.
+
+
+SPECULATIVE PIPELINING (spec runs)
+-----------------------------------
+A speculative iteration pipelining feature was tested on K=8 runs. The idea:
+launch K LLM calls for the predicted next iteration in the background while the
+current iteration's evaluations are running, overlapping compute with eval time.
+
+Result: 0% speculation hit rate across all spec runs (1,296 speculation attempts,
+0 hits). Root cause: the prompt comparison uses full string equality, but the
+sibling context section of the user prompt grows by K entries after every batch
+(new children are added to the database by _process_result after the speculative
+prompt is built). The stored speculative prompt is therefore always stale by K
+siblings relative to the actual next-iteration prompt.
+
+The fix (not yet implemented): match on predicted parent ID instead of full
+prompt string equality — the code's __init__ comment already planned for a
+'predicted_parent_id' field but it was never wired up. Based on the data, ~96%
+of consecutive batch-pairs share the same parent, so a parent-ID match would
+give ~96% hit rate. Given that circle packing eval time (~262s at K=8) far
+exceeds LLM time (~14s), eliminating that 14s from the critical path via
+successful speculation would yield meaningful wall-clock savings.
+
+
+DISCUSSION FOR REPORT
+----------------------
+- The batched approach delivers clear throughput gains: LLM time per candidate
+  drops 4-6x from K=1 to K=8, driven by prefix cache reuse (hit rate 85-87%).
+
+- The two benchmarks represent different bottleneck regimes:
+    * Signal processing: LLM-bound. Higher K gives large speedups with minimal
+      eval overhead. K=4-8 is clearly beneficial.
+    * Circle packing: eval-bound at high K. The cascade evaluator becomes the
+      bottleneck as K grows, partially cancelling the LLM savings. K=4 may be
+      the practical sweet spot.
+
+- Per-candidate improvement rate decreases with K, indicating diminishing
+  diversity from same-prompt siblings. This does not negate the overall
+  throughput benefit but suggests that pure scaling of K has limits — combining
+  batching with diverse temperature schedules (diversify_temperature config flag)
+  or prompt variation could help maintain exploration quality.
+
+- Final scores at 2 hours do not strongly differentiate K values, suggesting
+  the search quality within this budget is similar across K. The fixed-candidate-
+  count plots offer a fairer comparison: at equal candidate budgets, higher K
+  uses fewer iterations (less context diversity from UCB island rotation) which
+  may slightly disadvantage it on harder problems.
+
+- Speculative pipelining, once fixed, would provide the most benefit for circle
+  packing (eval >> LLM), where the 14s LLM cost per K=8 batch could be hidden
+  entirely inside the ~262s eval window.

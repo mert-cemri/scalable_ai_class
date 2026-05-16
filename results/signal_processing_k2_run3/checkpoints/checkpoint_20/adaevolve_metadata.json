@@ -1,0 +1,367 @@
+{
+  "num_islands": 2,
+  "current_island": 0,
+  "iteration_count": 19,
+  "global_best_score": 0.5340711394903759,
+  "decay": 0.9,
+  "intensity_min": 0.15,
+  "intensity_max": 0.5,
+  "migration_interval": 15,
+  "diversity_strategy_type": "code",
+  "use_unified_archive": true,
+  "use_adaptive_search": true,
+  "use_ucb_selection": true,
+  "fixed_intensity": 0.4,
+  "adapter": {
+    "states": [
+      {
+        "accumulated_signal": 0.05331316647822712,
+        "best_score": 0.5340711394903759,
+        "improvement_count": 7,
+        "total_evaluations": 22,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      },
+      {
+        "accumulated_signal": 0.04790877500596472,
+        "best_score": 0.534041086065947,
+        "improvement_count": 7,
+        "total_evaluations": 19,
+        "decay": 0.9,
+        "epsilon": 1e-08,
+        "intensity_min": 0.15,
+        "intensity_max": 0.5
+      }
+    ],
+    "dimension_visits": [
+      22,
+      19
+    ],
+    "dimension_rewards": [
+      0.1297312513782576,
+      0.02504103109280744
+    ],
+    "decayed_visits": [
+      9.01522909781639,
+      8.649148282327008
+    ],
+    "global_best_score": 0.5340711394903759,
+    "ucb_exploration": 1.41,
+    "min_visits": 3,
+    "decay": 0.9,
+    "epsilon": 1e-08
+  },
+  "island_config_names": [
+    "balanced",
+    "balanced"
+  ],
+  "islands": [
+    [
+      "cf59c7e1-265f-4f3e-bf4b-80613b47b45f",
+      "1d1b5674-c2e2-43da-b27d-aad6ab722b41",
+      "4b76d592-3e47-4950-ae94-7b0428b0cea7",
+      "e5319899-4942-449e-a323-980d152527c4",
+      "a8ee6a61-ee88-4c6f-b6e0-fab3405a65e1",
+      "cd30d88e-72ea-4c5f-870a-b9809eacc4bf",
+      "ed8c31e5-b28f-40de-89cc-44708a2c0b03",
+      "4fde42ae-f395-4c68-81a6-9dc4cd2ea0b5",
+      "90132bcd-249f-4360-acfe-75892c48af55",
+      "e3a81fd6-0658-4764-825f-5db112e57e21",
+      "a971142a-c100-420a-b750-ed351e2104be",
+      "18769715-2c55-4709-b6d4-929cd883b80c",
+      "9720f1df-7ead-46c9-b6b7-30bfaa724fef",
+      "0f565e70-6fd3-43f6-b7de-553d38dfc799",
+      "6a681755-e67a-4e91-9b19-5184e6bf0bbd",
+      "2eb08da1-7fab-46d2-a74b-cefb235ea89a",
+      "975bf170-7b3e-460a-9834-ce4f43ab768f",
+      "ad22ab43-11b9-49d4-9e05-359c67ccd06a",
+      "7952502f-90b4-415c-9c6d-75397f1803b5",
+      "5a07993f-096c-4dd2-99e3-cbc6f142e58c"
+    ],
+    [
+      "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f",
+      "81f45500-056e-471f-88a5-41d2c699eddc",
+      "431e53ad-7fd9-45c1-badd-3814baeb599a",
+      "621a915f-8515-4a07-aff5-0d35a3f097ad",
+      "47508afc-585c-4849-895a-9aa4eb36d660",
+      "c1c1dd8f-b7bd-4e75-892b-7ad292c3bd68",
+      "9d7f8e0a-3df5-4377-bfa3-e9dd09406829",
+      "50f22c35-aee6-4cb3-a60b-e28e80cc4ef8",
+      "0a0b67e9-e361-4a3d-a565-0c96ae7eba8b",
+      "5679be6e-56b3-4fa0-87c2-83d1eaed3ac8",
+      "9cb9f77c-0330-4638-800e-c02ff3e1f273",
+      "01646b2b-99d4-43b7-95fb-2be107c9bd1e",
+      "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0",
+      "6539242c-5ddc-4a47-b099-4355e1282029",
+      "2788f4dc-a3ed-4422-a10e-c0142ece6074",
+      "591ae528-1418-4bd6-8b19-ebab624e54f5",
+      "43f58d7e-d701-42cb-a15f-cf65f46ebfda",
+      "7a023dc3-246e-4e52-a150-76c91596b148",
+      "b88fe2da-43c7-438a-b58e-a8439f7d2ba3",
+      "db41eb15-c78e-4f9d-9152-4030b7472320"
+    ]
+  ],
+  "archive_genealogies": [
+    {
+      "parents": {
+        "cf59c7e1-265f-4f3e-bf4b-80613b47b45f": [],
+        "1d1b5674-c2e2-43da-b27d-aad6ab722b41": [
+          "cf59c7e1-265f-4f3e-bf4b-80613b47b45f"
+        ],
+        "4b76d592-3e47-4950-ae94-7b0428b0cea7": [
+          "cf59c7e1-265f-4f3e-bf4b-80613b47b45f"
+        ],
+        "e5319899-4942-449e-a323-980d152527c4": [
+          "1d1b5674-c2e2-43da-b27d-aad6ab722b41"
+        ],
+        "a8ee6a61-ee88-4c6f-b6e0-fab3405a65e1": [
+          "1d1b5674-c2e2-43da-b27d-aad6ab722b41"
+        ],
+        "cd30d88e-72ea-4c5f-870a-b9809eacc4bf": [
+          "cf59c7e1-265f-4f3e-bf4b-80613b47b45f"
+        ],
+        "ed8c31e5-b28f-40de-89cc-44708a2c0b03": [
+          "cf59c7e1-265f-4f3e-bf4b-80613b47b45f"
+        ],
+        "4fde42ae-f395-4c68-81a6-9dc4cd2ea0b5": [
+          "e5319899-4942-449e-a323-980d152527c4"
+        ],
+        "90132bcd-249f-4360-acfe-75892c48af55": [
+          "e5319899-4942-449e-a323-980d152527c4"
+        ],
+        "e3a81fd6-0658-4764-825f-5db112e57e21": [
+          "ed8c31e5-b28f-40de-89cc-44708a2c0b03"
+        ],
+        "a971142a-c100-420a-b750-ed351e2104be": [
+          "ed8c31e5-b28f-40de-89cc-44708a2c0b03"
+        ],
+        "18769715-2c55-4709-b6d4-929cd883b80c": [
+          "a971142a-c100-420a-b750-ed351e2104be"
+        ],
+        "9720f1df-7ead-46c9-b6b7-30bfaa724fef": [
+          "a971142a-c100-420a-b750-ed351e2104be"
+        ],
+        "0f565e70-6fd3-43f6-b7de-553d38dfc799": [
+          "a971142a-c100-420a-b750-ed351e2104be"
+        ],
+        "6a681755-e67a-4e91-9b19-5184e6bf0bbd": [
+          "a971142a-c100-420a-b750-ed351e2104be"
+        ],
+        "2eb08da1-7fab-46d2-a74b-cefb235ea89a": [
+          "1d1b5674-c2e2-43da-b27d-aad6ab722b41"
+        ],
+        "975bf170-7b3e-460a-9834-ce4f43ab768f": [
+          "6539242c-5ddc-4a47-b099-4355e1282029"
+        ],
+        "ad22ab43-11b9-49d4-9e05-359c67ccd06a": [
+          "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0"
+        ],
+        "7952502f-90b4-415c-9c6d-75397f1803b5": [
+          "6a681755-e67a-4e91-9b19-5184e6bf0bbd"
+        ],
+        "5a07993f-096c-4dd2-99e3-cbc6f142e58c": [
+          "7952502f-90b4-415c-9c6d-75397f1803b5"
+        ]
+      },
+      "children": {
+        "cf59c7e1-265f-4f3e-bf4b-80613b47b45f": [
+          "1d1b5674-c2e2-43da-b27d-aad6ab722b41",
+          "4b76d592-3e47-4950-ae94-7b0428b0cea7",
+          "cd30d88e-72ea-4c5f-870a-b9809eacc4bf",
+          "ed8c31e5-b28f-40de-89cc-44708a2c0b03"
+        ],
+        "1d1b5674-c2e2-43da-b27d-aad6ab722b41": [
+          "e5319899-4942-449e-a323-980d152527c4",
+          "a8ee6a61-ee88-4c6f-b6e0-fab3405a65e1",
+          "2eb08da1-7fab-46d2-a74b-cefb235ea89a"
+        ],
+        "e5319899-4942-449e-a323-980d152527c4": [
+          "4fde42ae-f395-4c68-81a6-9dc4cd2ea0b5",
+          "90132bcd-249f-4360-acfe-75892c48af55"
+        ],
+        "ed8c31e5-b28f-40de-89cc-44708a2c0b03": [
+          "e3a81fd6-0658-4764-825f-5db112e57e21",
+          "a971142a-c100-420a-b750-ed351e2104be"
+        ],
+        "a971142a-c100-420a-b750-ed351e2104be": [
+          "18769715-2c55-4709-b6d4-929cd883b80c",
+          "9720f1df-7ead-46c9-b6b7-30bfaa724fef",
+          "0f565e70-6fd3-43f6-b7de-553d38dfc799",
+          "6a681755-e67a-4e91-9b19-5184e6bf0bbd"
+        ],
+        "6539242c-5ddc-4a47-b099-4355e1282029": [
+          "975bf170-7b3e-460a-9834-ce4f43ab768f"
+        ],
+        "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0": [
+          "ad22ab43-11b9-49d4-9e05-359c67ccd06a"
+        ],
+        "6a681755-e67a-4e91-9b19-5184e6bf0bbd": [
+          "7952502f-90b4-415c-9c6d-75397f1803b5"
+        ],
+        "7952502f-90b4-415c-9c6d-75397f1803b5": [
+          "5a07993f-096c-4dd2-99e3-cbc6f142e58c"
+        ]
+      }
+    },
+    {
+      "parents": {
+        "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f": [],
+        "81f45500-056e-471f-88a5-41d2c699eddc": [
+          "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f"
+        ],
+        "431e53ad-7fd9-45c1-badd-3814baeb599a": [
+          "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f"
+        ],
+        "621a915f-8515-4a07-aff5-0d35a3f097ad": [
+          "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f"
+        ],
+        "47508afc-585c-4849-895a-9aa4eb36d660": [
+          "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f"
+        ],
+        "c1c1dd8f-b7bd-4e75-892b-7ad292c3bd68": [
+          "621a915f-8515-4a07-aff5-0d35a3f097ad"
+        ],
+        "9d7f8e0a-3df5-4377-bfa3-e9dd09406829": [
+          "621a915f-8515-4a07-aff5-0d35a3f097ad"
+        ],
+        "50f22c35-aee6-4cb3-a60b-e28e80cc4ef8": [
+          "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f"
+        ],
+        "0a0b67e9-e361-4a3d-a565-0c96ae7eba8b": [
+          "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f"
+        ],
+        "5679be6e-56b3-4fa0-87c2-83d1eaed3ac8": [
+          "47508afc-585c-4849-895a-9aa4eb36d660"
+        ],
+        "9cb9f77c-0330-4638-800e-c02ff3e1f273": [
+          "47508afc-585c-4849-895a-9aa4eb36d660"
+        ],
+        "01646b2b-99d4-43b7-95fb-2be107c9bd1e": [
+          "5679be6e-56b3-4fa0-87c2-83d1eaed3ac8"
+        ],
+        "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0": [
+          "5679be6e-56b3-4fa0-87c2-83d1eaed3ac8"
+        ],
+        "6539242c-5ddc-4a47-b099-4355e1282029": [
+          "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0"
+        ],
+        "2788f4dc-a3ed-4422-a10e-c0142ece6074": [
+          "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0"
+        ],
+        "591ae528-1418-4bd6-8b19-ebab624e54f5": [
+          "6a681755-e67a-4e91-9b19-5184e6bf0bbd"
+        ],
+        "43f58d7e-d701-42cb-a15f-cf65f46ebfda": [
+          "18769715-2c55-4709-b6d4-929cd883b80c"
+        ],
+        "7a023dc3-246e-4e52-a150-76c91596b148": [
+          "2eb08da1-7fab-46d2-a74b-cefb235ea89a"
+        ],
+        "b88fe2da-43c7-438a-b58e-a8439f7d2ba3": [
+          "0f565e70-6fd3-43f6-b7de-553d38dfc799"
+        ],
+        "db41eb15-c78e-4f9d-9152-4030b7472320": [
+          "3095fb84-371b-472c-b480-b2ca8b88cd9f"
+        ]
+      },
+      "children": {
+        "ccd7eb2a-e0c1-4c15-ba3e-ef536dc2af0f": [
+          "81f45500-056e-471f-88a5-41d2c699eddc",
+          "431e53ad-7fd9-45c1-badd-3814baeb599a",
+          "621a915f-8515-4a07-aff5-0d35a3f097ad",
+          "47508afc-585c-4849-895a-9aa4eb36d660",
+          "50f22c35-aee6-4cb3-a60b-e28e80cc4ef8",
+          "0a0b67e9-e361-4a3d-a565-0c96ae7eba8b"
+        ],
+        "621a915f-8515-4a07-aff5-0d35a3f097ad": [
+          "c1c1dd8f-b7bd-4e75-892b-7ad292c3bd68",
+          "9d7f8e0a-3df5-4377-bfa3-e9dd09406829"
+        ],
+        "47508afc-585c-4849-895a-9aa4eb36d660": [
+          "5679be6e-56b3-4fa0-87c2-83d1eaed3ac8",
+          "9cb9f77c-0330-4638-800e-c02ff3e1f273"
+        ],
+        "5679be6e-56b3-4fa0-87c2-83d1eaed3ac8": [
+          "01646b2b-99d4-43b7-95fb-2be107c9bd1e",
+          "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0"
+        ],
+        "dbdd5dfc-7d53-4d0e-8c28-893fd97af0c0": [
+          "6539242c-5ddc-4a47-b099-4355e1282029",
+          "2788f4dc-a3ed-4422-a10e-c0142ece6074"
+        ],
+        "6a681755-e67a-4e91-9b19-5184e6bf0bbd": [
+          "591ae528-1418-4bd6-8b19-ebab624e54f5"
+        ],
+        "18769715-2c55-4709-b6d4-929cd883b80c": [
+          "43f58d7e-d701-42cb-a15f-cf65f46ebfda"
+        ],
+        "2eb08da1-7fab-46d2-a74b-cefb235ea89a": [
+          "7a023dc3-246e-4e52-a150-76c91596b148"
+        ],
+        "0f565e70-6fd3-43f6-b7de-553d38dfc799": [
+          "b88fe2da-43c7-438a-b58e-a8439f7d2ba3"
+        ],
+        "3095fb84-371b-472c-b480-b2ca8b88cd9f": [
+          "db41eb15-c78e-4f9d-9152-4030b7472320"
+        ]
+      }
+    }
+  ],
+  "use_dynamic_islands": true,
+  "max_islands": 5,
+  "last_spawn_iteration": -30,
+  "use_paradigm_breakthrough": true,
+  "paradigm_tracker": {
+    "window_size": 10,
+    "improvement_threshold": 0.12,
+    "max_paradigm_uses": 2,
+    "max_tried_paradigms": 10,
+    "num_paradigms_to_generate": 3,
+    "improvement_history": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "active_paradigms": [
+      {
+        "idea": "Use scipy.stats.kde and Kalman Filter for adaptive state-space filtering",
+        "description": "Implement a Kalman filter using numpy matrix operations to model the signal as a state-space system with position and velocity states. The Kalman filter naturally minimizes lag through velocity prediction while adaptively adjusting to signal volatility. Calculate measurement noise variance from recent signal differences using rolling statistics, and tune process noise to balance smoothness vs responsiveness. The filter produces optimal estimates that minimize both lag error and false reversals by properly modeling the underlying signal dynamics. Unlike the current momentum hysteresis approach, the Kalman filter provides mathematically optimal state estimation with minimal tuning required.",
+        "what_to_optimize": "Reduce false reversals (R) and lag error (L_recent, L_avg) while maintaining tracking accuracy through optimal state estimation",
+        "cautions": "Ensure matrix operations are stable, initialize state covariance properly, tune process noise variance to avoid over-smoothing or excessive lag",
+        "approach_type": "numpy.linalg.solve"
+      },
+      {
+        "idea": "Use pywt wavelet denoising with sym5 wavelet for multi-scale noise reduction",
+        "description": "Apply wavelet transform using pywt.wavedec with sym5 wavelet at decomposition level 3 to separate signal from noise across frequency scales. Use soft thresholding on detail coefficients to remove high-frequency noise while preserving signal dynamics and genuine trend changes. Reconstruct the signal with pywt.waverec, which naturally handles non-stationary signals better than polynomial fitting. Wavelet denoising excels at preserving sharp transitions (reducing false reversals) while removing noise (reducing slope changes). This fundamentally different approach works in the frequency domain rather than time domain.",
+        "what_to_optimize": "Minimize slope changes (S) and false reversals (R) by removing high-frequency noise while preserving genuine signal dynamics across multiple scales",
+        "cautions": "Choose appropriate wavelet family and decomposition level, use soft thresholding to avoid ringing artifacts, ensure output length matches input",
+        "approach_type": "pywt.wavedec"
+      },
+      {
+        "idea": "Use scipy.signal.medfilt with volatility-adaptive trend confirmation",
+        "description": "Apply median filtering using scipy.signal.medfilt with window size 9 to robustly remove outliers and spurious noise spikes. Then implement a simple trend confirmation mechanism that only updates the output when signal changes exceed a volatility-adaptive threshold (e.g., 0.5 * rolling std). This two-step approach is simpler than momentum hysteresis but achieves similar false reversal reduction. Median filtering is inherently robust to outliers and produces fewer spurious slope changes. The adaptive threshold ensures genuine trend changes are captured while noise-induced reversals are filtered out.",
+        "what_to_optimize": "Reduce slope changes (S) and false reversals (R) through robust outlier rejection and simple trend confirmation",
+        "cautions": "Median filter adds slight lag, ensure adaptive threshold doesn't miss genuine trend changes, handle edge cases with small windows",
+        "approach_type": "scipy.signal.medfilt"
+      }
+    ],
+    "paradigm_usage_counts": {
+      "0": 2,
+      "1": 2,
+      "2": 1
+    },
+    "current_paradigm_index": 2,
+    "tried_paradigms": [],
+    "best_score_at_paradigm_gen": 0.534041086065947,
+    "best_score_during_paradigm": 0.5340711394903759
+  }
+}

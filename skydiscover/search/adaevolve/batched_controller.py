@@ -39,9 +39,11 @@ Key properties:
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import time
 import uuid
+from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
 from skydiscover.llm.base import LLMResponse
@@ -57,6 +59,29 @@ from skydiscover.utils.code_utils import (
 )
 
 logger = logging.getLogger(__name__)
+
+def _poll_vllm_cache_stats(api_base: str) -> tuple[float, float]:
+    """Return (prefix_cache_queries_total, prefix_cache_hits_total) from vLLM /metrics.
+
+    Strips a trailing /v1 path so the metrics endpoint is always at <host>/metrics.
+    Returns (0, 0) silently on any error (non-vLLM backend, server not ready, etc.).
+    """
+    import requests as _requests
+
+    try:
+        base = api_base.rstrip("/")
+        if base.endswith("/v1"):
+            base = base[:-3]
+        text = _requests.get(f"{base}/metrics", timeout=2).text
+        queries = hits = 0.0
+        for line in text.splitlines():
+            if line.startswith("vllm:prefix_cache_queries_total{"):
+                queries = float(line.split()[-1])
+            elif line.startswith("vllm:prefix_cache_hits_total{"):
+                hits = float(line.split()[-1])
+        return queries, hits
+    except Exception:
+        return 0.0, 0.0
 
 
 class BatchedAdaEvolveController(AdaEvolveController):
@@ -126,6 +151,22 @@ class BatchedAdaEvolveController(AdaEvolveController):
             getattr(db_cfg, "pressure_k_scale", 0.5)
         )
         self._k_pressure_dropped: int = 0
+
+        # KV cache hit-rate tracking: snapshot cumulative vLLM counters at
+        # init so each iteration reports the *incremental* hit rate.
+        _api_base = getattr(self.config.llm.models[0], "api_base", None) or ""
+        self._vllm_api_base: str = _api_base
+        q0, h0 = _poll_vllm_cache_stats(_api_base)
+        self._cache_queries_baseline: float = q0
+        self._cache_hits_baseline: float = h0
+        self._last_gen_q_delta: float = 0.0
+        self._last_gen_h_delta: float = 0.0
+        self._last_spec_used: Optional[bool] = None
+        # Programs generated in the most-recently-completed iteration (all K
+        # candidates, regardless of whether they were accepted into the DB).
+        # Injected into the next speculation prompt as sibling context so the
+        # LLM can see what the previous batch already tried.
+        self._last_batch_children: List[Program] = []
 
         if self.candidates_per_iteration > 1 or self.adaptive_candidates:
             logger.info(
@@ -197,6 +238,90 @@ class BatchedAdaEvolveController(AdaEvolveController):
                     k = scaled
 
         return k
+    
+    def _log_iteration_stats(
+        self,
+        iteration: int,
+        sampling_mode: Optional[str] = None,
+        sampling_intensity: Optional[float] = None,
+        child_program: Optional[Dict] = None,
+        iteration_time: Optional[float] = None,
+        llm_generation_time: Optional[float] = None,
+        eval_time: Optional[float] = None,
+        error: Optional[str] = None,
+        batch_stats: Optional[Dict] = None,
+        cache_queries_delta: Optional[float] = None,
+        cache_hits_delta: Optional[float] = None,
+        cache_hit_rate: Optional[float] = None,
+    ) -> None:
+        """
+        Log comprehensive iteration statistics to JSON file.
+
+        This method collects all AdaEvolve signals and writes them as a single
+        JSON line to the log file for easy post-processing.
+
+        Args:
+            iteration: Current iteration number
+            sampling_mode: The mode used for sampling (exploration/exploitation/balanced)
+            sampling_intensity: The search intensity value used
+            child_program: The child program dict if successfully generated
+            iteration_time: Time taken for this iteration
+            error: Error message if iteration failed
+        """
+        if self._iteration_stats_log_path is None:
+            return
+
+        try:
+            # Get comprehensive stats from database
+            stats = self.database.get_comprehensive_iteration_stats(
+                iteration=iteration,
+                sampling_mode=(
+                    sampling_mode if sampling_mode is not None else self._last_sampling_mode
+                ),
+                sampling_intensity=(
+                    sampling_intensity
+                    if sampling_intensity is not None
+                    else self._last_sampling_intensity
+                ),
+            )
+
+            # Add timestamp
+            stats["timestamp"] = datetime.now().isoformat()
+
+            q_delta = cache_queries_delta if cache_queries_delta is not None else 0.0
+            h_delta = cache_hits_delta if cache_hits_delta is not None else 0.0
+            hit_rate = cache_hit_rate if cache_hit_rate is not None else 0.0
+
+            # Add iteration-specific info
+            stats["iteration_result"] = {
+                "success": error is None,
+                "error": error,
+                "iteration_time_seconds": iteration_time,
+                "llm_generation_time_seconds": llm_generation_time,
+                "eval_time_seconds": eval_time,
+                "batch": batch_stats,  # None in single-candidate mode
+                "speculation_hit": self._last_spec_used,  # True/False/None(disabled)
+                "kv_cache": {
+                    "queries_delta": q_delta,
+                    "hits_delta": h_delta,
+                    "hit_rate": hit_rate,
+                },
+            }
+
+            # Add child program info if available
+            if child_program:
+                stats["iteration_result"]["child_program"] = {
+                    "id": child_program.get("id"),
+                    "metrics": child_program.get("metrics"),
+                    "generation": child_program.get("generation"),
+                    "parent_id": child_program.get("parent_id"),
+                }
+            # Write to JSONL file
+            with open(self._iteration_stats_log_path, "a") as f:
+                f.write(json.dumps(stats, default=str) + "\n")
+
+        except Exception as e:
+            logger.warning(f"Failed to log iteration stats: {e}")
 
     def _read_kv_cache_usage(self) -> Optional[float]:
         """Return vllm:kv_cache_usage_perc (0..1) or None if unavailable.
@@ -231,12 +356,6 @@ class BatchedAdaEvolveController(AdaEvolveController):
     # ------------------------------------------------------------------
 
     async def _run_iteration(self, iteration: int, checkpoint_callback) -> None:
-        if (
-            self.candidates_per_iteration <= 1
-            and not self.adaptive_candidates
-        ):
-            return await super()._run_iteration(iteration, checkpoint_callback)
-
         iter_start = time.time()
         if (
             self.database.use_paradigm_breakthrough
@@ -245,12 +364,23 @@ class BatchedAdaEvolveController(AdaEvolveController):
             await self._generate_paradigms_if_needed()
 
         # Cancel any in-flight prefetch for this iteration's predicted prompt.
-        # Whether we got a prefetch hit will be visible in vLLM's hit rate
+        # Whether we got a prefetch hit will be visible in vLLM's hit rate￼
         # metrics; we don't need to read it back here.
         await self._await_prefetch()
 
         results = await self._generate_batch(iteration)
         iteration_time = time.time() - iter_start
+
+        # Use the before/after snapshot taken inside _generate_batch, which
+        # brackets only the LLM calls — not eval or overhead.
+        q_delta = self._last_gen_q_delta
+        h_delta = self._last_gen_h_delta
+        hit_rate = (h_delta / q_delta) if q_delta > 0 else None
+        if hit_rate is not None:
+            logger.info(
+                "Iteration %d cache hit rate: %.1f%% (%g hits / %g queries)",
+                iteration, hit_rate * 100, h_delta, q_delta,
+            )
 
         # Speculative prefetch for the *next* iteration's predicted prompt
         # while the current iteration's eval is winding down. We launch as a
@@ -272,6 +402,9 @@ class BatchedAdaEvolveController(AdaEvolveController):
                 llm_generation_time=r.llm_generation_time,
                 eval_time=r.eval_time,
                 error=None,
+                cache_queries_delta=q_delta,
+                cache_hits_delta=h_delta,
+                cache_hit_rate=hit_rate,
             )
         for r in bad:
             logger.warning("Iteration %d (batched): %s", iteration, r.error)
@@ -284,6 +417,9 @@ class BatchedAdaEvolveController(AdaEvolveController):
                 llm_generation_time=r.llm_generation_time,
                 eval_time=r.eval_time,
                 error=r.error,
+                cache_queries_delta=q_delta,
+                cache_hits_delta=h_delta,
+                cache_hit_rate=hit_rate,
             )
 
         logger.info(
@@ -387,22 +523,36 @@ class BatchedAdaEvolveController(AdaEvolveController):
                 self._last_sampling_intensity or 0.0,
                 self.database.current_island,
             )
-        # Stash this iteration's prompt for the next prefetch's prediction
-        # (we'll predict the next iter's prompt = same parent, updated siblings).
+        # Stash this iteration's prompt/context for the next speculation prediction.
+        # Reusing context_programs_dict and siblings avoids re-calling sample()
+        # (no island-state side effects) and is a good approximation since the
+        # database changes by at most K entries between consecutive iterations.
         self._last_prompt = prompt
         self._last_parent_id = parent.id
+        self._last_context_programs = context_programs_dict
+        self._last_siblings = siblings
 
         # Speculative pipelining: if we have a staged speculation whose
         # predicted prompt matches today's actual prompt, use its
         # already-running LLM calls instead of issuing fresh ones.
         spec_used = False
+        self._last_spec_used = None  # None = pipelining disabled
         if self._speculative is not None and self.enable_speculative_pipelining:
             spec = self._speculative
             self._speculative = None
-            if spec.get("prompt") == prompt:
+            _parent_match = spec.get("parent_id") == parent.id
+            _spec_island = spec.get("context_island_idx")
+            _cur_island = getattr(self.database, "current_island", None)
+            _island_match = (
+                _spec_island is None
+                or _cur_island is None
+                or _spec_island == _cur_island
+            )
+            if _parent_match and _island_match:
                 logger.debug("Speculative pipeline HIT at iter %d", iteration)
                 self._speculative_hits += 1
                 spec_used = True
+                self._last_spec_used = True
                 # Reuse the in-flight tasks. They were issued with the
                 # speculative temperature schedule (which may differ from
                 # the current K). If K has changed since the speculation
@@ -416,15 +566,24 @@ class BatchedAdaEvolveController(AdaEvolveController):
                     ))
                 tasks = tasks[:K]
             else:
-                logger.debug("Speculative pipeline MISS at iter %d "
-                             "(prediction stale, discarding)", iteration)
+                reason = (
+                    "parent mismatch" if not _parent_match
+                    else f"island mismatch (spec={_spec_island}, current={_cur_island})"
+                )
+                logger.debug("Speculative pipeline MISS at iter %d (%s)", iteration, reason)
                 self._speculative_misses += 1
+                self._last_spec_used = False
                 for t in spec["tasks"]:
                     if not t.done():
                         t.cancel()
+        elif self.enable_speculative_pipelining:
+            # Pipelining is on but no spec was staged (previous iter consumed it).
+            # Record False so logs distinguish "skipped" from "disabled" (None).
+            self._last_spec_used = False
 
         # ---- K parallel LLM calls with the IDENTICAL prompt ----
         llm_start = time.time()
+        q_before, h_before = _poll_vllm_cache_stats(self._vllm_api_base)
         if not spec_used:
             llm_tasks = [
                 self._call_llm(prompt["system"], prompt["user"], temperature=t)
@@ -433,26 +592,15 @@ class BatchedAdaEvolveController(AdaEvolveController):
         else:
             llm_tasks = tasks
         llm_responses: List[Any] = await asyncio.gather(*llm_tasks, return_exceptions=True)
+        q_after, h_after = _poll_vllm_cache_stats(self._vllm_api_base)
+        self._last_gen_q_delta = q_after - q_before
+        self._last_gen_h_delta = h_after - h_before
         total_llm_time = time.time() - llm_start
 
-        # Speculative launch for the NEXT iteration. The default
-        # predictor is "same prompt as this iter" — accurate under
-        # exploitation, often wrong under exploration. Adaptive gating
-        # additionally skips speculation when vLLM is GPU-saturated,
-        # because the wasted compute would steal slots from real calls.
-        if self.enable_speculative_pipelining and not spec_used:
-            if self._should_speculate():
-                pred_prompt = self._predict_next_prompt(prompt, parent)
-                if pred_prompt is not None:
-                    self._launch_speculative(pred_prompt, temps[: K])
-            else:
-                self._speculation_skipped += 1
-                logger.debug(
-                    "Iter %d: skipped speculation (GPU pressure > %.2f)",
-                    iteration, self.speculation_pressure_threshold,
-                )
-
         # ---- Parse all responses, gather valid ones for eval ----
+        # Parsing is pure string processing (no I/O), so we do it before
+        # launching speculation so that _last_batch_children reflects THIS
+        # iteration's generated programs rather than the previous one.
         parsed: List[Tuple[Optional[str], Optional[str], Optional[str]]] = []
         for resp in llm_responses:
             if isinstance(resp, Exception):
@@ -479,6 +627,38 @@ class BatchedAdaEvolveController(AdaEvolveController):
                     parsed.append((sol, "Full rewrite", None))
                 else:
                     parsed.append((None, None, "No solution parsed"))
+
+        # Snapshot parsed solutions as lightweight Program objects (no eval
+        # metrics yet) so the upcoming speculation prompt sees THIS iteration's
+        # generated programs as sibling context, eliminating the one-iter lag.
+        self._last_batch_children = [
+            Program(
+                id=str(uuid.uuid4()),
+                solution=sol,
+                language=self.config.language,
+                metrics={},
+                iteration_found=iteration,
+                parent_id=parent.id,
+                generation=parent.generation + 1,
+            )
+            for sol, _, perr in parsed
+            if sol and not perr
+        ]
+
+        # Speculative launch for the NEXT iteration. Parsing is already done
+        # above, so _last_batch_children is current before the prompt is built.
+        if self.enable_speculative_pipelining and not spec_used:
+            if self._should_speculate():
+                pred_result = self._predict_next_prompt(prompt, parent)
+                if pred_result is not None:
+                    pred_prompt, pred_parent_id, pred_island_idx = pred_result
+                    self._launch_speculative(pred_prompt, pred_parent_id, temps[:K], pred_island_idx)
+            else:
+                self._speculation_skipped += 1
+                logger.debug(
+                    "Iter %d: skipped speculation (GPU pressure > %.2f)",
+                    iteration, self.speculation_pressure_threshold,
+                )
 
         # ---- Concurrently evaluate the K parsed solutions ----
         eval_start = time.time()
@@ -634,50 +814,134 @@ class BatchedAdaEvolveController(AdaEvolveController):
     # Speculative iteration pipelining (Tier 3.2)
     # ------------------------------------------------------------------
 
+    def _find_island_for_program(self, program_id: str) -> Optional[int]:
+        """Return the archive index containing program_id, or None."""
+        db = self.database
+        if hasattr(db, "archives") and db.archives:
+            for i, archive in enumerate(db.archives):
+                try:
+                    if archive.contains(program_id):
+                        return i
+                except Exception:
+                    pass
+        return None
+
     def _predict_next_prompt(
         self,
         current_prompt: Dict[str, str],
         current_parent: Program,
-    ) -> Optional[Dict[str, str]]:
-        """Predict iter t+1's prompt for speculative pipelining.
+    ) -> Optional[Tuple[Dict[str, str], str, Optional[int]]]:
+        """Predict iter t+1's prompt, parent ID, and context island for speculative pipelining.
 
         Two-stage predictor:
           1. *Best-so-far*. If the database's currently-best program is
-             different from `current_parent`, build a prompt against it
-             — exploitation will pull toward best-so-far at the next
-             round, so this is the more accurate prediction when an
-             improving child has just been found.
+             different from `current_parent`, build a prompt against it.
           2. *Same-as-current*. Fallback: predict the next iter will use
-             the same parent. Cheap, often right under low intensity.
+             the same parent.
 
-        Either prediction is just a guess; misprediction wastes
-        speculative compute but the prefill the call performed warms
-        the cache for whatever the real iter does send.
+        In both cases, other_context_programs are freshly resampled from the
+        appropriate island (local archive diversity + global top) rather than
+        reused from the previous iteration. Returns None on any failure to
+        skip speculation for that iteration. The third element of the return
+        tuple is the island index used for context sampling, stored in the
+        speculative dict so the hit-check can reject island mismatches.
         """
         try:
             best = self.database.get_best_program()
         except Exception:
-            best = None
-        # If best == current_parent, predict same-as-current.
-        # Otherwise use best as the predicted parent.
-        if best is not None and best.id != current_parent.id:
+            return None
+
+        db = self.database
+        num = self.num_context_programs or 4
+        local_ratio = getattr(db, "local_context_program_ratio", 0.6)
+        local_count = max(1, int(num * local_ratio))
+        global_count = num - local_count
+
+        # Mirror _generate_batch: if a paradigm is active it overrides the
+        # predicted parent to `best` and injects the paradigm into context.
+        paradigm = None
+        if getattr(db, "use_paradigm_breakthrough", False):
             try:
-                # Build a prompt using `best` as parent. We construct a
-                # lightweight context dict mirroring what _generate_batch
-                # would assemble; if the build_prompt call raises (e.g.
-                # missing fields), fall back to same-as-current.
-                ctx = {
-                    "program_metrics": best.metrics,
-                    "other_context_programs": {},
-                    "paradigm": None,
-                    "siblings": [],
-                    "error_context": None,
-                }
-                pred = self.context_builder.build_prompt({"": best}, ctx)
-                return pred
+                paradigm = db.get_current_paradigm()
             except Exception:
                 pass
-        return current_prompt
+
+        def _resample_context(parent: Program, island_idx: Optional[int]) -> Optional[Dict]:
+            if (
+                island_idx is not None
+                and hasattr(db, "archives")
+                and db.archives
+                and island_idx < len(db.archives)
+            ):
+                local_ctx = db.archives[island_idx].sample_other_context_programs(
+                    parent, local_count
+                )
+                global_ctx = db._sample_global_top(parent.id, global_count)
+                return {"": local_ctx + global_ctx}
+            return {"": db._sample_global_top(parent.id, num)}
+
+        def _build_ctx(parent: Program, ctx_programs: Dict, siblings: List) -> Dict:
+            # Include all K programs from the previous iteration so the LLM
+            # sees what the last batch already tried, regardless of whether
+            # those candidates were accepted into the database.
+            combined_siblings = list(siblings) + self._last_batch_children
+            ctx = {
+                "program_metrics": parent.metrics,
+                "other_context_programs": ctx_programs,
+                "paradigm": paradigm,
+                "siblings": combined_siblings,
+                "error_context": None,
+            }
+            for k, v in self._prompt_context.items():
+                ctx.setdefault(k, v)
+            return ctx
+
+        # If paradigm active, real _generate_batch forces parent = best regardless.
+        # Mirror that: override predicted parent to best and use best's island.
+        if paradigm and best is not None:
+            try:
+                best_island_idx = self._find_island_for_program(best.id)
+                ctx_programs = _resample_context(best, best_island_idx)
+                if ctx_programs is None:
+                    return None
+                siblings = []
+                if hasattr(db, "get_children"):
+                    siblings = db.get_children(best.id)
+                ctx = _build_ctx(best, ctx_programs, siblings)
+                pred = self.context_builder.build_prompt({"": best}, ctx)
+                return pred, best.id, best_island_idx
+            except Exception:
+                return None
+
+        if best is not None and best.id != current_parent.id:
+            try:
+                siblings_for_best = []
+                if hasattr(db, "get_children"):
+                    siblings_for_best = db.get_children(best.id)
+                best_island_idx = self._find_island_for_program(best.id)
+                ctx_programs = _resample_context(best, best_island_idx)
+                if ctx_programs is None:
+                    return None
+                ctx = _build_ctx(best, ctx_programs, siblings_for_best)
+                pred = self.context_builder.build_prompt({"": best}, ctx)
+                return pred, best.id, best_island_idx
+            except Exception:
+                return None
+
+        # Same-parent fallback: resample context from current island for diversity.
+        try:
+            cur_island_idx = getattr(db, "current_island", None)
+            ctx_programs = _resample_context(current_parent, cur_island_idx)
+            if ctx_programs is None:
+                return None
+            siblings = []
+            if hasattr(db, "get_children"):
+                siblings = db.get_children(current_parent.id)
+            ctx = _build_ctx(current_parent, ctx_programs, siblings)
+            pred = self.context_builder.build_prompt({"": current_parent}, ctx)
+            return pred, current_parent.id, cur_island_idx
+        except Exception:
+            return None
 
     # Cached pressure reading shared across all controllers in this
     # process. Refreshed asynchronously at most once per
@@ -734,7 +998,9 @@ class BatchedAdaEvolveController(AdaEvolveController):
     def _launch_speculative(
         self,
         predicted_prompt: Dict[str, str],
+        predicted_parent_id: str,
         temps: List[float],
+        context_island_idx: Optional[int] = None,
     ) -> None:
         """Issue K LLM calls in the background against the predicted prompt.
 
@@ -754,6 +1020,15 @@ class BatchedAdaEvolveController(AdaEvolveController):
                     t.cancel()
             self._speculative = None
 
+        # Apply human feedback to the speculative prompt so it matches the
+        # real iteration's prompt, which goes through the same feedback path.
+        if self.feedback_reader:
+            feedback = self.feedback_reader.read()
+            if feedback:
+                predicted_prompt = self.feedback_reader.apply_feedback(
+                    dict(predicted_prompt)  # copy to avoid mutating the original
+                )
+
         async def _spec_call(temp: float):
             try:
                 return await self._call_llm(
@@ -770,5 +1045,7 @@ class BatchedAdaEvolveController(AdaEvolveController):
         tasks = [asyncio.create_task(_spec_call(t)) for t in temps]
         self._speculative = {
             "prompt": predicted_prompt,
+            "parent_id": predicted_parent_id,
+            "context_island_idx": context_island_idx,
             "tasks": tasks,
         }
